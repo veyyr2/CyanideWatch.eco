@@ -1,0 +1,115 @@
+/*---------------------------------VARIABLES---------------------------------*/
+// light theme
+$header-and-footer-color-light: #1A2A4A; // header, footer
+$head-of-div-color-light: #003366; // шапка блоков
+$alert-div-color-light: #FF6600; // шапка блока alert (call to action)
+$div-main-color-light: #FFCDCD; // блоки основной цвет
+$back-main-color-light: #FFFFFF; // основной задний цвет
+
+$text-color-light: #333333;
+
+// dark theme
+$back-color-dark: #FFFFCC;
+$text-color-dark: #ffffff;
+/*---------------------------------END VARIABLES---------------------------------*/
+
+
+/*---------------------------------TECHNICAL---------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// миксин для переключения темной темы
+@mixin theme_toggle($back_gr, $text_color) {
+    background-color: $back_gr;
+    color: $text_color;
+}
+
+// боди со светлой темой
+body {
+    @include theme_toggle($back-color-light, $text-color-light);
+    transition: background 0.3s, color 0.3s;
+}
+
+// боди с темной темой
+body.dark_theme {
+    @include theme_toggle($back-color-dark, $text-color-dark);
+    transition: background 0.3s, color 0.3s;
+}
+
+// контейнер с мэин и эсайд
+#container_main_aside {
+    display: flex;
+}
+/*---------------------------------END TECHNICAL---------------------------------*/
+
+
+/*---------------------------------HEADER---------------------------------*/
+// стили для хидер
+header{
+    // стиль
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 5px;
+    margin-bottom: 20px;
+
+    // кнопки навигации
+    #navigation_button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        // каждой ссылке
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    }
+
+    // логотип
+    #main_logo {
+        border-radius: 100%;
+        width: 80px;
+    }
+
+    // кнопка переключения темной темы
+    #but_night_theme {
+        border-radius: 100%;
+    }
+}
+/*---------------------------------END HEADER---------------------------------*/
+
+
+/*---------------------------------MAIN---------------------------------*/
+main{
+    width: 50%;
+    height: 100vh;
+    margin-left: 5%;
+    border: 1px solid silver;
+    flex: 1;
+}
+/*---------------------------------END MAIN---------------------------------*/
+
+
+/*---------------------------------ASIDE---------------------------------*/
+/*высчитываем от main % по width и оставшуюся чать занимаем для aside*/
+aside{
+    border: 1px solid silver;
+    width: 200px;
+}
+/*---------------------------------END ASIDE---------------------------------*/
+
+
+/*---------------------------------FOOTER---------------------------------*/
+footer {
+    background-color: rgba($color: #000000, $alpha: 1.0);
+    height: 50px;
+    width: 100%;
+    // line-height: 50px;
+    margin-top: 20px;
+}
+/*---------------------------------END FOOTER---------------------------------*/

@@ -2,11 +2,14 @@
 // light theme
 $header-and-footer-color-light: #1A2A4A; // header, footer
 $head-of-div-color-light: #003366; // шапка блоков
+$head-div-backtext-color-light: #C4B577; // выделить текст шапки блока
 $alert-div-color-light: #FF6600; // шапка блока alert (call to action)
+$alert-div-backtext-color-light: #534300; // выделить текст шапки alert
 $div-main-color-light: #FFCDCD; // блоки основной цвет
 $back-main-color-light: #FFFFFF; // основной задний цвет
-
-$text-color-light: #333333;
+$button-color-light: #00A86B; // кнопки
+$triangle-color-light: #A3A3A3; // центральный цвет треугольников
+// $text-color-light: #333333;
 
 // dark theme
 $back-color-dark: #FFFFCC;
@@ -21,22 +24,22 @@ $text-color-dark: #ffffff;
 }
 
 // миксин для переключения темной темы
-@mixin theme_toggle($back_gr, $text_color) {
-    background-color: $back_gr;
-    color: $text_color;
-}
+// @mixin theme_toggle($back_gr, $text_color) {
+//     background-color: $back_gr;
+//     color: $text_color;
+// }
 
-// боди со светлой темой
-body {
-    @include theme_toggle($back-color-light, $text-color-light);
-    transition: background 0.3s, color 0.3s;
-}
+// // боди со светлой темой
+// body {
+//     @include theme_toggle($back-color-light, $text-color-light);
+//     transition: background 0.3s, color 0.3s;
+// }
 
-// боди с темной темой
-body.dark_theme {
-    @include theme_toggle($back-color-dark, $text-color-dark);
-    transition: background 0.3s, color 0.3s;
-}
+// // боди с темной темой
+// body.dark_theme {
+//     @include theme_toggle($back-color-dark, $text-color-dark);
+//     transition: background 0.3s, color 0.3s;
+// }
 
 // контейнер с мэин и эсайд
 #container_main_aside {
@@ -49,20 +52,29 @@ body.dark_theme {
 // стили для хидер
 header{
     // стиль
-    background-color: rgb(0, 0, 0);
+    background-color: $header-and-footer-color-light;
     display: flex;
     flex-direction: row;
     gap: 10px;
     justify-content: space-between;
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 20px;
+    height: 70px;
 
-    // кнопки навигации
+    // кнопки навигации блок
     #navigation_button {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 20px;
+        // блок с ссылкой
+        div {
+            text-align: center;
+            border-radius: 25px;
+            background-color: $button-color-light;
+            padding: 10px;
+            width: 100px;
+        }
         // каждой ссылке
         a {
             color: #ffffff;
@@ -72,8 +84,8 @@ header{
 
     // логотип
     #main_logo {
-        border-radius: 100%;
-        width: 80px;
+        border-radius: 25px;
+        width: 180px;
     }
 
     // кнопка переключения темной темы

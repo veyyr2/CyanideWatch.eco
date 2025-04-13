@@ -10,6 +10,7 @@
 // --head-div-backtext-color: #0F0D04; // выделить текст шапки блока и для alert
 // --triangle-color: #A3A3A3; // центральный цвет треугольников
 
+$height_header: 70px; // переменная размера хидера
 /*---------------------------------END VARIABLES---------------------------------*/
 
 
@@ -24,13 +25,13 @@
 // боди со светлой темой
 body {
     // переменные
-    --header-and-footer-color: #004080; // header, footer
-    --head-of-div-color: #003366; // шапка блоков
+    --header-and-footer-color: #003366; // header, footer
+    --head-of-div-color: #004080; // шапка блоков
     --alert-div-color: #FF6600; // шапка блока alert (call to action)
     --div-main-color: #FFE5E5; // блоки основной цвет
     --button-color: #00A86B; // кнопки
     --head-div-backtext-color: #C4B577; // выделить текст шапки блока
-    --alert-div-backtext-color: #534300; // выделить текст шапки alert
+    --alert-div-backtext-color: #DEB200; // выделить текст шапки alert
     --triangle-color: #8A8A8A; // центральный цвет треугольников
     background-color: #FFFFFF;
 }
@@ -52,6 +53,11 @@ body {
 #container_main_aside {
     display: flex;
 }
+
+/* Добавить плавную анимацию смены темы для картинок внутри хидер и футер */
+#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle {
+    transition: opacity 0.3s ease-in-out;
+}
 /*---------------------------------END TECHNICAL---------------------------------*/
 
 
@@ -66,7 +72,6 @@ header{
     gap: 10px;
     padding: 10px;
     margin-bottom: 20px;
-    $height_header: 70px; // переменная размера хидера
     height: $height_header;
 
     // контент хидера
@@ -82,13 +87,18 @@ header{
             flex-direction: row;
             align-items: center;
             gap: 20px;
-            // блок с ссылкой
-            div {
+            // каждый блок с ссылкой
+            .nav_button {
                 text-align: center;
+                border: 1px solid black;
                 border-radius: 25px;
                 background-color: var(--button-color);
                 padding: 10px;
-                width: 100px;
+                width: 100px;  
+                cursor: pointer; // при наведении менять курсор 
+                &:hover {
+                    opacity: 0.9;
+                } 
             }
             // каждой ссылке
             a {
@@ -103,10 +113,20 @@ header{
             width: 200px;
         }
 
-        // кнопка переключения темной темы
-        #but_night_theme_toggle {
-            width: 60px;
-        }
+        // блок с кнопкой которая менять тему
+        #div_with_but_night_theme_toggle {
+            // менять прозрачность
+            &:hover {
+                opacity: 0.8;
+            } 
+            // кнопка переключения темной темы
+            #but_night_theme_toggle {
+                border: 1px solid black;
+                border-radius: 100%;
+                width: 60px;
+                cursor: pointer; // при наведении менять курсор 
+            }
+        } 
     }
 
     // треугольник внутри хидер справа для дизайна
@@ -117,11 +137,6 @@ header{
         height: $height_header;
         pointer-events: none;
     }
-
-    /* Добавить плавную анимацию смены темы для картинок */
-    #main_logo, #header_right_triangle, #but_night_theme_toggle {
-    transition: opacity 0.3s ease-in-out;
-}
 }
 /*---------------------------------END HEADER---------------------------------*/
 
@@ -131,8 +146,50 @@ main{
     width: 50%;
     height: 100vh;
     margin-left: 5%;
+    padding: 1em;
     border: 1px solid silver;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    // блоки main
+    .divs_of_main {
+        // шапки блоков
+        .hat_divs_of_main {
+            padding: 1em;
+            background-color: var(--head-of-div-color);
+
+            // Заголовок шапки
+            .title_divs_of_main {
+                display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
+                color: #FFFFFF;
+                border-radius: 15px;
+                padding: 5px;
+                background-color: var(--head-div-backtext-color);
+            }
+        }
+
+        // шапка алерта (call to action)
+        .hat_alert_divs_of_main {
+            padding: 1em;
+            background-color: var(--alert-div-color);
+
+            // Заголовок шапки алерта
+            .title_alert_divs_of_main {
+                display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
+                color: #FFFFFF;
+                border-radius: 15px;
+                padding: 5px;
+                background-color: var(--alert-div-backtext-color);
+            }
+        }
+
+        // контент блоков
+        .content_divs_of_main {
+            background-color: var(--div-main-color);
+        }
+    }
 }
 /*---------------------------------END MAIN---------------------------------*/
 
@@ -148,10 +205,23 @@ aside{
 
 /*---------------------------------FOOTER---------------------------------*/
 footer {
+    // стиль
+    position: relative;
     background-color: var(--header-and-footer-color);
-    height: 50px;
-    width: 100%;
-    // line-height: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    height: $height_header;
     margin-top: 20px;
+
+    // треугольник внутри футер справа для дизайна
+    #footer_left_triangle {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: $height_header;
+        pointer-events: none;
+    }
 }
 /*---------------------------------END FOOTER---------------------------------*/

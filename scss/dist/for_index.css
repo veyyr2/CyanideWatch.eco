@@ -9,13 +9,13 @@
 }
 
 body {
-  --header-and-footer-color: #004080;
-  --head-of-div-color: #003366;
+  --header-and-footer-color: #003366;
+  --head-of-div-color: #004080;
   --alert-div-color: #FF6600;
   --div-main-color: #FFE5E5;
   --button-color: #00A86B;
   --head-div-backtext-color: #C4B577;
-  --alert-div-backtext-color: #534300;
+  --alert-div-backtext-color: #DEB200;
   --triangle-color: #8A8A8A;
   background-color: #FFFFFF;
 }
@@ -36,6 +36,11 @@ body {
   display: flex;
 }
 
+/* Добавить плавную анимацию смены темы для картинок внутри хидер и футер */
+#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle {
+  transition: opacity 0.3s ease-in-out;
+}
+
 /*---------------------------------END TECHNICAL---------------------------------*/
 /*---------------------------------HEADER---------------------------------*/
 header {
@@ -47,7 +52,6 @@ header {
   padding: 10px;
   margin-bottom: 20px;
   height: 70px;
-  /* Добавить плавную анимацию смены темы для картинок */
 }
 header .header_content {
   display: flex;
@@ -61,12 +65,17 @@ header .header_content #navigation_button {
   align-items: center;
   gap: 20px;
 }
-header .header_content #navigation_button div {
+header .header_content #navigation_button .nav_button {
   text-align: center;
+  border: 1px solid black;
   border-radius: 25px;
   background-color: var(--button-color);
   padding: 10px;
   width: 100px;
+  cursor: pointer;
+}
+header .header_content #navigation_button .nav_button:hover {
+  opacity: 0.9;
 }
 header .header_content #navigation_button a {
   color: #ffffff;
@@ -76,8 +85,14 @@ header .header_content #main_logo {
   border-radius: 25px;
   width: 200px;
 }
-header .header_content #but_night_theme_toggle {
+header .header_content #div_with_but_night_theme_toggle:hover {
+  opacity: 0.8;
+}
+header .header_content #div_with_but_night_theme_toggle #but_night_theme_toggle {
+  border: 1px solid black;
+  border-radius: 100%;
   width: 60px;
+  cursor: pointer;
 }
 header #header_right_triangle {
   position: absolute;
@@ -86,9 +101,6 @@ header #header_right_triangle {
   height: 70px;
   pointer-events: none;
 }
-header #main_logo, header #header_right_triangle, header #but_night_theme_toggle {
-  transition: opacity 0.3s ease-in-out;
-}
 
 /*---------------------------------END HEADER---------------------------------*/
 /*---------------------------------MAIN---------------------------------*/
@@ -96,8 +108,37 @@ main {
   width: 50%;
   height: 100vh;
   margin-left: 5%;
+  padding: 1em;
   border: 1px solid silver;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+main .divs_of_main .hat_divs_of_main {
+  padding: 1em;
+  background-color: var(--head-of-div-color);
+}
+main .divs_of_main .hat_divs_of_main .title_divs_of_main {
+  display: inline-block;
+  color: #FFFFFF;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: var(--head-div-backtext-color);
+}
+main .divs_of_main .hat_alert_divs_of_main {
+  padding: 1em;
+  background-color: var(--alert-div-color);
+}
+main .divs_of_main .hat_alert_divs_of_main .title_alert_divs_of_main {
+  display: inline-block;
+  color: #FFFFFF;
+  border-radius: 15px;
+  padding: 5px;
+  background-color: var(--alert-div-backtext-color);
+}
+main .divs_of_main .content_divs_of_main {
+  background-color: var(--div-main-color);
 }
 
 /*---------------------------------END MAIN---------------------------------*/
@@ -111,10 +152,21 @@ aside {
 /*---------------------------------END ASIDE---------------------------------*/
 /*---------------------------------FOOTER---------------------------------*/
 footer {
+  position: relative;
   background-color: var(--header-and-footer-color);
-  height: 50px;
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px;
+  height: 70px;
   margin-top: 20px;
+}
+footer #footer_left_triangle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 70px;
+  pointer-events: none;
 }
 
 /*---------------------------------END FOOTER---------------------------------*/

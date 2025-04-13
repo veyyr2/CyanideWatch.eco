@@ -33,6 +33,7 @@ body {
     --head-div-backtext-color: #C4B577; // выделить текст шапки блока
     --alert-div-backtext-color: #DEB200; // выделить текст шапки alert
     --triangle-color: #8A8A8A; // центральный цвет треугольников
+    --text-color: #ffffff; // цвет текста
     background-color: #FFFFFF;
 }
 
@@ -43,9 +44,10 @@ body {
     --alert-div-color: #B35900; // шапка блока alert (call to action)
     --div-main-color: #2E2222; // блоки основной цвет
     --button-color: #008B5A; // кнопки
-    --head-div-backtext-color: #0F0D04; // выделить текст шапки блока и для alert
-    --alert-div-backtext-color: #0F0D04; // выделить текст шапки alert
+    --head-div-backtext-color: #6E6E6E ; // выделить текст шапки блока и для alert
+    --alert-div-backtext-color: #6E6E6E; // выделить текст шапки alert
     --triangle-color: #A3A3A3; // центральный цвет треугольников
+    --text-color: #d4d4d4; // цвет текста
     background-color: #0A0A0A;
 }
 
@@ -144,7 +146,6 @@ header{
 /*---------------------------------MAIN---------------------------------*/
 main{
     width: 50%;
-    height: 100vh;
     margin-left: 5%;
     padding: 1em;
     border: 1px solid silver;
@@ -163,7 +164,7 @@ main{
             // Заголовок шапки
             .title_divs_of_main {
                 display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-                color: #FFFFFF;
+                color: var(--text-color);
                 border-radius: 15px;
                 padding: 5px;
                 background-color: var(--head-div-backtext-color);
@@ -178,7 +179,7 @@ main{
             // Заголовок шапки алерта
             .title_alert_divs_of_main {
                 display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-                color: #FFFFFF;
+                color: var(--text-color);
                 border-radius: 15px;
                 padding: 5px;
                 background-color: var(--alert-div-backtext-color);
@@ -188,7 +189,52 @@ main{
         // контент блоков
         .content_divs_of_main {
             background-color: var(--div-main-color);
+            padding: 1em;
         }
+
+        // Второй контент блоков
+        .second_divs_of_content_of_main {
+            color: var(--text-color);
+            font-size: 14pt;
+            padding: 1em;
+            border-radius: 25px;
+            background-color: var(--head-div-backtext-color);
+
+            // блоки с параграфми
+            .divs_paragraph_of_content_of_main {
+                display: flex;
+                flex-direction: column;
+                gap: 11pt;
+
+                // параграфы
+                // p {
+                //     background-color: var(--button-color);
+                // }
+            }
+        }
+
+        // блок с картинками приветствия
+        .div_with_imgs_of_welcome {
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        // картинки приветствия
+        .imgs_of_welcome {
+            flex: 1 1 30%; // каждая картинка займет примерно треть
+            max-width: 32%;
+            height: auto;
+            img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            }
+        }     
     }
 }
 /*---------------------------------END MAIN---------------------------------*/

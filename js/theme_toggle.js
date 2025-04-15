@@ -25,7 +25,7 @@ if (savedTheme) {
         header_right_triangle.src = "images/images for page style/triangle-right-dark.PNG"; // для правого треу
         footer_left_triangle.src = "images/images for page style/triangle-left-dark.png"; // для левого треу
         for (let i = 0; i < trinagle_for_style.length; i++) {
-            trinagle_for_style[i].src = "images/images for page style/triangle-all-dark.png"; // для треу для стиля
+            trinagle_for_style[i].src = "images/images for page style/triangle-all-dark.PNG"; // для треу для стиля
         }
     }
 }
@@ -42,7 +42,7 @@ but_themeToggle.addEventListener('click', () => {
         changeImageWithFade(header_right_triangle, "images/images for page style/triangle-right-dark.PNG"); // для правого треугольника
         changeImageWithFade(footer_left_triangle, "images/images for page style/triangle-left-dark.PNG"); // для правого треугольника
         for (let i = 0; i < trinagle_for_style.length; i++) {
-            trinagle_for_style[i].src = "images/images for page style/triangle-all-dark.png"; // для треу для стиля
+            changeImageWithFade(trinagle_for_style[i], "images/images for page style/triangle-all-dark.PNG"); // для треу для стиля
         }
 
         // сохранить тему

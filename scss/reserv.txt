@@ -18,6 +18,7 @@ $height_header: 70px; // переменная размера хидера
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; 
     // для плавного перехода темы
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
@@ -55,12 +56,16 @@ body {
     // всем изображениям внутри контентов мэина
     .img_content_divs {
         filter: brightness(70%); // уменьшить яркость для глаз
+        // чтобы не выходили за границы
+        max-width: 100%;
+        height: auto;
     }
 }
 
 // контейнер с мэин и эсайд
 #container_main_aside {
     display: flex;
+    max-width: 100%; // Запрещает выход за границы
 }
 
 /* Добавить плавную анимацию смены темы для картинок внутри хидер и футер */
@@ -98,6 +103,7 @@ header{
             gap: 20px;
             // каждый блок с ссылкой
             .nav_button {
+                // display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
                 text-align: center;
                 border: 1px solid black;
                 border-radius: 25px;
@@ -156,7 +162,8 @@ main{
     margin-left: 5%;
     padding: 1em;
     border: 1px solid silver;
-    flex: 1;
+    flex: 1 1 80%; // Занимает 70% пространства, но может сжиматься
+    min-width: 0;  // Позволяет контенту сжиматься
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -230,6 +237,7 @@ main{
             .divs_columntext_content_of_main {
                 display: flex;
                 gap: 11pt;
+                width: 100%; // Занимает всю ширину родителя
                 
                 // блок с параграфом
                 .container_columntext {
@@ -254,35 +262,28 @@ main{
             margin-bottom: 5px;
         }
 
-        // Синий блок с заголовком
-        .container_h1_content {
-            flex: 1;
-        }
-
         // блок с видео
         .container_video {
             text-align: center; // поставить видео по центру
             position: relative;
             overflow: hidden;
-            
-            // видео
+
             iframe {
                 max-width: 100%; // Видео не превысит ширину контейнера
-                aspect-ratio: 16/9; // Сохраняет пропорции
+                height: auto;    // Сохраняет пропорции
             }
         }
 
         // блок с картинками приветствия
-        .container_with_imgs_of_div {
+        .container_with_imgs_of_div_1 {
             height: auto;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             flex-wrap: wrap;
             margin-top: 10px;
-            align-content: center;
 
-            // картинки блока приветствия
+            // картинки приветствия
             .imgs_of_div_1 {
                 flex: 1 1 30%; // каждая картинка займет примерно треть
                 max-width: 32%;
@@ -297,32 +298,7 @@ main{
             } 
         }  
 
-        // блок с картинками
-        .container_cyanide_imgs {
-            height: auto;
-            padding: 1em;
-            background-color: var(--background-text-color);
-            border-radius: 25px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 10px;
-
-            // картинки что такое цианид
-            .imgs_cyanide_inf {
-                flex: 1 1 50%; // каждая картинка займет половину
-                max-width: 48%;
-                height: auto;
-                border-radius: 25px;
-                border: 1px solid black;
-                img {
-                    width: 100%;
-                    height: auto;
-                    object-fit: cover;
-                }
-            }
-        }
+        
     }
 }
 /*---------------------------------END MAIN---------------------------------*/
@@ -332,7 +308,7 @@ main{
 /*высчитываем от main % по width и оставшуюся чать занимаем для aside*/
 aside{
     border: 1px solid silver;
-    width: 200px;
+    width: 20%;
 }
 /*---------------------------------END ASIDE---------------------------------*/
 

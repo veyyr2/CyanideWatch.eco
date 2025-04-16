@@ -191,22 +191,55 @@ main .divs_of_main .container_h_content {
 main .divs_of_main .container_h1_content {
   flex: 1;
 }
-main .divs_of_main .container_with_imgs_of_div_1 {
+main .divs_of_main .container_video {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+main .divs_of_main .container_video iframe {
+  max-width: 100%;
+  aspect-ratio: 16/9;
+}
+main .divs_of_main .container_with_imgs_of_div {
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 10px;
+  align-content: center;
 }
-main .divs_of_main .container_with_imgs_of_div_1 .imgs_of_div_1 {
+main .divs_of_main .container_with_imgs_of_div .imgs_of_div_1 {
   flex: 1 1 30%;
   max-width: 32%;
   height: auto;
   border-radius: 25px;
   border: 1px solid black;
 }
-main .divs_of_main .container_with_imgs_of_div_1 .imgs_of_div_1 img {
+main .divs_of_main .container_with_imgs_of_div .imgs_of_div_1 img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+main .divs_of_main .container_cyanide_imgs {
+  height: auto;
+  padding: 1em;
+  background-color: var(--background-text-color);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf {
+  flex: 1 1 50%;
+  max-width: 48%;
+  height: auto;
+  border-radius: 25px;
+  border: 1px solid black;
+}
+main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf img {
   width: 100%;
   height: auto;
   object-fit: cover;

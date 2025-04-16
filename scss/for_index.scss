@@ -221,24 +221,19 @@ main{
             padding: 1em;
             border-radius: 25px;
             background-color: var(--head-div-backtext-color);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
 
             // блоки с текстом в колонку
             .divs_columntext_content_of_main {
                 display: flex;
                 gap: 11pt;
                 
-                // блок с заголовком и параграфом
+                // блок с параграфом
                 .container_columntext {
-                    // Блок заголовка
-                    .container_h2_content {
-                        text-align: center; // сделать заголовок по середине
-                        padding: 10px;
-                        border: 1px solid black;
-                        border-radius: 15px;
-                        background-color: var(--head-of-div-color);
-                        margin-bottom: 5px;
-                    }
-                    // Блока параграфа
+                    // Блок параграфа
                     .container_p_content {
                         padding: 5px;
                         border: 1px solid black; 
@@ -247,6 +242,21 @@ main{
                     }
                 }
             }
+        }
+
+        // Блок с заголовками
+        .container_h_content {
+            text-align: center; // сделать заголовок по середине
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: var(--head-of-div-color);
+            margin-bottom: 5px;
+        }
+
+        // Синий блок с заголовком
+        .container_h1_content {
+            flex: 1;
         }
 
         // блок с картинками приветствия
@@ -272,6 +282,8 @@ main{
                 }
             } 
         }  
+
+        
     }
 }
 /*---------------------------------END MAIN---------------------------------*/

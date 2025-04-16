@@ -165,12 +165,22 @@ main .divs_of_main .second_divs_content_of_main {
   padding: 1em;
   border-radius: 25px;
   background-color: var(--head-div-backtext-color);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 main .divs_of_main .second_divs_content_of_main .divs_columntext_content_of_main {
   display: flex;
   gap: 11pt;
 }
-main .divs_of_main .second_divs_content_of_main .divs_columntext_content_of_main .container_columntext .container_h2_content {
+main .divs_of_main .second_divs_content_of_main .divs_columntext_content_of_main .container_columntext .container_p_content {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: var(--background-text-color);
+}
+main .divs_of_main .container_h_content {
   text-align: center;
   padding: 10px;
   border: 1px solid black;
@@ -178,11 +188,8 @@ main .divs_of_main .second_divs_content_of_main .divs_columntext_content_of_main
   background-color: var(--head-of-div-color);
   margin-bottom: 5px;
 }
-main .divs_of_main .second_divs_content_of_main .divs_columntext_content_of_main .container_columntext .container_p_content {
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: var(--background-text-color);
+main .divs_of_main .container_h1_content {
+  flex: 1;
 }
 main .divs_of_main .container_with_imgs_of_div_1 {
   height: auto;

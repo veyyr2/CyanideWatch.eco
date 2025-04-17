@@ -64,7 +64,7 @@ body {
 }
 
 /* Добавить плавную анимацию смены темы для картинок внутри хидер и футер */
-#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle, .trinagle_for_style {
+#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle {
     transition: opacity 0.3s ease-in-out;
 }
 /*---------------------------------END TECHNICAL---------------------------------*/
@@ -163,8 +163,29 @@ main{
 
     // блоки main
     .divs_of_main {
+        // стиль
+        background-color: var(--div-main-color);
+        // при наведении на блок
+        &:hover {
+            // Поднять шапку вверх
+            .hat_divs_of_main {
+                transform: translateX(-10px) translateY(-10px);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень при наведении */
+            }
+            // Повернуть треугольник влево
+            .trinagle_for_style {
+                transform: rotate(-90deg);
+                transition: transform 0.3s ease;
+            }
+        } 
+
         // шапки блоков
         .hat_divs_of_main {
+            // для анимации
+            transition: transform 0.3s ease, box-shadow 0.3s ease; // Для плавной анимации возвращения на место
+            box-shadow: none;
+            // стиль
             position: relative;
             padding: 1em;
             background-color: var(--head-of-div-color);
@@ -184,15 +205,18 @@ main{
             }
             // треугольник для стиля
             .trinagle_for_style {
+                // для анимации
+                transition: transform 0.3s ease; // Для плавной анимации возвращения на место
+                // стиль
                 width: 6%;
                 height: 6%;
-                // height: 100%;
-                // pointer-events: none; // чтобы клики проходили сквозь треугольник
+                will-change: transform; /* Сообщаем браузеру, что transform будет анимироваться */
             }
         }
 
         // шапка алерта (call to action)
         .hat_alert_divs_of_main {
+            transition: transform 0.3s ease; // Для плавной анимации возвращения на место
             padding: 1em;
             background-color: var(--alert-div-color);
 

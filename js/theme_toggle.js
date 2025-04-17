@@ -8,6 +8,10 @@ const savedTheme = localStorage.getItem('theme'); // сохранённая те
 
 // Функция для плавной смены изображения
 function changeImageWithFade(element, newSrc) {
+    // Для предзагрузки изображений
+    const newImage = new Image(); // Создаем новый объект Image
+    newImage.src = newSrc; // Начинаем загрузку нового изображения
+
     element.style.opacity = '0'; // Плавно исчезает
     setTimeout(() => {
         element.src = newSrc; // Меняем src
@@ -41,9 +45,12 @@ but_themeToggle.addEventListener('click', () => {
         changeImageWithFade(main_logo, "images/images for page style/cyanidewatch_logo_dark.png"); // для логотипа
         changeImageWithFade(header_right_triangle, "images/images for page style/triangle-right-dark.PNG"); // для правого треугольника
         changeImageWithFade(footer_left_triangle, "images/images for page style/triangle-left-dark.PNG"); // для правого треугольника
-        for (let i = 0; i < trinagle_for_style.length; i++) {
-            changeImageWithFade(trinagle_for_style[i], "images/images for page style/triangle-all-dark.PNG"); // для треу для стиля
-        }
+        // Задержка перед сменой src у треугольников
+        setTimeout(() => {
+            for (let i = 0; i < trinagle_for_style.length; i++) {
+                trinagle_for_style[i].src = "images/images for page style/triangle-all-dark.PNG";
+            }
+        }, 100); // Небольшая задержка (100мс)
 
         // сохранить тему
         localStorage.setItem('theme', 'dark_theme');
@@ -54,9 +61,12 @@ but_themeToggle.addEventListener('click', () => {
         changeImageWithFade(main_logo, "images/images for page style/cyanidewatch_logo_light.png"); // для логотипа
         changeImageWithFade(header_right_triangle, "images/images for page style/triangle-right-light.PNG"); // для правого треугольника
         changeImageWithFade(footer_left_triangle, "images/images for page style/triangle-left-light.PNG"); // для правого треугольника
-        for (let i = 0; i < trinagle_for_style.length; i++){
-            changeImageWithFade(trinagle_for_style[i], "images/images for page style/triangle-all-light.PNG"); // для треу для стиля
-        }
+        // Задержка перед сменой src у треугольников
+        setTimeout(() => {
+            for (let i = 0; i < trinagle_for_style.length; i++) {
+                trinagle_for_style[i].src = "images/images for page style/triangle-all-light.png";
+            }
+        }, 100);
         
         // удалить тему (пустые кавычки для удаления)
         localStorage.setItem('theme', '');

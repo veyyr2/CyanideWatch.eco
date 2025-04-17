@@ -44,7 +44,7 @@ body {
 }
 
 /* Добавить плавную анимацию смены темы для картинок внутри хидер и футер */
-#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle, .trinagle_for_style {
+#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle {
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -122,11 +122,23 @@ main {
   gap: 1em;
 }
 main .divs_of_main {
+  background-color: var(--div-main-color);
   /* Изображение внутри модального окна */
   /* Увеличенное изображение при клике */
   /* Кнопка закрытия */
 }
+main .divs_of_main:hover .hat_divs_of_main {
+  transform: translateX(-10px) translateY(-10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень при наведении */
+}
+main .divs_of_main:hover .trinagle_for_style {
+  transform: rotate(-90deg);
+  transition: transform 0.3s ease;
+}
 main .divs_of_main .hat_divs_of_main {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
   position: relative;
   padding: 1em;
   background-color: var(--head-of-div-color);
@@ -144,10 +156,13 @@ main .divs_of_main .hat_divs_of_main .title_divs_of_main {
   background-color: var(--head-div-backtext-color);
 }
 main .divs_of_main .hat_divs_of_main .trinagle_for_style {
+  transition: transform 0.3s ease;
   width: 6%;
   height: 6%;
+  will-change: transform; /* Сообщаем браузеру, что transform будет анимироваться */
 }
 main .divs_of_main .hat_alert_divs_of_main {
+  transition: transform 0.3s ease;
   padding: 1em;
   background-color: var(--alert-div-color);
 }

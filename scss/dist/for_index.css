@@ -121,22 +121,21 @@ main {
   flex-direction: column;
   gap: 1em;
 }
-main .divs_of_main {
+
+.divs_of_main {
   background-color: var(--div-main-color);
-  /* Изображение внутри модального окна */
-  /* Увеличенное изображение при клике */
-  /* Кнопка закрытия */
 }
-main .divs_of_main:hover .hat_divs_of_main {
+.divs_of_main:hover .hat_divs_of_main {
   transform: translateX(-10px) translateY(-10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень при наведении */
 }
-main .divs_of_main:hover .trinagle_for_style {
+.divs_of_main:hover .trinagle_for_style {
   transform: rotate(-90deg);
   transition: transform 0.3s ease;
 }
-main .divs_of_main .hat_divs_of_main {
+
+.hat_divs_of_main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: none;
   position: relative;
@@ -147,7 +146,8 @@ main .divs_of_main .hat_divs_of_main {
   align-items: center;
   justify-content: space-between;
 }
-main .divs_of_main .hat_divs_of_main .title_divs_of_main {
+
+.title_divs_of_main {
   display: inline-block;
   color: var(--text-color);
   border: 1px solid black;
@@ -155,30 +155,34 @@ main .divs_of_main .hat_divs_of_main .title_divs_of_main {
   padding: 8px;
   background-color: var(--head-div-backtext-color);
 }
-main .divs_of_main .hat_divs_of_main .trinagle_for_style {
+
+.trinagle_for_style {
   transition: transform 0.3s ease;
   width: 6%;
   height: 6%;
   will-change: transform; /* Сообщаем браузеру, что transform будет анимироваться */
 }
-main .divs_of_main .hat_alert_divs_of_main {
+
+.hat_alert_divs_of_main {
   transition: transform 0.3s ease;
   padding: 1em;
   background-color: var(--alert-div-color);
 }
-main .divs_of_main .hat_alert_divs_of_main .title_alert_divs_of_main {
+.hat_alert_divs_of_main .title_alert_divs_of_main {
   display: inline-block;
   color: var(--text-color);
   border-radius: 15px;
   padding: 5px;
   background-color: var(--alert-div-backtext-color);
 }
-main .divs_of_main .content_divs_of_main {
+
+.content_divs_of_main {
   background-color: var(--div-main-color);
   padding: 1em;
   border-radius: 0 0 25px 25px;
 }
-main .divs_of_main .second_divs_content_of_main {
+
+.second_divs_content_of_main {
   position: relative;
   color: var(--text-color);
   font-size: 14pt;
@@ -191,26 +195,30 @@ main .divs_of_main .second_divs_content_of_main {
   justify-content: center;
   gap: 1em;
 }
-main .divs_of_main .second_divs_content_of_main .divs_columntext_content_of_main {
+
+.divs_columntext_content_of_main {
   display: flex;
   gap: 11pt;
 }
-main .divs_of_main .second_divs_content_of_main .divs_columntext_content_of_main .container_p_content {
+
+.container_p_content {
   padding: 5px;
   border: 1px solid black;
   border-radius: 10px;
   background-color: var(--background-text-color);
 }
-main .divs_of_main .container_text {
+
+.container_text {
   padding: 1em;
   font-size: 1.2em;
   border-radius: 10px;
   background-color: var(--background-text-color);
 }
-main .divs_of_main .container_text .underline_words {
+.container_text .underline_words {
   text-decoration: underline;
 }
-main .divs_of_main .container_h_content {
+
+.container_h_content {
   text-align: center;
   padding: 10px;
   border: 1px solid black;
@@ -218,7 +226,8 @@ main .divs_of_main .container_h_content {
   background-color: var(--head-of-div-color);
   margin-bottom: 5px;
 }
-main .divs_of_main .container_video {
+
+.container_video {
   background-color: var(--background-text-color);
   border-radius: 25px;
   padding: 1em;
@@ -227,11 +236,12 @@ main .divs_of_main .container_video {
   position: relative;
   overflow: hidden;
 }
-main .divs_of_main .container_video iframe {
+.container_video iframe {
   max-width: 100%;
   aspect-ratio: 16/9;
 }
-main .divs_of_main .container_with_imgs_of_div {
+
+.container_with_imgs_of_div {
   height: auto;
   display: flex;
   flex-direction: row;
@@ -240,19 +250,21 @@ main .divs_of_main .container_with_imgs_of_div {
   margin-top: 10px;
   align-content: center;
 }
-main .divs_of_main .container_with_imgs_of_div .imgs_of_div_1 {
+
+.imgs_of_div_1 {
   max-width: 32%;
   height: auto;
   border-radius: 25px;
   border: 1px solid black;
   display: flex;
 }
-main .divs_of_main .container_with_imgs_of_div .imgs_of_div_1 img {
+.imgs_of_div_1 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-main .divs_of_main .container_cyanide_imgs {
+
+.container_cyanide_imgs {
   height: auto;
   padding: 1em;
   background-color: var(--background-text-color);
@@ -264,13 +276,15 @@ main .divs_of_main .container_cyanide_imgs {
   flex-wrap: wrap;
   margin-top: 10px;
 }
-main .divs_of_main .container_cyanide_imgs .vertical_line {
+
+.vertical_line {
   margin: 0 3px 0 5px;
   height: auto;
   border-left: 1px solid black; /* Толщина и цвет линии */
   display: inline-block; /* Чтобы можно было размещать рядом другие элементы */
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_1 {
+
+.imgs_cyanide_inf_1 {
   max-width: 37%;
   height: auto;
   border-radius: 25px;
@@ -278,12 +292,13 @@ main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_1 {
   display: flex;
   cursor: pointer;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_1 img {
+.imgs_cyanide_inf_1 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_2 {
+
+.imgs_cyanide_inf_2 {
   max-width: 60%;
   height: auto;
   border-radius: 25px;
@@ -291,48 +306,52 @@ main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_2 {
   display: flex;
   cursor: pointer;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_2 img {
+.imgs_cyanide_inf_2 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_3 {
+
+.imgs_cyanide_inf_3 {
   max-width: 48%;
   height: auto;
   border-radius: 25px;
   border: 1px solid black;
   display: flex;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_3 img {
+.imgs_cyanide_inf_3 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_4 {
+
+.imgs_cyanide_inf_4 {
   max-width: 48%;
   height: auto;
   border-radius: 25px;
   border: 1px solid black;
   display: flex;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_4 img {
+.imgs_cyanide_inf_4 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_5 {
+
+.imgs_cyanide_inf_5 {
   max-width: 100%;
   height: auto;
   border-radius: 25px;
   border: 1px solid black;
   display: flex;
 }
-main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_5 img {
+.imgs_cyanide_inf_5 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-main .divs_of_main .modalZoomImgs {
+
+.modalZoomImgs {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -344,18 +363,24 @@ main .divs_of_main .modalZoomImgs {
   overflow: auto;
   text-align: center;
 }
-main .divs_of_main .modalZoomImgs-content {
+
+/* Изображение внутри модального окна */
+.modalZoomImgs-content {
   max-width: 90%;
   max-height: 80vh;
   margin: 5% auto;
   cursor: zoom-in;
   transition: transform 0.3s;
 }
-main .divs_of_main .modalZoomImgs-content.zoomed {
+
+/* Увеличенное изображение при клике */
+.modalZoomImgs-content.zoomed {
   transform: scale(2);
   cursor: zoom-out;
 }
-main .divs_of_main .close_modalZoomImgs {
+
+/* Кнопка закрытия */
+.close_modalZoomImgs {
   position: absolute;
   top: 15px;
   right: 35px;
@@ -364,7 +389,7 @@ main .divs_of_main .close_modalZoomImgs {
   font-weight: bold;
   cursor: pointer;
 }
-main .divs_of_main .close_modalZoomImgs:hover {
+.close_modalZoomImgs:hover {
   color: #ccc;
 }
 

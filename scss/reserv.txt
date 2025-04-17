@@ -52,8 +52,8 @@ body {
     --text-color: #d4d4d4; // цвет текста
     background-color: #0A0A0A;
 
-    // всем изображениям внутри контентов мэина
-    .img_content_divs {
+    // всем изображениям внутри контентов мэина и модального окна
+    .img_content_divs, .modalZoomImgs-content { 
         filter: brightness(70%); // уменьшить яркость для глаз
     }
 }
@@ -64,7 +64,7 @@ body {
 }
 
 /* Добавить плавную анимацию смены темы для картинок внутри хидер и футер */
-#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle, .trinagle_for_style {
+#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle {
     transition: opacity 0.3s ease-in-out;
 }
 /*---------------------------------END TECHNICAL---------------------------------*/
@@ -163,8 +163,29 @@ main{
 
     // блоки main
     .divs_of_main {
+        // стиль
+        background-color: var(--div-main-color);
+        // при наведении на блок
+        &:hover {
+            // Поднять шапку вверх
+            .hat_divs_of_main {
+                transform: translateX(-10px) translateY(-10px);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень при наведении */
+            }
+            // Повернуть треугольник влево
+            .trinagle_for_style {
+                transform: rotate(-90deg);
+                transition: transform 0.3s ease;
+            }
+        } 
+
         // шапки блоков
         .hat_divs_of_main {
+            // для анимации
+            transition: transform 0.3s ease, box-shadow 0.3s ease; // Для плавной анимации возвращения на место
+            box-shadow: none;
+            // стиль
             position: relative;
             padding: 1em;
             background-color: var(--head-of-div-color);
@@ -184,15 +205,18 @@ main{
             }
             // треугольник для стиля
             .trinagle_for_style {
+                // для анимации
+                transition: transform 0.3s ease; // Для плавной анимации возвращения на место
+                // стиль
                 width: 6%;
                 height: 6%;
-                // height: 100%;
-                // pointer-events: none; // чтобы клики проходили сквозь треугольник
+                will-change: transform; /* Сообщаем браузеру, что transform будет анимироваться */
             }
         }
 
         // шапка алерта (call to action)
         .hat_alert_divs_of_main {
+            transition: transform 0.3s ease; // Для плавной анимации возвращения на место
             padding: 1em;
             background-color: var(--alert-div-color);
 
@@ -232,6 +256,7 @@ main{
             .divs_columntext_content_of_main {
                 display: flex;
                 gap: 11pt;
+
                 // Блок параграфа
                 .container_p_content {
                     padding: 5px;
@@ -248,6 +273,10 @@ main{
             font-size: 1.2em;
             border-radius: 10px;
             background-color: var(--background-text-color);
+            // для слов, которые жирные (теги strong)
+            .underline_words {
+                text-decoration: underline;
+            }
         }
 
         // Блок с заголовками
@@ -258,11 +287,6 @@ main{
             border-radius: 15px;
             background-color: var(--head-of-div-color);
             margin-bottom: 5px;
-        }
-
-        // Синий блок с заголовком
-        .container_h1_content {
-            flex: 1;
         }
 
         // блок с видео
@@ -282,6 +306,20 @@ main{
             }
         }
 
+        // Миксин для картинок, изменяя их размер
+        @mixin _imgs ($width) {
+            max-width: $width;
+            height: auto;
+            border-radius: 25px;
+            border: 1px solid black;
+            display: flex; // Для правильного растягивания
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
         // блок с картинками приветствия
         .container_with_imgs_of_div {
             height: auto;
@@ -292,47 +330,13 @@ main{
             margin-top: 10px;
             align-content: center;
 
-            // Миксин для картинок, изменяя их размер
-            @mixin _imgs ($width) {
-                max-width: $width;
-                height: auto;
-                border-radius: 25px;
-                border: 1px solid black;
-                display: flex; // Для правильного растягивания
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
             // картинки блока приветствия
             .imgs_of_div_1 {
-                max-width: 32%;
-                border-radius: 25px;
-                border: 1px solid black;
-                img {
-                    width: 100%;
-                    height: auto;
-                    object-fit: cover;
-                }
+                @include _imgs (32%);
             } 
-
-            // Первая картинка что такое цианид
-            .imgs_cyanide_inf_1 {
-                max-width: 37%;
-                border-radius: 25px;
-                border: 1px solid black;
-                display: flex; // Добавлено для правильного растягивания
-                img {
-                    width: 100%;
-                    height: 100%; // Изменено с auto на 100%
-                    object-fit: cover;
-                }
-            }
         }  
 
-        // блок с картинками про цианид
+        // Блок с фотографиями что такое цианид
         .container_cyanide_imgs {
             height: auto;
             padding: 1em;
@@ -355,56 +359,78 @@ main{
 
             // Первая картинка что такое цианид
             .imgs_cyanide_inf_1 {
-                max-width: 37%;
-                border-radius: 25px;
-                border: 1px solid black;
-                display: flex; // Добавлено для правильного растягивания
-                img {
-                    width: 100%;
-                    height: 100%; // Изменено с auto на 100%
-                    object-fit: cover;
-                }
+                @include _imgs (37%);
+                cursor: pointer;
             }
         
             // Вторая картинка что такое цианид
             .imgs_cyanide_inf_2 {
-                max-width: 60%;
-                border-radius: 25px;
-                border: 1px solid black;
-                display: flex; // Добавлено для правильного растягивания
-                img {
-                    width: 100%;
-                    height: 100%; // Изменено с auto на 100%
-                    object-fit: cover;
-                }
+                @include _imgs (60%);
+                cursor: pointer;
             }
 
             // Третья картинка что такое цианид
             .imgs_cyanide_inf_3 {
-                max-width: 48%;
-                border-radius: 25px;
-                border: 1px solid black;
-                display: flex; // Добавлено для правильного растягивания
-                img {
-                    width: 100%;
-                    height: 100%; // Изменено с auto на 100%
-                    object-fit: cover;
-                }
+                @include _imgs (48%);
             }
 
             // Четвертая картинка что такое цианид
             .imgs_cyanide_inf_4 {
-                max-width: 48%;
-                border-radius: 25px;
-                border: 1px solid black;
-                display: flex; // Добавлено для правильного растягивания
-                img {
-                    width: 100%;
-                    height: 100%; // Изменено с auto на 100%
-                    object-fit: cover;
+                @include _imgs (48%);
+            }
+
+            // Пятая картинка что такое цианид
+            .imgs_cyanide_inf_5 {
+                @include _imgs (100%);
+            }
+        }
+
+        // МИКСИН для модального окна зума картинок
+        @mixin modal_window_1 () {
+            .modalZoomImgs {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                overflow: auto;
+                text-align: center;
+            }
+    
+            /* Изображение внутри модального окна */
+            .modalZoomImgs-content {
+                max-width: 90%;
+                max-height: 80vh;
+                margin: 5% auto;
+                cursor: zoom-in;
+                transition: transform 0.3s;
+            }
+    
+            /* Увеличенное изображение при клике */
+            .modalZoomImgs-content.zoomed {
+                transform: scale(2);
+                cursor: zoom-out;
+            }
+    
+            /* Кнопка закрытия */
+            .close_modalZoomImgs {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: white;
+                font-size: 40px;
+                font-weight: bold;
+                cursor: pointer;
+                &:hover {
+                    color: #ccc;
                 }
             }
         }
+        // использовать миксин сверху
+        @include modal_window_1 ();
     }
 }
 /*---------------------------------END MAIN---------------------------------*/

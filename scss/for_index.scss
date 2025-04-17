@@ -52,8 +52,8 @@ body {
     --text-color: #d4d4d4; // цвет текста
     background-color: #0A0A0A;
 
-    // всем изображениям внутри контентов мэина
-    .img_content_divs {
+    // всем изображениям внутри контентов мэина и модального окна
+    .img_content_divs, .modalZoomImgs-content { 
         filter: brightness(70%); // уменьшить яркость для глаз
     }
 }
@@ -265,11 +265,6 @@ main{
             margin-bottom: 5px;
         }
 
-        // Синий блок с заголовком ---------- удалить?
-        .container_h1_content {
-            flex: 1;
-        }
-
         // блок с видео
         .container_video {
             background-color: var(--background-text-color);
@@ -317,7 +312,7 @@ main{
             } 
         }  
 
-        // блок с картинками про цианид
+        // Блок с фотографиями что такое цианид
         .container_cyanide_imgs {
             height: auto;
             padding: 1em;
@@ -341,11 +336,13 @@ main{
             // Первая картинка что такое цианид
             .imgs_cyanide_inf_1 {
                 @include _imgs (37%);
+                cursor: pointer;
             }
         
             // Вторая картинка что такое цианид
             .imgs_cyanide_inf_2 {
                 @include _imgs (60%);
+                cursor: pointer;
             }
 
             // Третья картинка что такое цианид
@@ -363,6 +360,53 @@ main{
                 @include _imgs (100%);
             }
         }
+
+        // МИКСИН для модального окна зума картинок
+        @mixin modal_window_1 () {
+            .modalZoomImgs {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                overflow: auto;
+                text-align: center;
+            }
+    
+            /* Изображение внутри модального окна */
+            .modalZoomImgs-content {
+                max-width: 90%;
+                max-height: 80vh;
+                margin: 5% auto;
+                cursor: zoom-in;
+                transition: transform 0.3s;
+            }
+    
+            /* Увеличенное изображение при клике */
+            .modalZoomImgs-content.zoomed {
+                transform: scale(2);
+                cursor: zoom-out;
+            }
+    
+            /* Кнопка закрытия */
+            .close_modalZoomImgs {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: white;
+                font-size: 40px;
+                font-weight: bold;
+                cursor: pointer;
+                &:hover {
+                    color: #ccc;
+                }
+            }
+        }
+        // использовать миксин сверху
+        @include modal_window_1 ();
     }
 }
 /*---------------------------------END MAIN---------------------------------*/

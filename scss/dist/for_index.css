@@ -35,7 +35,7 @@ body {
   --text-color: #d4d4d4;
   background-color: #0A0A0A;
 }
-.dark_theme .img_content_divs {
+.dark_theme .img_content_divs, .dark_theme .modalZoomImgs-content {
   filter: brightness(70%);
 }
 
@@ -121,6 +121,11 @@ main {
   flex-direction: column;
   gap: 1em;
 }
+main .divs_of_main {
+  /* Изображение внутри модального окна */
+  /* Увеличенное изображение при клике */
+  /* Кнопка закрытия */
+}
 main .divs_of_main .hat_divs_of_main {
   position: relative;
   padding: 1em;
@@ -198,9 +203,6 @@ main .divs_of_main .container_h_content {
   background-color: var(--head-of-div-color);
   margin-bottom: 5px;
 }
-main .divs_of_main .container_h1_content {
-  flex: 1;
-}
 main .divs_of_main .container_video {
   background-color: var(--background-text-color);
   border-radius: 25px;
@@ -259,6 +261,7 @@ main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_1 {
   border-radius: 25px;
   border: 1px solid black;
   display: flex;
+  cursor: pointer;
 }
 main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_1 img {
   width: 100%;
@@ -271,6 +274,7 @@ main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_2 {
   border-radius: 25px;
   border: 1px solid black;
   display: flex;
+  cursor: pointer;
 }
 main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_2 img {
   width: 100%;
@@ -312,6 +316,41 @@ main .divs_of_main .container_cyanide_imgs .imgs_cyanide_inf_5 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+main .divs_of_main .modalZoomImgs {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+  text-align: center;
+}
+main .divs_of_main .modalZoomImgs-content {
+  max-width: 90%;
+  max-height: 80vh;
+  margin: 5% auto;
+  cursor: zoom-in;
+  transition: transform 0.3s;
+}
+main .divs_of_main .modalZoomImgs-content.zoomed {
+  transform: scale(2);
+  cursor: zoom-out;
+}
+main .divs_of_main .close_modalZoomImgs {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+main .divs_of_main .close_modalZoomImgs:hover {
+  color: #ccc;
 }
 
 /*---------------------------------END MAIN---------------------------------*/

@@ -60,19 +60,26 @@ header {
   margin-bottom: 20px;
   height: 70px;
 }
-header .header_content {
+header a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header_content {
   display: flex;
   flex-direction: row;
   gap: 10px;
   justify-content: space-between;
 }
-header .header_content #navigation_button {
+
+#navigation_button {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
 }
-header .header_content #navigation_button .nav_button {
+
+.nav_button {
   text-align: center;
   border: 1px solid black;
   border-radius: 25px;
@@ -81,27 +88,27 @@ header .header_content #navigation_button .nav_button {
   width: 100px;
   cursor: pointer;
 }
-header .header_content #navigation_button .nav_button:hover {
+.nav_button:hover {
   opacity: 0.9;
 }
-header .header_content #navigation_button a {
-  color: #ffffff;
-  text-decoration: none;
-}
-header .header_content #main_logo {
+
+#main_logo {
   border-radius: 25px;
   width: 200px;
 }
-header .header_content #div_with_but_night_theme_toggle:hover {
+
+#div_with_but_night_theme_toggle:hover {
   opacity: 0.8;
 }
-header .header_content #div_with_but_night_theme_toggle #but_night_theme_toggle {
+
+#but_night_theme_toggle {
   border: 1px solid black;
   border-radius: 100%;
   width: 60px;
   cursor: pointer;
 }
-header #header_right_triangle {
+
+#header_right_triangle {
   position: absolute;
   top: 0;
   right: 0;
@@ -413,7 +420,8 @@ footer {
   height: 70px;
   margin-top: 20px;
 }
-footer #footer_left_triangle {
+
+#footer_left_triangle {
   position: absolute;
   bottom: 0;
   left: 0;

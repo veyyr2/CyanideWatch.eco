@@ -71,24 +71,33 @@ body {
 
 
 /*---------------------------------HEADER---------------------------------*/
-// стили для хидер
-header{
-    // стиль
-    position: relative;
-    background-color: var(--header-and-footer-color);
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-    height: $height_header;
-
-    // контент хидера
-    .header_content{
+// #region header-------------------------------------------------------------------------------
+    // сам хидер
+    header{
+        // стиль
+        position: relative;
+        background-color: var(--header-and-footer-color);
         display: flex;
         flex-direction: row;
         gap: 10px;
-        justify-content: space-between;
+        padding: 10px;
+        margin-bottom: 20px;
+        height: $height_header;
+        // каждой ссылке
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    }
+
+    // #region контент хидера-----------------------------------------------------------------
+        // контент хидера
+        .header_content{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: space-between;
+        }
 
         // кнопки навигации блок
         #navigation_button {
@@ -96,24 +105,20 @@ header{
             flex-direction: row;
             align-items: center;
             gap: 20px;
-            // каждый блок с ссылкой
-            .nav_button {
-                text-align: center;
-                border: 1px solid black;
-                border-radius: 25px;
-                background-color: var(--button-color);
-                padding: 10px;
-                width: 100px;  
-                cursor: pointer; // при наведении менять курсор 
-                &:hover {
-                    opacity: 0.9;
-                } 
-            }
-            // каждой ссылке
-            a {
-                color: #ffffff;
-                text-decoration: none;
-            }
+        }
+
+        // каждый блок с ссылкой
+        .nav_button {
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 25px;
+            background-color: var(--button-color);
+            padding: 10px;
+            width: 100px;  
+            cursor: pointer; // при наведении менять курсор 
+            &:hover {
+                opacity: 0.9;
+            } 
         }
 
         // логотип
@@ -128,25 +133,26 @@ header{
             &:hover {
                 opacity: 0.8;
             } 
-            // кнопка переключения темной темы
-            #but_night_theme_toggle {
-                border: 1px solid black;
-                border-radius: 100%;
-                width: 60px;
-                cursor: pointer; // при наведении менять курсор 
-            }
-        } 
-    }
+        }
 
-    // треугольник внутри хидер справа для дизайна
-    #header_right_triangle {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: $height_header;
-        pointer-events: none;
-    }
-}
+        // кнопка переключения темной темы
+        #but_night_theme_toggle {
+            border: 1px solid black;
+            border-radius: 100%;
+            width: 60px;
+            cursor: pointer; // при наведении менять курсор 
+        }
+
+        // треугольник внутри хидер справа для дизайна
+        #header_right_triangle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: $height_header;
+            pointer-events: none;
+        }
+    // #endregion контент хидера-----------------------------------------------------------------
+// #endregion header-------------------------------------------------------------------------------
 /*---------------------------------END HEADER---------------------------------*/
 
 
@@ -459,16 +465,18 @@ aside{
 
 
 /*---------------------------------FOOTER---------------------------------*/
-footer {
-    // стиль
-    position: relative;
-    background-color: var(--header-and-footer-color);
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding: 10px;
-    height: $height_header;
-    margin-top: 20px;
+// #region footer------------------------------------------------------------
+    footer {
+        // стиль
+        position: relative;
+        background-color: var(--header-and-footer-color);
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+        height: $height_header;
+        margin-top: 20px;
+    }
 
     // треугольник внутри футер справа для дизайна
     #footer_left_triangle {
@@ -478,5 +486,5 @@ footer {
         height: $height_header;
         pointer-events: none;
     }
-}
+// #endregion footer-------------------------
 /*---------------------------------END FOOTER---------------------------------*/

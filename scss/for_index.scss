@@ -34,6 +34,7 @@ body {
     --alert-div-backtext-color: #DEB200; // выделить текст шапки alert
     --triangle-color: #8A8A8A; // центральный цвет треугольников
     --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
+    --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --text-color: #ffffff; // цвет текста
     background-color: #FFFFFF;
 }
@@ -49,6 +50,7 @@ body {
     --alert-div-backtext-color: #6E6E6E; // выделить текст шапки alert
     --triangle-color: #A3A3A3; // центральный цвет треугольников
     --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
+    --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --text-color: #d4d4d4; // цвет текста
     background-color: #0A0A0A;
 
@@ -229,18 +231,22 @@ body {
         // #region шапка алерта (call to action)---------------------------------------------------------------
         // шапка алерта (call to action)
         .hat_alert_divs_of_main {
-            transition: transform 0.3s ease; // Для плавной анимации возвращения на место
+            // для анимации
+            transition: transform 0.3s ease, box-shadow 0.3s ease; // Для плавной анимации возвращения на место
+            box-shadow: none;
+            // стиль
             padding: 1em;
             background-color: var(--alert-div-color);
+        }
 
-            // Заголовок шапки алерта
-            .title_alert_divs_of_main {
-                display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-                color: var(--text-color);
-                border-radius: 15px;
-                padding: 5px;
-                background-color: var(--alert-div-backtext-color);
-            }
+        // Заголовок шапки алерта
+        .title_alert_divs_of_main {
+            display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
+            color: var(--text-color);
+            border: 1px solid black;
+            border-radius: 15px;
+            padding: 5px;
+            background-color: var(--alert-div-backtext-color);
         }
         // #endregion шапка алерта (call to action)---------------------------------------------------------------
 
@@ -268,6 +274,11 @@ body {
                 gap: 1em;
             }
 
+            // Второй контент блоков call to action ------------ мб удалить
+            // .second_div_content_alert {
+            //     background-color: #9ecdfc;
+            // }
+
             // блоки с текстом в колонку
             .divs_columntext_content_of_main {
                 display: flex;
@@ -288,11 +299,32 @@ body {
             padding: 1em;
             font-size: 1.2em;
             border-radius: 10px;
-            background-color: var(--background-text-color);
-            // для слов, которые жирные (теги strong)
-            .underline_words {
-                text-decoration: underline;
+            background-color: var(--background-text-color);    
+            display: flex;  
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        // Блоки с текстом в alert
+        .container_text {
+            p:nth-child(2) { // каждый второй тег p
+                background-color: var(--alert-div-backtext-color);
+                border-radius: 10px;
+                padding: 10px;
             }
+        }
+
+        // для слов, которые жирные (теги strong)
+        .underline_words {
+            text-decoration: underline;
+        }
+
+        // для слов, которые жирные в call to action (теги strong)
+        .underline_words_alert {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 15px;
+            background-color: var(--background-text-color-alert);
         }
 
         // Блок с заголовками
@@ -303,6 +335,19 @@ body {
             border-radius: 15px;
             background-color: var(--head-of-div-color);
             margin-bottom: 5px;
+        }
+
+        // Заголовки внутри контента алерта
+        .container_h_content_alert{
+            display: inline-block;
+            padding: 10px;
+            border-radius: 15px;
+            background-color: var(--alert-div-color);
+
+            // второй такой же, но с центрирование по середине
+            &--centered {
+                align-self: center; // переопределяем только выравнивание
+            }
         }
 
         // блок с видео
@@ -354,19 +399,40 @@ body {
             } 
         // #endregion блок с картинками приветствия
 
-        // #region Блок с фотографиями что такое цианид
+        // #region Блок с фотографиями
             // Блок с фотографиями что такое цианид
             .container_cyanide_imgs {
                 height: auto;
                 padding: 1em;
                 background-color: var(--background-text-color);
                 border-radius: 25px;
+                // flex
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: stretch; // Изменено с center на stretch для выравнивания по высоте
                 flex-wrap: wrap;
                 margin-top: 10px;
+            }
+
+            // Блок с фотографиями эко-организаций alert
+            .container_calltoaction_imgs_eco {
+                display: grid;
+                width: 100%;
+                grid-template-columns: repeat(3, 1fr); // Лучше использовать fr вместо %
+                gap: 20px; // Отступы между ячейками
+                // Стили для дочерних элементов (ячеек)
+                .container_eco_img {
+                    padding: 15px; // Внутренний отступ для каждой ячейки
+                    width: 100%; // Занимать всю доступную ширину
+                    box-sizing: border-box; // Чтобы padding не увеличивал размер
+                    
+                    // Для изображений внутри
+                    .imgs_eco {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
             }
 
             // вертикальная линия
@@ -377,32 +443,41 @@ body {
                 display: inline-block; /* Чтобы можно было размещать рядом другие элементы */       
             }
 
-            // Первая картинка что такое цианид
-            .imgs_cyanide_inf_1 {
-                @include _imgs (37%);
-                cursor: pointer;
-            }
-        
-            // Вторая картинка что такое цианид
-            .imgs_cyanide_inf_2 {
-                @include _imgs (60%);
-                cursor: pointer;
-            }
+            // #region фото что такое цианид-----------------------------------------------
+                // Первая картинка что такое цианид
+                .imgs_cyanide_inf_1 {
+                    @include _imgs (37%);
+                    cursor: pointer;
+                }
+            
+                // Вторая картинка что такое цианид
+                .imgs_cyanide_inf_2 {
+                    @include _imgs (60%);
+                    cursor: pointer;
+                }
 
-            // Третья картинка что такое цианид
-            .imgs_cyanide_inf_3 {
-                @include _imgs (48%);
-            }
+                // Третья картинка что такое цианид
+                .imgs_cyanide_inf_3 {
+                    @include _imgs (48%);
+                }
 
-            // Четвертая картинка что такое цианид
-            .imgs_cyanide_inf_4 {
-                @include _imgs (48%);
-            }
+                // Четвертая картинка что такое цианид
+                .imgs_cyanide_inf_4 {
+                    @include _imgs (48%);
+                }
 
-            // Пятая картинка что такое цианид
-            .imgs_cyanide_inf_5 {
-                @include _imgs (100%);
-            }
+                // Пятая картинка что такое цианид
+                .imgs_cyanide_inf_5 {
+                    @include _imgs (100%);
+                }
+            // #endregion фото что такое цианид-----------------------------------------------
+            
+            // #region фото call to action---------------------------------------------------
+                .imgs_eco {
+                    @include _imgs (50%);
+                    // border: none;
+                }
+            // #endregion фото call to action---------------------------------------------------
         // #endregion Блок с фотографиями что такое цианид
 
         // #region модальное окно зума картинок

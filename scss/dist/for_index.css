@@ -133,22 +133,21 @@ main {
   width: 50%;
   margin-left: 5%;
   padding: 1em;
-  border: 1px solid silver;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.divs_of_main {
+.divs_of_main, aside {
   background-color: var(--div-main-color);
 }
-.divs_of_main:hover .hat_divs_of_main {
+.divs_of_main:hover .hat_divs_of_main, aside:hover .hat_divs_of_main {
   transform: translateX(-10px) translateY(-10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень при наведении */
 }
-.divs_of_main:hover .trinagle_for_style {
+.divs_of_main:hover .trinagle_for_style, aside:hover .trinagle_for_style {
   transform: rotate(-90deg);
   transition: transform 0.3s ease;
 }
@@ -239,7 +238,7 @@ main {
   gap: 5px;
 }
 
-.container_text p:nth-child(2) {
+.container_text_alert p:nth-child(2) {
   background-color: var(--alert-div-backtext-color);
   border-radius: 10px;
   padding: 10px;
@@ -505,10 +504,9 @@ main {
 
 /*---------------------------------END MAIN---------------------------------*/
 /*---------------------------------ASIDE---------------------------------*/
-/*высчитываем от main % по width и оставшуюся чать занимаем для aside*/
 aside {
-  border: 1px solid silver;
   width: 200px;
+  margin-top: 1em;
 }
 
 /*---------------------------------END ASIDE---------------------------------*/

@@ -11,6 +11,7 @@
 // --triangle-color: #A3A3A3; // центральный цвет треугольников
 
 $height_header: 70px; // переменная размера хидера
+$main_padding: 1em; // переменная отступа у мэина
 /*---------------------------------END VARIABLES---------------------------------*/
 
 
@@ -22,6 +23,22 @@ $height_header: 70px; // переменная размера хидера
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     box-sizing: border-box; // если что удалить
 }
+
+// #region mixins ---------------------------------------------------------------
+    // Миксин для картинок, изменяя их размер
+    @mixin _imgs ($width) {
+        max-width: $width;
+        height: auto;
+        border-radius: 25px;
+        border: 1px solid black;
+        display: flex; // Для правильного растягивания
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+// #endregion mixins ---------------------------------------------------------------
 
 // боди со светлой темой
 body {
@@ -174,8 +191,8 @@ body {
     main{
         width: 50%;
         margin-left: 5%;
-        padding: 1em;
-        border: 1px solid silver;
+        padding: $main_padding;
+        // border: 1px solid silver;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -307,16 +324,16 @@ body {
             background-color: var(--background-text-color);    
             display: flex;  
             flex-direction: column;
-            gap: 5px;
+            gap: 5px;  
         }
 
         // Блоки с текстом в alert
-        .container_text {
-            p:nth-child(2) { // каждый второй тег p
+        .container_text_alert {
+            p:nth-child(2) { // второй тег p
                 background-color: var(--alert-div-backtext-color);
                 border-radius: 10px;
                 padding: 10px;
-            }
+            } 
         }
 
         // для слов, которые жирные (теги strong)
@@ -374,20 +391,6 @@ body {
             iframe {
                 max-width: 100%; // Видео не превысит ширину контейнера
                 aspect-ratio: 16/9; // Сохраняет пропорции
-            }
-        }
-
-        // Миксин для картинок, изменяя их размер
-        @mixin _imgs ($width) {
-            max-width: $width;
-            height: auto;
-            border-radius: 25px;
-            border: 1px solid black;
-            display: flex; // Для правильного растягивания
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
             }
         }
 
@@ -576,10 +579,13 @@ body {
 
 
 /*---------------------------------ASIDE---------------------------------*/
-/*высчитываем от main % по width и оставшуюся чать занимаем для aside*/
 aside{
-    border: 1px solid silver;
+    // border: 1px solid silver;
     width: 200px;
+    @extend .divs_of_main; // наследовать стиль от блоков мэина (для анимации)
+    // шапка aside
+    margin-top: $main_padding;
+    
 }
 /*---------------------------------END ASIDE---------------------------------*/
 

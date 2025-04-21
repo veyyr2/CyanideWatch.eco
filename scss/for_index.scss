@@ -20,6 +20,7 @@ $height_header: 70px; // переменная размера хидера
     padding: 0;
     // для плавного перехода темы
     transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-sizing: border-box; // если что удалить
 }
 
 // боди со светлой темой
@@ -36,7 +37,8 @@ body {
     --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --text-color: #ffffff; // цвет текста
-    background-color: #FFFFFF;
+    --body-bg-color: #FFFFFF;
+    background-color: var(--body-bg-color);
 }
 
 // боди с темной темой
@@ -52,7 +54,8 @@ body {
     --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --text-color: #d4d4d4; // цвет текста
-    background-color: #0A0A0A;
+    --body-bg-color: #0A0A0A;
+    background-color: var(--body-bg-color);
 
     // всем изображениям внутри контентов мэина и модального окна
     .img_content_divs, .modalZoomImgs-content { 
@@ -84,7 +87,7 @@ body {
         gap: 10px;
         padding: 10px;
         margin-bottom: 20px;
-        height: $height_header;
+        height: fit-content;
         // каждой ссылке
         a {
             color: #ffffff;
@@ -123,10 +126,17 @@ body {
             } 
         }
 
+        // кнопка "пожертвовать"
+        .nav_but_2 {
+            display: inline-block;
+            width: auto;
+        }
+
         // логотип
         #main_logo {
             border-radius: 25px;
             width: 200px;
+            aspect-ratio: 4/1;
         }
 
         // блок с кнопкой которая менять тему
@@ -274,11 +284,6 @@ body {
                 gap: 1em;
             }
 
-            // Второй контент блоков call to action ------------ мб удалить
-            // .second_div_content_alert {
-            //     background-color: #9ecdfc;
-            // }
-
             // блоки с текстом в колонку
             .divs_columntext_content_of_main {
                 display: flex;
@@ -344,9 +349,14 @@ body {
             border-radius: 15px;
             background-color: var(--alert-div-color);
 
-            // второй такой же, но с центрирование по середине
+            // Заголовок "хотите помочь эко-организации?"
             &--centered {
                 align-self: center; // переопределяем только выравнивание
+                background-color: transparent; // убрать задний фон
+                // НАДПИСЬ
+                h2 {
+                    background-color: var(--background-text-color-alert); // другой фоновый цвет
+                }
             }
         }
 
@@ -415,25 +425,67 @@ body {
                 margin-top: 10px;
             }
 
-            // Блок с фотографиями эко-организаций alert
-            .container_calltoaction_imgs_eco {
-                display: grid;
-                width: 100%;
-                grid-template-columns: repeat(3, 1fr); // Лучше использовать fr вместо %
-                gap: 20px; // Отступы между ячейками
-                // Стили для дочерних элементов (ячеек)
-                .container_eco_img {
-                    padding: 15px; // Внутренний отступ для каждой ячейки
+            // #region блок с фотографиями эко-организаций----------------------------------------
+                // grid с фотографиями эко-организаций alert
+                .container_calltoaction_imgs_eco {
+                    border-radius: 25px;
+                    padding: 1em;
+                    background-color: var(--background-text-color);
+                    width: 100%;
+                    // grid
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(2, 1fr);
+                    gap: 10px;
+                }
+
+                // блок с фото и описанием эко
+                .container_eco {
                     width: 100%; // Занимать всю доступную ширину
-                    box-sizing: border-box; // Чтобы padding не увеличивал размер
-                    
-                    // Для изображений внутри
-                    .imgs_eco {
+                    border: 2px solid black;
+                    border-radius: 25px;
+                    background-color: var(--head-div-backtext-color);
+                    padding: 1em;
+                    // flex
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    // для подписей
+                    p {
+                        text-align: center;
+                        margin-top: 8px;
+                        background-color: var(--background-text-color-alert);
+                        padding: 5px;
+                        border-radius: 25px;
                         width: 100%;
-                        height: auto;
                     }
                 }
-            }
+
+                // Блок с только фото эко
+                .container_imgs_eco {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 100%;
+                    // aspect-ratio: 2/1; // Соотношение, чтобы было квадратное (если 1/1, то баг)                       
+                }
+
+                // Для изображений внутри блока эко
+                .imgs_eco {
+                    cursor: pointer;
+                    @include _imgs(50%);
+                    border: none;
+                    aspect-ratio: 1/1;
+                
+                    // третье фото
+                    &--third {
+                        background-color: #8A8A8A;
+                    }
+                }
+                
+            // #endregion блок с фотографиями эко-организаций----------------------------------------
 
             // вертикальная линия
             .vertical_line {
@@ -471,14 +523,7 @@ body {
                     @include _imgs (100%);
                 }
             // #endregion фото что такое цианид-----------------------------------------------
-            
-            // #region фото call to action---------------------------------------------------
-                .imgs_eco {
-                    @include _imgs (50%);
-                    // border: none;
-                }
-            // #endregion фото call to action---------------------------------------------------
-        // #endregion Блок с фотографиями что такое цианид
+        // #endregion Блок с фотографиями что такое цианид-----------------------------------------------
 
         // #region модальное окно зума картинок
         .modalZoomImgs {

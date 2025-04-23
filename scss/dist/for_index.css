@@ -133,6 +133,7 @@ header a {
 /*---------------------------------MAIN---------------------------------*/
 main {
   width: 50%;
+  height: 100%;
   margin-left: 5%;
   padding: 1em;
   flex: 1;
@@ -205,7 +206,7 @@ main {
 .content_divs_of_main {
   background-color: var(--div-main-color);
   padding: 1em;
-  border-radius: 0 0 25px 25px;
+  height: 100%;
 }
 
 .second_divs_content_of_main {
@@ -513,6 +514,17 @@ main {
 aside {
   width: 200px;
   margin-top: 1em;
+  font-size: 12pt;
+  margin-bottom: 1em;
+}
+
+.container_aside {
+  margin-top: 1em;
+  padding: 8px;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 /*---------------------------------END ASIDE---------------------------------*/

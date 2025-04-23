@@ -192,6 +192,7 @@ body {
     // сам main
     main{
         width: 50%;
+        height: 100%;
         margin-left: 5%;
         padding: $main_padding;
         // border: 1px solid silver;
@@ -287,7 +288,8 @@ body {
         .content_divs_of_main {
             background-color: var(--div-main-color);
             padding: 1em;
-            border-radius: 0 0 25px 25px;
+            // border-radius: 0 0 25px 25px;
+            height: 100%;
         }
 
         // #region второй контент блоков
@@ -585,14 +587,27 @@ body {
 
 
 /*---------------------------------ASIDE---------------------------------*/
-aside{
-    // border: 1px solid silver;
-    width: 200px;
-    @extend .divs_of_main; // наследовать стиль от блоков мэина (для анимации)
-    // шапка aside
-    margin-top: $main_padding;
-    
-}
+// #region aside
+    aside{
+        width: 200px;
+        @extend .divs_of_main; // наследовать стиль от блоков мэина (для анимации)
+        margin-top: $main_padding;
+        font-size: 12pt;
+        margin-bottom: 1em;
+    } 
+
+    // контент эсайд
+    .container_aside {
+        margin-top: 1em;
+        padding: 8px;
+        color: var(--text-color);
+        // flex
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+// #endregion aside
+
 /*---------------------------------END ASIDE---------------------------------*/
 
 

@@ -53,7 +53,7 @@ body {
     --triangle-color: #8A8A8A; // центральный цвет треугольников
     --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
-    --eco-bg-color: #a5e94c; // для фонового цвета эко-организациий
+    --eco-bg-color: #e4d497; // для фонового цвета эко-организациий
     --text-color: #ffffff; // цвет текста
     --body-bg-color: #FFFFFF; // основной фоновый цвет
     background-color: var(--body-bg-color);
@@ -71,7 +71,7 @@ body {
     --triangle-color: #A3A3A3; // центральный цвет треугольников
     --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
-    --eco-bg-color: #7BB840; // для фонового цвета эко-организациий
+    --eco-bg-color: #877a56; // для фонового цвета эко-организациий
     --text-color: #d4d4d4; // цвет текста
     --body-bg-color: #0A0A0A;
     background-color: var(--body-bg-color);
@@ -209,7 +209,7 @@ body {
             // при наведении на блок
             &:hover {
                 // Поднять шапку вверх
-                .hat_divs_of_main {
+                .hat_divs {
                     transform: translateX(-10px) translateY(-10px);
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
                     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень при наведении */
@@ -224,7 +224,7 @@ body {
 
         // #region шапки блоков-------------------------------------------------------------------------------
             // шапки блоков
-            .hat_divs_of_main {
+            .hat_divs {
                 // для анимации
                 transition: transform 0.3s ease, box-shadow 0.3s ease; // Для плавной анимации возвращения на место
                 box-shadow: none;
@@ -238,13 +238,17 @@ body {
                 justify-content: space-between;
             }
             // Заголовок шапки
-            .title_divs_of_main {
+            .title_divs {
                 display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
                 color: var(--text-color);
                 border: 1px solid black;
                 border-radius: 15px;
                 padding: 8px;
                 background-color: var(--head-div-backtext-color);
+            }
+            // заголовок эсайд
+            .title_aside {
+                font-size: 14pt; 
             }
             // треугольник для стиля
             .trinagle_for_style {

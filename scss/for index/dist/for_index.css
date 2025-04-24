@@ -159,11 +159,12 @@ main {
 
 .divs_of_main, aside {
   background-color: var(--div-main-color);
+  border: 1px solid black;
 }
 .divs_of_main:hover .hat_divs, aside:hover .hat_divs {
   transform: translateX(-10px) translateY(-10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень при наведении */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 .divs_of_main:hover .trinagle_for_style, aside:hover .trinagle_for_style {
   transform: rotate(-90deg);
@@ -531,6 +532,7 @@ aside {
   margin-top: 1em;
   font-size: 12pt;
   margin-bottom: 1em;
+  border: 1px solid black;
 }
 
 .container_aside {

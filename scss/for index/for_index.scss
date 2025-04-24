@@ -206,7 +206,7 @@ body {
         height: 100%;
         margin-left: 5%;
         padding: $main_padding;
-        // border: 1px solid silver;
+        // flex
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -216,15 +216,15 @@ body {
     // #region блоки main-------------------------------------------------------------------------------
         // блоки main
         .divs_of_main {
-            // стиль
             background-color: var(--div-main-color);
+            border: 1px solid black;
             // при наведении на блок
             &:hover {
                 // Поднять шапку вверх
                 .hat_divs {
                     transform: translateX(-10px) translateY(-10px);
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
-                    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); /* Добавляем тень при наведении */
+                    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
                 }
                 // Повернуть треугольник влево
                 .trinagle_for_style {
@@ -299,7 +299,6 @@ body {
         .content_divs_of_main {
             background-color: var(--div-main-color);
             padding: 1em;
-            // border-radius: 0 0 25px 25px;
             height: 100%;
         }
 
@@ -605,6 +604,7 @@ body {
         margin-top: $main_padding;
         font-size: 12pt;
         margin-bottom: 1em;
+        border: 1px solid black;
     } 
 
     // контент эсайд

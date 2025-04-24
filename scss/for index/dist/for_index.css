@@ -149,7 +149,7 @@ header a {
 main {
   width: 50%;
   height: 100%;
-  margin-left: 5%;
+  margin-left: 3%;
   padding: 1em;
   flex: 1;
   display: flex;
@@ -363,7 +363,7 @@ main {
 }
 
 .container_eco {
-  width: 100%;
+  width: auto;
   border: 2px solid black;
   border-radius: 25px;
   background-color: var(--eco-bg-color);
@@ -381,6 +381,10 @@ main {
   border-radius: 25px;
   width: 100%;
 }
+.container_eco a {
+  display: block;
+  width: 100%;
+}
 
 .container_imgs_eco {
   display: flex;
@@ -388,10 +392,10 @@ main {
   align-items: center;
   flex-direction: column;
   width: 100%;
+  cursor: pointer;
 }
 
 .imgs_eco {
-  cursor: pointer;
   max-width: 50%;
   height: auto;
   border-radius: 25px;

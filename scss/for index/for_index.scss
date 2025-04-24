@@ -204,7 +204,7 @@ body {
     main{
         width: 50%;
         height: 100%;
-        margin-left: 5%;
+        margin-left: 3%;
         padding: $main_padding;
         // flex
         flex: 1;
@@ -462,10 +462,10 @@ body {
 
                 // блок с фото и описанием эко
                 .container_eco {
-                    width: 100%; // Занимать всю доступную ширину
+                    width: auto; // Занимать всю доступную ширину
                     border: 2px solid black;
                     border-radius: 25px;
-                    background-color: var(--eco-bg-color); // #9affab
+                    background-color: var(--eco-bg-color);
                     padding: 1em;
                     // flex
                     display: flex;
@@ -481,6 +481,11 @@ body {
                         border-radius: 25px;
                         width: 100%;
                     }
+                    // для ссылок (чтобы не было багов)
+                    a {
+                        display: block;
+                        width: 100%;
+                    }
                 }
 
                 // Блок с только фото эко
@@ -490,16 +495,15 @@ body {
                     align-items: center;
                     flex-direction: column;
                     width: 100%;
+                    cursor: pointer;
                     // aspect-ratio: 2/1; // Соотношение, чтобы было квадратное (если 1/1, то баг)                       
                 }
 
                 // Для изображений внутри блока эко
                 .imgs_eco {
-                    cursor: pointer;
                     @include _imgs(50%);
                     border: none;
                     aspect-ratio: 1/1;
-                
                     // третье фото
                     &--third {
                         background-color: #8A8A8A;

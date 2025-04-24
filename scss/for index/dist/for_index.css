@@ -22,8 +22,7 @@ body {
   --background-text-color-alert: #0151a1;
   --eco-bg-color: #e4d497;
   --text-color: #ffffff;
-  --body-bg-color: #FFFFFF;
-  background-color: var(--body-bg-color);
+  background-color: #0A0A0A;
 }
 
 .dark_theme {
@@ -39,11 +38,27 @@ body {
   --background-text-color-alert: #0151a1;
   --eco-bg-color: #877a56;
   --text-color: #d4d4d4;
-  --body-bg-color: #0A0A0A;
-  background-color: var(--body-bg-color);
+  background-color: #0A0A0A;
 }
 .dark_theme .img_content_divs, .dark_theme .modalZoomImgs-content {
   filter: brightness(70%);
+}
+.dark_theme #body_bg_imgs {
+  display: none;
+}
+
+#body_bg_imgs {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#body_bg_imgs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
 }
 
 #container_main_aside {

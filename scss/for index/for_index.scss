@@ -1,28 +1,6 @@
 /*---------------------------------VARIABLES---------------------------------*/
-// light theme
-// // dark theme
-// --header-and-footer-color: #0E1A3A; // header, footer
-// --head-of-div-color: #01335F; // шапка блоков
-// --alert-div-color: #B35900; // шапка блока alert (call to action)
-// --div-main-color: #2E2222; // блоки основной цвет
-// --back-main-color: #0A0A0A; // основной задний цвет
-// --button-color: #008B5A; // кнопки
-// --head-div-backtext-color: #0F0D04; // выделить текст шапки блока и для alert
-// --triangle-color: #A3A3A3; // центральный цвет треугольников
-
 $height_header: 70px; // переменная размера хидера
 $main_padding: 1em; // переменная отступа у мэина
-/*---------------------------------END VARIABLES---------------------------------*/
-
-
-/*---------------------------------TECHNICAL---------------------------------*/
-* {
-    margin: 0;
-    padding: 0;
-    // для плавного перехода темы
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    box-sizing: border-box; // если что удалить
-}
 
 // #region mixins ---------------------------------------------------------------
     // Миксин для картинок, изменяя их размер
@@ -39,6 +17,17 @@ $main_padding: 1em; // переменная отступа у мэина
         }
     }
 // #endregion mixins ---------------------------------------------------------------
+/*---------------------------------END VARIABLES---------------------------------*/
+
+
+/*---------------------------------TECHNICAL---------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    // для плавного перехода темы
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    box-sizing: border-box; // если что удалить
+}
 
 // боди со светлой темой
 body {
@@ -55,8 +44,8 @@ body {
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --eco-bg-color: #e4d497; // для фонового цвета эко-организациий
     --text-color: #ffffff; // цвет текста
-    --body-bg-color: #FFFFFF; // основной фоновый цвет
-    background-color: var(--body-bg-color);
+    // --body-bg-color: #FFFFFF; // основной фоновый цвет
+    background-color: #0A0A0A;
 }
 
 // боди с темной темой
@@ -73,12 +62,34 @@ body {
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --eco-bg-color: #877a56; // для фонового цвета эко-организациий
     --text-color: #d4d4d4; // цвет текста
-    --body-bg-color: #0A0A0A;
-    background-color: var(--body-bg-color);
+    // --body-bg-color: #0A0A0A;
+    background-color: #0A0A0A;
 
     // всем изображениям внутри контентов мэина и модального окна
     .img_content_divs, .modalZoomImgs-content { 
-        filter: brightness(70%); // уменьшить яркость для глаз
+        filter: brightness(70%);
+    }
+
+    // всем изображениям на фоне
+    #body_bg_imgs{
+        display: none;
+    }
+}
+
+// Блок с фоновыми изображениями
+#body_bg_imgs {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    // flex
+    display: flex;
+    flex-direction: column;
+    // imgs
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(2px);
     }
 }
 

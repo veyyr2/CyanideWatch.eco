@@ -232,6 +232,7 @@ main {
   padding: 1em;
   border-radius: 25px;
   background-color: var(--head-div-backtext-color);
+  height: fit-content;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -240,8 +241,10 @@ main {
 }
 
 .divs_columntext_content_of_main {
-  display: flex;
-  gap: 11pt;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  column-gap: 11pt;
+  row-gap: 5px;
 }
 
 .container_p_content {
@@ -284,7 +287,6 @@ main {
   border: 1px solid black;
   border-radius: 15px;
   background-color: var(--head-of-div-color);
-  margin-bottom: 5px;
 }
 
 .container_h_content_alert {

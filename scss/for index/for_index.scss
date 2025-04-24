@@ -311,6 +311,7 @@ body {
                 padding: 1em;
                 border-radius: 25px;
                 background-color: var(--head-div-backtext-color);
+                height: fit-content;
                 // flex
                 display: flex;
                 flex-direction: column;
@@ -321,8 +322,10 @@ body {
 
             // блоки с текстом в колонку
             .divs_columntext_content_of_main {
-                display: flex;
-                gap: 11pt;
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                column-gap: 11pt;
+                row-gap: 5px;
             }
 
             // Блок параграфа
@@ -374,7 +377,6 @@ body {
             border: 1px solid black;
             border-radius: 15px;
             background-color: var(--head-of-div-color);
-            margin-bottom: 5px;
         }
 
         // Заголовки внутри контента алерта

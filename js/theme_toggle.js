@@ -26,10 +26,10 @@ if (savedTheme) {
         // Устанавливаем тёмные изображения (без анимации при загрузке)
         but_themeToggle.src = "images/images for page style/but_theme_toggle_to_light.png"; // для кнопки смены темы
         main_logo.src = "images/images for page style/cyanidewatch_logo_dark.png"; // для логотипа
-        header_right_triangle.src = "images/images for page style/triangle-right-dark.PNG"; // для правого треу
+        header_right_triangle.src = "images/images for page style/triangle-right-dark.png"; // для правого треу
         footer_left_triangle.src = "images/images for page style/triangle-left-dark.png"; // для левого треу
         for (let i = 0; i < trinagle_for_style.length; i++) {
-            trinagle_for_style[i].src = "images/images for page style/triangle-all-dark.PNG"; // для треу для стиля
+            trinagle_for_style[i].src = "images/images for page style/triangle-all-dark.png"; // для треу для стиля
         }
     }
 }
@@ -43,13 +43,14 @@ but_themeToggle.addEventListener('click', () => {
         // картинки
         changeImageWithFade(but_themeToggle, "images/images for page style/but_theme_toggle_to_light.png"); // для кнопки смены темы
         changeImageWithFade(main_logo, "images/images for page style/cyanidewatch_logo_dark.png"); // для логотипа
-        changeImageWithFade(header_right_triangle, "images/images for page style/triangle-right-dark.PNG"); // для правого треугольника
-        changeImageWithFade(footer_left_triangle, "images/images for page style/triangle-left-dark.PNG"); // для правого треугольника
-        // Задержка перед сменой src у треугольников 
-        for (let i = 0; i < trinagle_for_style.length; i++) {
-            trinagle_for_style[i].src = "images/images for page style/triangle-all-dark.PNG";
-        }
-        
+        changeImageWithFade(header_right_triangle, "images/images for page style/triangle-right-dark.png"); // для правого треугольника
+        changeImageWithFade(footer_left_triangle, "images/images for page style/triangle-left-dark.png"); // для правого треугольника
+        // Задержка перед сменой src у треугольников
+        setTimeout(() => {
+            for (let i = 0; i < trinagle_for_style.length; i++) {
+                trinagle_for_style[i].src = "images/images for page style/triangle-all-dark.png";
+            }
+        }, 100); // Небольшая задержка (100мс)
 
         // сохранить тему
         localStorage.setItem('theme', 'dark_theme');
@@ -58,13 +59,15 @@ but_themeToggle.addEventListener('click', () => {
         // картинки
         changeImageWithFade(but_themeToggle, "images/images for page style/but_theme_toggle_to_dark.png"); // для кнопки смены темы
         changeImageWithFade(main_logo, "images/images for page style/cyanidewatch_logo_light.png"); // для логотипа
-        changeImageWithFade(header_right_triangle, "images/images for page style/triangle-right-light.PNG"); // для правого треугольника
-        changeImageWithFade(footer_left_triangle, "images/images for page style/triangle-left-light.PNG"); // для правого треугольника
+        changeImageWithFade(header_right_triangle, "images/images for page style/triangle-right-light.png"); // для правого треугольника
+        changeImageWithFade(footer_left_triangle, "images/images for page style/triangle-left-light.png"); // для правого треугольника
         // Задержка перед сменой src у треугольников
-        for (let i = 0; i < trinagle_for_style.length; i++) {
-            trinagle_for_style[i].src = "images/images for page style/triangle-all-light.png";
-        }
-          
+        setTimeout(() => {
+            for (let i = 0; i < trinagle_for_style.length; i++) {
+                trinagle_for_style[i].src = "images/images for page style/triangle-all-light.png";
+            }
+        }, 100);
+        
         // удалить тему (пустые кавычки для удаления)
         localStorage.setItem('theme', '');
     }

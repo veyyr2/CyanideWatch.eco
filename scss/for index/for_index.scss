@@ -274,25 +274,25 @@ body {
         // #endregion шапки блоков
         
         // #region шапка алерта (call to action)---------------------------------------------------------------
-        // шапка алерта (call to action)
-        .hat_alert_divs_of_main {
-            // для анимации
-            transition: transform 0.3s ease, box-shadow 0.3s ease; // Для плавной анимации возвращения на место
-            box-shadow: none;
-            // стиль
-            padding: 1em;
-            background-color: var(--alert-div-color);
-        }
+            // шапка алерта (call to action)
+            .hat_alert_divs_of_main {
+                // для анимации
+                transition: transform 0.3s ease, box-shadow 0.3s ease; // Для плавной анимации возвращения на место
+                box-shadow: none;
+                // стиль
+                padding: 1em;
+                background-color: var(--alert-div-color);
+            }
 
-        // Заголовок шапки алерта
-        .title_alert_divs_of_main {
-            display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-            color: var(--text-color);
-            border: 1px solid black;
-            border-radius: 15px;
-            padding: 5px;
-            background-color: var(--alert-div-backtext-color);
-        }
+            // Заголовок шапки алерта
+            .title_alert_divs_of_main {
+                display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
+                color: var(--text-color);
+                border: 1px solid black;
+                border-radius: 15px;
+                padding: 5px;
+                background-color: var(--alert-div-backtext-color);
+            }
         // #endregion шапка алерта (call to action)---------------------------------------------------------------
 
         // контент блоков
@@ -552,50 +552,70 @@ body {
             // #endregion фото что такое цианид-----------------------------------------------
         // #endregion Блок с фотографиями что такое цианид-----------------------------------------------
 
-        // #region модальное окно зума картинок
-        .modalZoomImgs {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            overflow: auto;
-            text-align: center;
-        }
-
-        /* Изображение внутри модального окна */
-        .modalZoomImgs-content {
-            max-width: 90%;
-            max-height: 80vh;
-            margin: 5% auto;
-            cursor: zoom-in;
-            transition: transform 0.3s;
-        }
-
-        /* Увеличенное изображение при клике */
-        .modalZoomImgs-content.zoomed {
-            transform: scale(2);
-            cursor: zoom-out;
-        }
-
-        /* Кнопка закрытия */
-        .close_modalZoomImgs {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            &:hover {
-                color: #ccc;
+        // #region модальное окно зума картинок-----------------------------------------------
+            .modalZoomImgs {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                overflow: auto;
+                text-align: center;
             }
-        }
-    // #endregion
 
+            /* Изображение внутри модального окна */
+            .modalZoomImgs-content {
+                max-width: 90%;
+                max-height: 80vh;
+                margin: 5% auto;
+                cursor: zoom-in;
+                transition: transform 0.3s;
+            }
+
+            /* Увеличенное изображение при клике */
+            .modalZoomImgs-content.zoomed {
+                transform: scale(2);
+                cursor: zoom-out;
+            }
+
+            /* Кнопка закрытия */
+            .close_modalZoomImgs {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: white;
+                font-size: 40px;
+                font-weight: bold;
+                cursor: pointer;
+                &:hover {
+                    color: #ccc;
+                }
+            }
+        // #endregionмодальное окно зума картинок-----------------------------------------------
+
+        // #region Блок с инструкцией как донатить-----------------------------------------------
+            // Сам блок с инструкцией как донатить
+            .container_donut {
+                height: fit-content;
+                padding: 1em;
+                background-color: var(--background-text-color);
+                border-radius: 25px;
+                // flex
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            // Блок с фото инструкцией
+            .container_imgs_instruction {
+                @include _imgs (100%);
+                border: 2px solid black;
+                border-radius: 0;
+            }
+        // #endregion Блок с инструкцией как донатить-----------------------------------------------
 // #endregion блоки main---------------------------------------------------------------
 
 // #endregion main

@@ -44,7 +44,7 @@ body {
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --eco-bg-color: #e4d497; // для фонового цвета эко-организациий
     --text-color: #ffffff; // цвет текста
-    // --body-bg-color: #FFFFFF; // основной фоновый цвет
+    color: var(--text-color);
     background-color: #0A0A0A;
 }
 
@@ -62,7 +62,7 @@ body {
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --eco-bg-color: #877a56; // для фонового цвета эко-организациий
     --text-color: #d4d4d4; // цвет текста
-    // --body-bg-color: #0A0A0A;
+    color: var(--text-color);
     background-color: #0A0A0A;
 
     // всем изображениям внутри контентов мэина и модального окна
@@ -252,7 +252,7 @@ body {
             // Заголовок шапки
             .title_divs {
                 display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-                color: var(--text-color);
+                
                 border: 1px solid black;
                 border-radius: 15px;
                 padding: 8px;
@@ -287,7 +287,7 @@ body {
             // Заголовок шапки алерта
             .title_alert_divs_of_main {
                 display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-                color: var(--text-color);
+                
                 border: 1px solid black;
                 border-radius: 15px;
                 padding: 5px;
@@ -306,7 +306,7 @@ body {
             // Второй контент блоков (для стиля текста и заднего фона)
             .second_divs_content_of_main {
                 position: relative;
-                color: var(--text-color);
+                
                 font-size: 14pt;
                 padding: 1em;
                 border-radius: 25px;
@@ -552,8 +552,9 @@ body {
             // #endregion фото что такое цианид-----------------------------------------------
         // #endregion Блок с фотографиями что такое цианид-----------------------------------------------
 
-        // #region модальное окно зума картинок-----------------------------------------------
-            .modalZoomImgs {
+        // #region модальное окна-----------------------------------------------
+            // любое модальное окно
+            .modal {
                 display: none;
                 position: fixed;
                 z-index: 1000;
@@ -566,23 +567,8 @@ body {
                 text-align: center;
             }
 
-            /* Изображение внутри модального окна */
-            .modalZoomImgs-content {
-                max-width: 90%;
-                max-height: 80vh;
-                margin: 5% auto;
-                cursor: zoom-in;
-                transition: transform 0.3s;
-            }
-
-            /* Увеличенное изображение при клике */
-            .modalZoomImgs-content.zoomed {
-                transform: scale(2);
-                cursor: zoom-out;
-            }
-
             /* Кнопка закрытия */
-            .close_modalZoomImgs {
+            .close {
                 position: absolute;
                 top: 15px;
                 right: 35px;
@@ -594,9 +580,57 @@ body {
                     color: #ccc;
                 }
             }
-        // #endregionмодальное окно зума картинок-----------------------------------------------
+
+            // #region модальное окно зума картинок-----------------------------------------------
+                /* Изображение внутри модального окна */
+                .modalZoomImgs-content {
+                    max-width: 90%;
+                    max-height: 80vh;
+                    margin: 5% auto;
+                    cursor: zoom-in;
+                    transition: transform 0.3s;
+                }
+
+                /* Увеличенное изображение при клике */
+                .modalZoomImgs-content.zoomed {
+                    transform: scale(2);
+                    cursor: zoom-out;
+                }
+            // #endregion модальное окно зума картинок-----------------------------------------------
+
+            // #region модальное окно для связи со мной-----------------------------------------------
+                .contact_modal_content {
+                    background-color: var(--background-text-color);
+                    margin: 10% auto;
+                    padding: 20px;
+                    border-radius: 10px;
+                    width: 60%;
+                    max-width: 500px;
+                    position: relative;
+                }
+
+                // логотипы (гитхаб и т.д.)
+                .contact_images {
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 20px;
+                    a {
+                        @include _imgs(30%);
+                        overflow: hidden;
+                        background-color: var(--div-main-color);
+                        padding: 8px;
+                        transition: transform 0.3s;
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            // #endregion модальное окно для связи со мной-----------------------------------------------
+
+        // #endregionмодальное модальное окна-----------------------------------------------
 
         // #region Блок с инструкцией как донатить-----------------------------------------------
+
             // Сам блок с инструкцией как донатить
             .container_donut {
                 height: fit-content;
@@ -637,7 +671,7 @@ body {
     .container_aside {
         margin-top: 1em;
         padding: 8px;
-        color: var(--text-color);
+        
         // flex
         display: flex;
         flex-direction: column;

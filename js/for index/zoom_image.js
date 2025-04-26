@@ -17,9 +17,9 @@ function closemodalZoomImgs() {
 }
 
 // Закрытие модального окна при клике вне изображения
-window.onclick = function(event) {
+window.addEventListener('click', function(event) {
     const modal = document.getElementById("imageModal");
     if (event.target === modal) {
-        closeModal();
+        closemodalZoomImgs();
     }
-};
+});

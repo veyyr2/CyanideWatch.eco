@@ -126,9 +126,9 @@
                         </div>
 
                         <!-- Модальное окно для увеличения изображений -->
-                        <div id="imageModal" class="modalZoomImgs">
+                        <div id="imageModal" class="modal">
                             <!-- крестик закрытия -->
-                            <span class="close_modalZoomImgs" onclick="closemodalZoomImgs()">&times;</span>
+                            <span class="close" id="close_zoom" onclick="closemodalZoomImgs()">&times;</span>
                             <!-- изображение -->
                             <img class="modalZoomImgs-content" id="modalImage">
                         </div>
@@ -467,8 +467,28 @@
 
         <!-- Правая часть футер -->
         <div class="footer_right">
-            <!-- Кнопка для лицензии -->
-            <button></button>
+            <!-- Кнопка для источников -->
+            <button id="but_sources">Источники</button>
+            <!-- КОНЕЦ Кнопка для источников -->
+
+            <!-- Кнопка для связи со мной -->
+            <button id="but_contact">Связь со мной</button>
+            <!-- КОНЕЦ Кнопка для связи со мной -->
+
+            <!-- Модальное окно для связи -->
+            <div id="contactModal" class="modal">
+                <!-- контент модального окна -->
+                <div class="contact_modal_content">
+                    <span class="close">&times;</span>
+                    <h2>Свяжитесь со мной</h2>
+                    <div class="contact_images">
+                        <a href="#" target="_blank"><img class="img_content_divs" src="images/images for all/contact_logos/github.png" alt="Github"></a>
+                        <a href="#" target="_blank"><img class="img_content_divs" src="images/images for all/contact_logos/gmail.png" alt="Email"></a>
+                        <a href="#" target="_blank"><img class="img_content_divs" src="images/images for all/contact_logos/linkedin.png" alt="LinkedIn"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- КОНЕЦ Модальное окно для связи -->
         </div>
         <!-- КОНЕЦ Правая часть футер -->
     </footer>
@@ -483,6 +503,8 @@
     <script src="js/for index/aside_hat.js"></script>
     <!-- Повторение фоновых изображений -->
     <script src="js/for index/background_imgs.js"></script>
+    <!-- Открытие модального окна контактов -->
+    <script src="js/open_contact.js"></script>
     <!-- КОНЕЦ Скрипты -->
 </body>
 </html>

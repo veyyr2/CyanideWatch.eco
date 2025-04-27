@@ -5,7 +5,7 @@ const contactModal = document.getElementById("contactModal");
 const contactBtn = document.getElementById("but_contact");
 
 // Получаем элемент <span>, который закрывает модальное окно
-const span = document.getElementsByClassName("close")[1];
+const span = document.getElementsByClassName("close")[2];
 
 // Когда пользователь нажимает на кнопку, открываем модальное окно
 contactBtn.onclick = function() {

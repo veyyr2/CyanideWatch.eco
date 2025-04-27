@@ -142,24 +142,32 @@ body {
             gap: 20px;
         }
 
-        // каждый блок с ссылкой
+        // каждый блок (кнопка) с ссылкой
         .nav_button {
+            color: var(--text-color);
             text-align: center;
             border: 1px solid black;
             border-radius: 25px;
             background-color: var(--button-color);
             padding: 10px;
-            width: 100px;  
+            width: 100px;
             cursor: pointer; // при наведении менять курсор 
             &:hover {
                 opacity: 0.9;
             } 
         }
 
-        // кнопка "пожертвовать"
+        // кнопка требующие своего размера относительно контента
         .nav_but_2 {
             display: inline-block;
             width: auto;
+
+            &--footer-but {
+                display: inline-block;
+                width: auto;
+                font-size: 1.2em;
+                font-family: "Times New Roman", Times, serif;
+            }
         }
 
         // логотип
@@ -287,7 +295,6 @@ body {
             // Заголовок шапки алерта
             .title_alert_divs_of_main {
                 display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-                
                 border: 1px solid black;
                 border-radius: 15px;
                 padding: 5px;
@@ -567,6 +574,17 @@ body {
                 text-align: center;
             }
 
+            // контент модального окна
+            .modal_content {
+                background-color: var(--background-text-color);
+                margin: 10% auto;
+                padding: 20px;
+                border-radius: 10px;
+                width: 60%;
+                max-width: 500px;
+                position: relative;
+            }
+
             /* Кнопка закрытия */
             .close {
                 position: absolute;
@@ -599,16 +617,6 @@ body {
             // #endregion модальное окно зума картинок-----------------------------------------------
 
             // #region модальное окно для связи со мной-----------------------------------------------
-                .contact_modal_content {
-                    background-color: var(--background-text-color);
-                    margin: 10% auto;
-                    padding: 20px;
-                    border-radius: 10px;
-                    width: 60%;
-                    max-width: 500px;
-                    position: relative;
-                }
-
                 // логотипы (гитхаб и т.д.)
                 .contact_images {
                     display: flex;
@@ -626,7 +634,13 @@ body {
                     }
                 }
             // #endregion модальное окно для связи со мной-----------------------------------------------
-
+            
+            // #region модальное окно источников-----------------------------------------------
+                // модальное окно для источников
+                .source_content {
+                    max-width: 1000px;
+                }
+            // #endregion модальное окно источников-----------------------------------------------
         // #endregionмодальное модальное окна-----------------------------------------------
 
         // #region Блок с инструкцией как донатить-----------------------------------------------
@@ -688,12 +702,39 @@ body {
         // стиль
         position: relative;
         background-color: var(--header-and-footer-color);
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-        padding: 10px;
         height: $height_header;
         margin-top: 20px;
+        padding: 10px; 
+        // grid
+        display: grid;
+        grid-template-columns: 75% 25%;   
+    }
+
+    // правая часть футера
+    .footer_right {
+        // flex
+        display: flex;
+        justify-content: space-around;
+    }
+
+    // левая часть футера
+    .footer_left {
+        @extend .footer_right;
+    }
+
+    // кнокпи футера
+    .footer-but {
+        @extend .nav_button;
+    }
+
+    // контейнер со списком
+    .container_numberlist {
+        margin-top: 10px;
+        width: 100%;
+        p {
+            word-wrap: break-word;
+            text-align: start;
+        }
     }
 
     // треугольник внутри футер справа для дизайна

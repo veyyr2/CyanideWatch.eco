@@ -103,7 +103,8 @@ header a {
   gap: 20px;
 }
 
-.nav_button {
+.nav_button, .footer-but {
+  color: var(--text-color);
   text-align: center;
   border: 1px solid black;
   border-radius: 25px;
@@ -112,13 +113,19 @@ header a {
   width: 100px;
   cursor: pointer;
 }
-.nav_button:hover {
+.nav_button:hover, .footer-but:hover {
   opacity: 0.9;
 }
 
 .nav_but_2 {
   display: inline-block;
   width: auto;
+}
+.nav_but_2--footer-but {
+  display: inline-block;
+  width: auto;
+  font-size: 1.2em;
+  font-family: "Times New Roman", Times, serif;
 }
 
 #main_logo {
@@ -501,6 +508,16 @@ main {
   text-align: center;
 }
 
+.modal_content {
+  background-color: var(--background-text-color);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  max-width: 500px;
+  position: relative;
+}
+
 /* Кнопка закрытия */
 .close {
   position: absolute;
@@ -530,16 +547,6 @@ main {
   cursor: zoom-out;
 }
 
-.contact_modal_content {
-  background-color: var(--background-text-color);
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 60%;
-  max-width: 500px;
-  position: relative;
-}
-
 .contact_images {
   display: flex;
   justify-content: space-around;
@@ -563,6 +570,10 @@ main {
 }
 .contact_images a:hover {
   transform: scale(1.2);
+}
+
+.source_content {
+  max-width: 1000px;
 }
 
 .container_donut {
@@ -613,12 +624,25 @@ aside {
 footer {
   position: relative;
   background-color: var(--header-and-footer-color);
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  padding: 10px;
   height: 70px;
   margin-top: 20px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+.footer_right, .footer_left {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container_numberlist {
+  margin-top: 10px;
+  width: 100%;
+}
+.container_numberlist p {
+  word-wrap: break-word;
+  text-align: start;
 }
 
 #footer_left_triangle {

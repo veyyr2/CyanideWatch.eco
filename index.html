@@ -20,8 +20,12 @@
         <div class="header_content">
             <!-- логотип -->
             <img src="images/images for page style/cyanidewatch_logo_light.png" alt="Вернуться на главную страницу" id="main_logo" title="Вернуться на главную страницу" onclick="window.location.href='index.html'" loading="lazy">
-            <!-- кнопки навигации -->
-            <nav id="navigation_button">
+
+            <!-- Кнопка меню для МУ -->
+            <button id="mobileMenuButton" class="nav_button" title="Меню">☰</button>
+
+            <!-- Блок с кнопками навигации -->
+            <nav id="container_nav_button">
                 <div title="Перейти на страницу 'Карта'" class="nav_button"><a href="#">Карта</a></div>
                 <div title="Перейти на страницу 'Пожертвовать'" class="nav_button nav_button--but-2"><a href="#">Пожертвовать</a></div>
                 <div title="Перейти на страницу 'Новости'" class="nav_button"><a href="#">Новости</a></div>
@@ -29,6 +33,9 @@
                 <!-- кнопка темной темы -->
                 <div id="div_with_but_night_theme_toggle" title="Сменить тему"><img id="but_night_theme_toggle" src="images/images for page style/but_theme_toggle_to_dark.png" alt="Темная тема" width="20px" loading="lazy"></div>
             </nav>
+            <!-- КОНЕЦ Блок с кнопками навигации -->
+
+            
         </div>
         <!-- КОНЕЦ контент хидера -->
 
@@ -40,15 +47,7 @@
     <!-- мэин и эсайд -->
     <div id="container_main_aside">
         <!-- фото для фона -->
-        <div id="body_bg_imgs">
-            <img src="images/images for background/img_bg_1.jpg" alt="" class="img_background" loading="lazy">
-            <img src="images/images for background/img_bg_2.jpg" alt="" class="img_background" loading="lazy">
-            <img src="images/images for background/img_bg_2.jpg" alt="" class="img_background" loading="lazy">
-            <img src="images/images for background/img_bg_3.jpg" alt="" class="img_background" loading="lazy">
-            <img src="images/images for background/img_bg_4.jpg" alt="" class="img_background" loading="lazy">
-            <img src="images/images for background/img_bg_5.jpg" alt="" class="img_background" loading="lazy">
-        </div>
-        <!-- КОНЕЦ фото для фона -->
+        <div id="body_bg_imgs"></div>
 
         <!-- мэин-->
         <main>
@@ -519,12 +518,12 @@
     <!-- Скрипты -->
     <!-- темная тема -->
     <script src="js/theme_toggle.js"></script> 
+    <!-- Открытие кнопок навигации для МУ -->
+    <script src="js/open_nav_but.js"></script>
     <!-- Зум изображений -->
     <script src="js/for index/zoom_image.js"></script> 
     <!-- Размер шапки aside -->
     <script src="js/for index/aside_hat.js"></script>
-    <!-- Повторение фоновых изображений -->
-    <script src="js/for index/background_imgs.js"></script>
     <!-- Открытие модального окна контактов -->
     <script src="js/open_contact.js"></script>
     <!-- Открытие модального окна источников -->

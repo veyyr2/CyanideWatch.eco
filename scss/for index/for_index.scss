@@ -13,7 +13,17 @@ $main_padding: 1em; // переменная отступа у мэина
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; // заполнить весь контейнер
+        }
+    }
+
+    // Миксин для анимации. При наведении увеличиваться
+    @mixin _animation_transform_scale($duration, $scale)
+    {
+        transition: transform $duration ease;
+        will-change: transform; // оптимизация
+        &:hover {
+            transform: scale($scale);
         }
     }
 // #endregion mixins ---------------------------------------------------------------
@@ -21,87 +31,89 @@ $main_padding: 1em; // переменная отступа у мэина
 
 
 /*---------------------------------TECHNICAL---------------------------------*/
-* {
-    margin: 0;
-    padding: 0;
-    // для плавного перехода темы
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    box-sizing: border-box; // если что удалить
-}
-
-// боди со светлой темой
-body {
-    // переменные
-    --header-and-footer-color: #003366; // header, footer
-    --head-of-div-color: #004080; // шапка блоков
-    --alert-div-color: #FF6600; // шапка блока alert (call to action)
-    --div-main-color: #FFE5E5; // блоки основной цвет
-    --button-color: #00A86B; // кнопки
-    --head-div-backtext-color: #C4B577; // выделить текст шапки блока
-    --alert-div-backtext-color: #DEB200; // выделить текст шапки alert
-    --triangle-color: #8A8A8A; // центральный цвет треугольников
-    --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
-    --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
-    --eco-bg-color: #e4d497; // для фонового цвета эко-организациий
-    --text-color: #ffffff; // цвет текста
-    color: var(--text-color);
-    background-color: #0A0A0A;
-}
-
-// боди с темной темой
-.dark_theme {
-    --header-and-footer-color: #0E1A3A; // header, footer
-    --head-of-div-color: #01335F; // шапка блоков
-    --alert-div-color: #B35900; // шапка блока alert (call to action)
-    --div-main-color: #2E2222; // блоки основной цвет
-    --button-color: #008B5A; // кнопки
-    --head-div-backtext-color: #6E6E6E ; // выделить текст шапки блока и для alert
-    --alert-div-backtext-color: #6E6E6E; // выделить текст шапки alert
-    --triangle-color: #A3A3A3; // центральный цвет треугольников
-    --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
-    --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
-    --eco-bg-color: #877a56; // для фонового цвета эко-организациий
-    --text-color: #d4d4d4; // цвет текста
-    color: var(--text-color);
-    background-color: #0A0A0A;
-
-    // всем изображениям внутри контентов мэина и модального окна
-    .img_content_divs, .modalZoomImgs-content { 
-        filter: brightness(70%);
+// #region technical------------------------------------------------------------------------------
+    * {
+        margin: 0;
+        padding: 0;
+        // для плавного перехода темы
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        box-sizing: border-box; // если что удалить
     }
 
-    // всем изображениям на фоне
-    #body_bg_imgs{
-        display: none;
+    // боди со светлой темой
+    body {
+        // переменные
+        --header-and-footer-color: #003366; // header, footer
+        --head-of-div-color: #004080; // шапка блоков
+        --alert-div-color: #FF6600; // шапка блока alert (call to action)
+        --div-main-color: #FFE5E5; // блоки основной цвет
+        --button-color: #00A86B; // кнопки
+        --head-div-backtext-color: #C4B577; // выделить текст шапки блока
+        --alert-div-backtext-color: #DEB200; // выделить текст шапки alert
+        --triangle-color: #8A8A8A; // центральный цвет треугольников
+        --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
+        --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
+        --eco-bg-color: #e4d497; // для фонового цвета эко-организациий
+        --text-color: #ffffff; // цвет текста
+        color: var(--text-color);
+        background-color: #0A0A0A;
     }
-}
 
-// Блок с фоновыми изображениями
-#body_bg_imgs {
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    // flex
-    display: flex;
-    flex-direction: column;
-    // imgs
-    img {
+    // боди с темной темой
+    .dark_theme {
+        --header-and-footer-color: #0E1A3A; // header, footer
+        --head-of-div-color: #01335F; // шапка блоков
+        --alert-div-color: #B35900; // шапка блока alert (call to action)
+        --div-main-color: #2E2222; // блоки основной цвет
+        --button-color: #008B5A; // кнопки
+        --head-div-backtext-color: #6E6E6E ; // выделить текст шапки блока и для alert
+        --alert-div-backtext-color: #6E6E6E; // выделить текст шапки alert
+        --triangle-color: #A3A3A3; // центральный цвет треугольников
+        --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
+        --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
+        --eco-bg-color: #877a56; // для фонового цвета эко-организациий
+        --text-color: #d4d4d4; // цвет текста
+        color: var(--text-color);
+        background-color: #0A0A0A;
+
+        // всем изображениям внутри контентов мэина и модального окна
+        .img_content_divs, .modalZoomImgs-content { 
+            filter: brightness(70%);
+        }
+
+        // всем изображениям на фоне
+        #body_bg_imgs{
+            display: none;
+        }
+    }
+
+    // Блок с фоновыми изображениями
+    #body_bg_imgs {
+        position: absolute;
+        z-index: -1;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: blur(2px);
+        // flex
+        display: flex;
+        flex-direction: column;
+        // imgs
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(2px);
+        }
     }
-}
 
-// контейнер с мэин и эсайд
-#container_main_aside {
-    display: flex;
-}
+    // контейнер с мэин и эсайд
+    #container_main_aside {
+        display: flex;
+    }
 
-/* Добавить плавную анимацию смены темы для картинок внутри хидер и футер */
-#main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle {
-    transition: opacity 0.3s ease-in-out;
-}
+    /* Добавить плавную анимацию смены темы для картинок внутри хидер и футер */
+    #main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle {
+        transition: opacity 0.3s ease-in-out;
+    }
+// #endregion technical------------------------------------------------------------------------------
 /*---------------------------------END TECHNICAL---------------------------------*/
 
 
@@ -112,12 +124,14 @@ body {
         // стиль
         position: relative;
         background-color: var(--header-and-footer-color);
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
         padding: 10px;
         margin-bottom: 20px;
         height: fit-content;
+        // flex
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
         // каждой ссылке
         a {
             color: #ffffff;
@@ -152,16 +166,15 @@ body {
             padding: 10px;
             width: 100px;
             cursor: pointer; // при наведении менять курсор 
-            &:hover {
-                opacity: 0.9;
-            } 
-        }
+            @include _animation_transform_scale(0.2s, 1.1);
 
-        // кнопка требующие своего размера относительно контента
-        .nav_but_2 {
-            display: inline-block;
-            width: auto;
+            // кнопка требующие своего размера относительно контента
+            &--but-2{
+                display: inline-block;
+                width: auto;
+            }
 
+            // кнопки футера
             &--footer-but {
                 display: inline-block;
                 width: auto;
@@ -175,14 +188,13 @@ body {
             border-radius: 25px;
             width: 200px;
             aspect-ratio: 4/1;
+            cursor: pointer;
+            @include _animation_transform_scale(0.2s, 1.05)
         }
 
         // блок с кнопкой которая менять тему
         #div_with_but_night_theme_toggle {
-            // менять прозрачность
-            &:hover {
-                opacity: 0.8;
-            } 
+            @include _animation_transform_scale(0.2s, 1.1)
         }
 
         // кнопка переключения темной темы
@@ -729,11 +741,12 @@ body {
 
     // контейнер со списком
     .container_numberlist {
+        // 
         margin-top: 10px;
         width: 100%;
+        text-align: start;
         p {
             word-wrap: break-word;
-            text-align: start;
         }
     }
 

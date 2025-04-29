@@ -55,7 +55,34 @@
 
         <!-- мэин-->
         <main>
-            это мэин
+            <div class="map-container">
+                <h1>Карта загрязнений цианидом</h1>
+                <div class="map-controls">
+                    <button id="zoom-in">+</button>
+                    <button id="zoom-out">-</button>
+                    <select id="year-filter">
+                        <option value="all">Все годы</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <!-- Добавьте другие годы по необходимости -->
+                    </select>
+                </div>
+                <div id="world-map"></div>
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <span class="legend-color small"></span>
+                        <span>Незначительное загрязнение</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color medium"></span>
+                        <span>Среднее загрязнение</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color large"></span>
+                        <span>Сильное загрязнение</span>
+                    </div>
+                </div>
+            </div>
         </main>
         <!-- КОНЕЦ мэин-->
 
@@ -216,6 +243,8 @@
     <script src="js/open_contact.js"></script>
     <!-- Открытие модального окна источников -->
     <script src="js/open_sources.js"></script>
+    <!-- Добавление интерактивной карты -->
+    <script src="js/for map/leaflet_map.js"></script>
     <!-- КОНЕЦ Скрипты -->
 </body>
 </html>

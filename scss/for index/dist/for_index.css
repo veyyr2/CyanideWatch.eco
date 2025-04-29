@@ -53,7 +53,7 @@
   }
 }
 /*---------------------------------END TECHNICAL---------------------------------*/
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
   /*---------------------------------Minor technical---------------------------------*/
   #container_main_aside {
     position: relative;
@@ -71,6 +71,9 @@
     filter: blur(2px);
   }
   #mobileMenuButton {
+    display: none;
+  }
+  .img_content_divs_MP {
     display: none;
   }
   /*---------------------------------Minor technical---------------------------------*/
@@ -632,7 +635,7 @@
   }
   /*---------------------------------END FOOTER---------------------------------*/
 }
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 1023px) {
   /*---------------------------------Minor technical---------------------------------*/
   * {
     transition: none !important;
@@ -640,6 +643,9 @@
   }
   body {
     background-color: var(--text-color);
+  }
+  aside {
+    display: none !important;
   }
   #container_main_aside {
     display: block;
@@ -650,9 +656,78 @@
   #body_bg_imgs {
     display: none;
   }
-  /* отменить плавную анимацию для треугольников дизайна */
   #header_right_triangle, #footer_left_triangle, .trinagle_for_style {
     display: none;
+  }
+  .img_content_divs_PC {
+    display: none !important;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+    text-align: center;
+  }
+  .modal_content {
+    background-color: var(--background-text-color);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 500px;
+    position: relative;
+  }
+  /* Кнопка закрытия */
+  .close {
+    position: absolute;
+    right: -40px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .close:hover {
+    color: #ccc;
+  }
+  /* Изображение внутри модального окна */
+  .modalZoomImgs-content {
+    display: none;
+  }
+  /* Увеличенное изображение при клике */
+  .modalZoomImgs-content.zoomed {
+    display: none;
+  }
+  .contact_images {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  .contact_images a {
+    max-width: 30%;
+    height: auto;
+    border-radius: 25px;
+    border: 1px solid black;
+    display: flex;
+    overflow: hidden;
+    background-color: var(--div-main-color);
+    padding: 8px;
+    transition: transform 0.3s;
+  }
+  .contact_images a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .contact_images a:hover {
+    transform: scale(1.2);
+  }
+  .source_content {
+    max-width: 1000px;
   }
   /*---------------------------------Minor technical---------------------------------*/
   /*---------------------------------HEADER---------------------------------*/
@@ -717,6 +792,9 @@
     width: auto;
     font-size: 1.2em;
     font-family: "Times New Roman", Times, serif;
+  }
+  .nav_button--footer-but:active {
+    transform: scale(0.95);
   }
   #main_logo {
     border-radius: 25px;
@@ -1013,74 +1091,51 @@
     height: 100%;
     object-fit: cover;
   }
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow: auto;
-    text-align: center;
-  }
-  .modal_content {
+  .container_donut {
+    height: fit-content;
+    padding: 1em;
     background-color: var(--background-text-color);
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 60%;
-    max-width: 500px;
-    position: relative;
-  }
-  /* Кнопка закрытия */
-  .close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .close:hover {
-    color: #ccc;
-  }
-  /* Изображение внутри модального окна */
-  .modalZoomImgs-content {
-    display: none;
-  }
-  /* Увеличенное изображение при клике */
-  .modalZoomImgs-content.zoomed {
-    display: none;
-  }
-  .contact_images {
+    border-radius: 25px;
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    flex-direction: column;
   }
-  .contact_images a {
-    max-width: 30%;
+  .container_imgs_instruction {
+    max-width: 100%;
     height: auto;
     border-radius: 25px;
     border: 1px solid black;
     display: flex;
-    overflow: hidden;
-    background-color: var(--div-main-color);
-    padding: 8px;
-    transition: transform 0.3s;
+    display: flex;
+    justify-content: center;
+    border-radius: 0;
   }
-  .contact_images a img {
+  .container_imgs_instruction img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .contact_images a:hover {
-    transform: scale(1.2);
-  }
-  .source_content {
-    max-width: 1000px;
-  }
   /*---------------------------------MAIN---------------------------------*/
+  /*---------------------------------FOOTER---------------------------------*/
+  footer {
+    position: relative;
+    background-color: var(--header-and-footer-color);
+    margin-top: 20px;
+    padding: 10px;
+  }
+  .footer_right {
+    display: flex;
+    justify-content: space-around;
+  }
+  .footer_left {
+    display: none;
+  }
+  .container_numberlist {
+    margin-top: 10px;
+    width: 100%;
+    text-align: start;
+  }
+  .container_numberlist p {
+    word-wrap: break-word;
+  }
+  /*---------------------------------END FOOTER---------------------------------*/
 }

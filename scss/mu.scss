@@ -574,7 +574,6 @@
         // #endregionмодальное модальное окна-----------------------------------------------
     
         // #region Блок с инструкцией как донатить-----------------------------------------------
-    
             // Сам блок с инструкцией как донатить
             .container_donut {
                 height: fit-content;
@@ -594,100 +593,101 @@
                 border-radius: 0;
             }
         // #endregion Блок с инструкцией как донатить-----------------------------------------------
+
     // #endregion блоки main---------------------------------------------------------------
     
     // #endregion main
     /*---------------------------------END MAIN---------------------------------*/
     
     
-    // /*---------------------------------ASIDE---------------------------------*/
-    // // #region aside
-    // aside{
-    //     width: 200px;
-    //     background-color: var(--div-main-color);
-    //     border: 1px solid black;
-    //     // при наведении на блок
-    //     &:hover {
-    //         // Поднять шапку вверх
-    //         .hat_divs {
-    //             transform: translateX(-10px) translateY(-10px);
-    //             transition: transform 0.3s ease, box-shadow 0.3s ease;
-    //             box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    //         }
-    //         // Повернуть треугольник влево
-    //         .trinagle_for_style {
-    //             transform: rotate(-90deg);
-    //             transition: transform 0.3s ease;
-    //         }
-    //     }
-    //     margin-top: $main_padding;
-    //     font-size: 12pt;
-    //     margin-bottom: 1em;
-    //     border: 1px solid black;
-    // } 
+    /*---------------------------------ASIDE---------------------------------*/
+    // #region aside
+    aside{
+        width: 200px;
+        background-color: var(--div-main-color);
+        border: 1px solid black;
+        // при наведении на блок
+        &:hover {
+            // Поднять шапку вверх
+            .hat_divs {
+                transform: translateX(-10px) translateY(-10px);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            }
+            // Повернуть треугольник влево
+            .trinagle_for_style {
+                transform: rotate(-90deg);
+                transition: transform 0.3s ease;
+            }
+        }
+        margin-top: $main_padding;
+        font-size: 12pt;
+        margin-bottom: 1em;
+        border: 1px solid black;
+    } 
     
-    // // контент эсайд
-    // .container_aside {
-    //     margin-top: 1em;
-    //     padding: 8px;
+    // контент эсайд
+    .container_aside {
+        margin-top: 1em;
+        padding: 8px;
         
-    //     // flex
-    //     display: flex;
-    //     flex-direction: column;
-    //     gap: 1em;
-    // }
-    // // #endregion aside
+        // flex
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    // #endregion aside
+    /*---------------------------------END ASIDE---------------------------------*/
     
-    // /*---------------------------------END ASIDE---------------------------------*/
     
+    /*---------------------------------FOOTER---------------------------------*/
+    // #region footer------------------------------------------------------------
+    footer {
+        // стиль
+        position: relative;
+        background-color: var(--header-and-footer-color);
+        height: $height_header;
+        margin-top: 20px;
+        padding: 10px; 
+        // grid
+        display: grid;
+        grid-template-columns: 75% 25%;   
+    }
     
-    // /*---------------------------------FOOTER---------------------------------*/
-    // // #region footer------------------------------------------------------------
-    // footer {
-    //     // стиль
-    //     position: relative;
-    //     background-color: var(--header-and-footer-color);
-    //     height: $height_header;
-    //     margin-top: 20px;
-    //     padding: 10px; 
-    //     // grid
-    //     display: grid;
-    //     grid-template-columns: 75% 25%;   
-    // }
+    // правая часть футера
+    .footer_right {
+        // flex
+        display: flex;
+        justify-content: space-around;
+    }
     
-    // // правая часть футера
-    // .footer_right {
-    //     // flex
-    //     display: flex;
-    //     justify-content: space-around;
-    // }
+    // левая часть футера
+    .footer_left {
+        // flex
+        display: flex;
+        justify-content: space-around;
+    }
     
-    // // левая часть футера
-    // .footer_left {
-    //     // flex
-    //     display: flex;
-    //     justify-content: space-around;
-    // }
+    // контейнер со списком
+    .container_numberlist {
+        // 
+        margin-top: 10px;
+        width: 100%;
+        text-align: start;
+        p {
+            word-wrap: break-word;
+        }
+    }
     
-    // // контейнер со списком
-    // .container_numberlist {
-    //     // 
-    //     margin-top: 10px;
-    //     width: 100%;
-    //     text-align: start;
-    //     p {
-    //         word-wrap: break-word;
-    //     }
-    // }
-    
-    // // треугольник внутри футер справа для дизайна
-    // #footer_left_triangle {
-    //     position: absolute;
-    //     bottom: 0;
-    //     left: 0;
-    //     height: $height_header;
-    //     pointer-events: none;
-    // }
+    // треугольник внутри футер справа для дизайна
+    #footer_left_triangle {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: $height_header;
+        pointer-events: none;
+    }
     // #endregion footer-------------------------
+    
     /*---------------------------------END FOOTER---------------------------------*/
     }

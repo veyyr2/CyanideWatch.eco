@@ -97,7 +97,7 @@ body {
 /*---------------------------------END TECHNICAL---------------------------------*/
 
 // Адаптация под ноутбуки
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
     /*---------------------------------Minor technical---------------------------------*/
     // #region Minor technical------------------------------------------------------------------
         // контейнер с мэин и эсайд
@@ -122,6 +122,11 @@ body {
     
         // Стили для кнопки меню МУ
         #mobileMenuButton {
+            display: none;
+        }
+
+        // картинки для МУ
+        .img_content_divs_MP {
             display: none;
         }
     // #endregion Minor technical------------------------------------------------------------------
@@ -191,6 +196,7 @@ body {
                     width: auto;
                     font-size: 1.2em;
                     font-family: "Times New Roman", Times, serif;
+                    
                 }
             }
     
@@ -767,7 +773,7 @@ body {
             justify-content: space-around;
         }
     
-        // контейнер со списком
+        // контейнер со списком информации
         .container_numberlist {
             // 
             margin-top: 10px;
@@ -791,7 +797,7 @@ body {
 }
 
 // Адаптация под телефоны
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 1023px) {
 /*---------------------------------Minor technical---------------------------------*/
 // #region Minor technical------------------------------------------------------------------
     // убрать всю анимацию для оптимизации
@@ -803,6 +809,11 @@ body {
     // боди со свелой темой
     body {
         background-color: var(--text-color);
+    }
+
+    // убрать aside
+    aside {
+        display: none !important;
     }
 
     // контейнер с мэин и эсайд
@@ -820,10 +831,92 @@ body {
         display: none;
     } 
 
-    /* отменить плавную анимацию для треугольников дизайна */
+    // убрать все треугольники для дизайна
     #header_right_triangle, #footer_left_triangle, .trinagle_for_style {
         display: none;
     }
+
+    // для всех фото, которые предназначены для ПК
+    .img_content_divs_PC {
+        display: none !important;
+    }
+
+    // #region модальное окна-----------------------------------------------
+        // любое модальное окно
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+            text-align: center;
+        }
+
+        // контент модального окна
+        .modal_content {
+            background-color: var(--background-text-color);
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        /* Кнопка закрытия */
+        .close {
+            position: absolute;
+            right: -40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            &:hover {
+                color: #ccc;
+            }
+        }
+
+        // #region модальное окно зума картинок-----------------------------------------------
+            /* Изображение внутри модального окна */
+            .modalZoomImgs-content {
+                display: none;
+            }
+
+            /* Увеличенное изображение при клике */
+            .modalZoomImgs-content.zoomed {
+                display: none;
+            }
+        // #endregion модальное окно зума картинок-----------------------------------------------
+
+        // #region модальное окно для связи со мной-----------------------------------------------
+            // логотипы (гитхаб и т.д.)
+            .contact_images {
+                display: flex;
+                justify-content: space-around;
+                margin-top: 20px;
+                a {
+                    @include _imgs(30%);
+                    overflow: hidden;
+                    background-color: var(--div-main-color);
+                    padding: 8px;
+                    transition: transform 0.3s;
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        // #endregion модальное окно для связи со мной-----------------------------------------------
+        
+        // #region модальное окно источников-----------------------------------------------
+            // модальное окно для источников
+            .source_content {
+                max-width: 1000px;
+            }
+        // #endregion модальное окно источников-----------------------------------------------
+    // #endregion модальное окна-----------------------------------------------
 // #endregion Minor technical------------------------------------------------------------------
 /*---------------------------------Minor technical---------------------------------*/
 
@@ -907,6 +1000,10 @@ body {
                 width: auto;
                 font-size: 1.2em;
                 font-family: "Times New Roman", Times, serif;
+                // Анимация при нажатии
+                &:active {
+                    transform: scale(0.95);
+                }
             }
         }
 
@@ -1004,7 +1101,6 @@ main{
         background-color: var(--div-main-color);
         padding: 1em;
         width: 100%;
-        // height: 100%;
     }
 
     // #region второй контент блоков
@@ -1271,87 +1367,63 @@ main{
         // #endregion фото что такое цианид-----------------------------------------------
     // #endregion Блок с фотографиями-----------------------------------------------
     
-    // #region модальное окна-----------------------------------------------
-        // любое модальное окно
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            overflow: auto;
-            text-align: center;
-        }
-
-        // контент модального окна
-        .modal_content {
+    // #region Блок с инструкцией как донатить-----------------------------------------------
+        // Сам блок с инструкцией как донатить
+        .container_donut {
+            height: fit-content;
+            padding: 1em;
             background-color: var(--background-text-color);
-            margin: 10% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 60%;
-            max-width: 500px;
-            position: relative;
+            border-radius: 25px;
+            // flex
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Кнопка закрытия */
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            &:hover {
-                color: #ccc;
-            }
+        // Блок с фото инструкцией
+        .container_imgs_instruction {
+            @include _imgs(100%);
+            display: flex;
+            justify-content: center;
+            border-radius: 0;           
         }
-
-        // #region модальное окно зума картинок-----------------------------------------------
-            /* Изображение внутри модального окна */
-            .modalZoomImgs-content {
-                display: none;
-            }
-
-            /* Увеличенное изображение при клике */
-            .modalZoomImgs-content.zoomed {
-                display: none;
-            }
-        // #endregion модальное окно зума картинок-----------------------------------------------
-
-        // #region модальное окно для связи со мной-----------------------------------------------
-            // логотипы (гитхаб и т.д.)
-            .contact_images {
-                display: flex;
-                justify-content: space-around;
-                margin-top: 20px;
-                a {
-                    @include _imgs(30%);
-                    overflow: hidden;
-                    background-color: var(--div-main-color);
-                    padding: 8px;
-                    transition: transform 0.3s;
-                    &:hover {
-                        transform: scale(1.2);
-                    }
-                }
-            }
-        // #endregion модальное окно для связи со мной-----------------------------------------------
         
-        // #region модальное окно источников-----------------------------------------------
-            // модальное окно для источников
-            .source_content {
-                max-width: 1000px;
-            }
-        // #endregion модальное окно источников-----------------------------------------------
-    // #endregionмодальное модальное окна-----------------------------------------------
-
+    // #endregion Блок с инструкцией как донатить-----------------------------------------------
 // #endregion блоки main-------------------------------------------------------------------------------
 
 // #endregion main
 /*---------------------------------MAIN---------------------------------*/
+
+/*---------------------------------FOOTER---------------------------------*/
+// #region footer------------------------------------------------------------
+    footer {
+        // стиль
+        position: relative;
+        background-color: var(--header-and-footer-color);
+        margin-top: 20px;
+        padding: 10px;  
+    }
+    
+    // правая часть футера
+    .footer_right {
+        // flex
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    // левая часть футера
+    .footer_left {
+        display: none;
+    }
+    
+    // контейнер со списком информации
+    .container_numberlist {
+        margin-top: 10px;
+        width: 100%;
+        text-align: start;
+        p {
+            word-wrap: break-word;
+        }
+    }
+// #endregion footer-------------------------
+/*---------------------------------END FOOTER---------------------------------*/
 }

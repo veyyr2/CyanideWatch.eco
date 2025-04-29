@@ -1,6 +1,6 @@
 function openmodalZoomImgs(imgElement) {
     // Проверяем ширину экрана
-    if (window.innerWidth >= 320 && window.innerWidth <= 768) {
+    if (window.innerWidth >= 320 && window.innerWidth <= 1023) {
         return; // Выходим из функции для мобильных устройств
     }
     

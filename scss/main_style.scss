@@ -448,6 +448,7 @@ body {
             // блоки с текстом в колонку
             .divs_columntext_content_of_main {
                 display: grid;
+                // aspect-ratio: 16/9;
                 grid-template-columns: 1fr 2fr 1fr;
                 column-gap: 11pt;
                 row-gap: 5px;

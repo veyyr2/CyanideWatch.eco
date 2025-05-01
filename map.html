@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="scss/dist/main_style.min.css">
+    <!-- Leaflet для карты -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 
@@ -58,8 +61,8 @@
             <div class="map-container">
                 <h1>Карта загрязнений цианидом</h1>
                 <div class="map-controls">
-                    <button id="zoom-in">+</button>
-                    <button id="zoom-out">-</button>
+                    <!-- <button id="zoom-in">+</button>
+                    <button id="zoom-out">-</button> -->
                     <select id="year-filter">
                         <option value="all">Все годы</option>
                         <option value="2023">2023</option>
@@ -243,6 +246,7 @@
     <script src="js/open_contact.js"></script>
     <!-- Открытие модального окна источников -->
     <script src="js/open_sources.js"></script>
+
     <!-- Добавление интерактивной карты -->
     <script src="js/for map/leaflet_map.js"></script>
     <!-- КОНЕЦ Скрипты -->

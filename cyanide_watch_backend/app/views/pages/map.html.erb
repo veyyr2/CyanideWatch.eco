@@ -54,7 +54,7 @@
     <!-- мэин и эсайд -->
     <div id="container_main_aside">
         <!-- фото для фона -->
-        <div id="body_bg_imgs"></div>
+        <div id="body_bg_imgs" style="background-image: url(<%= asset_path('imgs/background_img.png') %>);"></div>
 
         <!-- мэин-->
         <main>
@@ -106,7 +106,7 @@
                     <!-- Блок с фото эко -->
                     <a href="https://www.greenpeace.org/international/support/donate-today" target="_blank">
                         <div class="container_imgs_eco">
-                            <img class="img_content_divs imgs_eco" src="images/images for all/greenpeace_logo.png" alt="greenpeace" loading="lazy">                                     
+                            <%= image_tag "images_for_all/greenpeace_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>                        
                         </div>
                     </a>
                     <!-- Подпись -->
@@ -118,7 +118,7 @@
                     <!-- Блок с фото эко -->
                     <a href="https://act.350.org/donate/web_banner_main_nav_v1/" target="_blank">
                         <div class="container_imgs_eco">
-                            <img class="img_content_divs imgs_eco" src="images/images for all/350_logo.png" alt="350" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                            <%= image_tag "images_for_all/350_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
                         </div>
                     </a>
                     <!-- Подпись -->
@@ -130,7 +130,7 @@
                     <!-- Блок с фото эко -->
                     <a href="https://climatenetwork.org/get-involved/support/" target="_blank">
                         <div class="container_imgs_eco">
-                            <img class="img_content_divs imgs_eco imgs_eco--third" src="images/images for all/climate action network_logo.png" alt="Climate action network" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">
+                            <%= image_tag "images_for_all/climate action network_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
                         </div>
                     </a>
                     <!-- Подпись -->
@@ -142,7 +142,7 @@
                     <!-- Блок с фото эко -->
                     <a href="https://donate.edf.org/campaign/676415/donate?recurring=1" target="_blank">
                         <div class="container_imgs_eco">
-                            <img class="img_content_divs imgs_eco" src="images/images for all/environmental defence fund_logo.png" alt="Environmental defence fund" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                            <%= image_tag "images_for_all/environmental defence fund_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
                         </div>
                     </a>
                     <!-- Подпись -->
@@ -154,7 +154,7 @@
                     <!-- Блок с фото эко -->
                     <a href="https://iucn.org/donate" target="_blank">
                         <div class="container_imgs_eco">
-                            <img class="img_content_divs imgs_eco" src="images/images for all/IUCN_logo.png" alt="IUCN" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                            <%= image_tag "images_for_all/IUCN_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>   
                         </div>
                     </a>
                     <!-- Подпись -->
@@ -165,7 +165,7 @@
                 <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
                     <!-- Блок с фото эко -->
                     <a href="https://preserve.nature.org/page/169344/donate/1?set.DonationLevel=" target="_blank"><div class="container_imgs_eco">
-                        <img class="img_content_divs imgs_eco" src="images/images for all/the nature conservancy_logo.png" alt="The nature conservancy" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                        <%= image_tag "images_for_all/the nature conservancy_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>
                     </div>
                     </a>
                     <!-- Подпись -->

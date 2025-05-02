@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="scss/dist/main_style.min.css">
+    <%= stylesheet_link_tag 'scss/dist/main_style.min' %>
 </head>
 
 
@@ -531,17 +531,17 @@
 
     <!-- Скрипты -->
     <!-- темная тема -->
-    <script src="js/theme_toggle.js"></script> 
+    <%= javascript_include_tag 'theme_toggle' %>
     <!-- Открытие кнопок навигации для МУ -->
-    <script src="js/open_nav_but.js"></script>
+    <%= javascript_include_tag 'open_nav_but' %>
     <!-- Зум изображений -->
-    <script src="js/for index/zoom_image.js"></script> 
+    <%= javascript_include_tag 'for index/zoom_image' %>
     <!-- Размер шапки aside -->
-    <script src="js/for index/aside_hat.js"></script>
+    <%= javascript_include_tag 'for index/aside_hat' %>
     <!-- Открытие модального окна контактов -->
-    <script src="js/open_contact.js"></script>
+    <%= javascript_include_tag 'open_contact' %>
     <!-- Открытие модального окна источников -->
-    <script src="js/open_sources.js"></script>
+    <%= javascript_include_tag 'open_sources' %>
     <!-- КОНЕЦ Скрипты -->
 </body>
 </html>

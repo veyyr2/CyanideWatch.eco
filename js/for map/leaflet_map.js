@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Загрузка данных о загрязнениях (пример)
-    fetch('/api/cyanide-spots')
+    // Загрузка данных о загрязнениях
+    fetch('/api/spots')
         .then(response => response.json())
         .then(data => {
             data.forEach(spot => {

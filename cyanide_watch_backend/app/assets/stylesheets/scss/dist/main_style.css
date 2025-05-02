@@ -122,7 +122,7 @@
     z-index: -1;
     width: 100%;
     height: 100%;
-    background-image: url("imgs/background_img.png");
+    background-image: asset-url("background_img.png");
     background-repeat: repeat-y;
     background-size: 100% auto;
     filter: blur(2px);

@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # главная страница
-  get '/index', to: 'views#index'
+  get '/index', to: 'pages#index'
 
   # моя карта
-  get '/map', to: 'views#map'
+  get '/map', to: 'pages#map'
   
   # Defines the root path route ("/")
   # root "posts#index"

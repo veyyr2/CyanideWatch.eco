@@ -191,6 +191,11 @@ body {
         display: none;
     }
 
+    // картинки для ПК
+    .img_content_divs_MP {
+        cursor: pointer !important;
+    }
+
     // #region модальное окна-----------------------------------------------
         // любое модальное окно
         .modal {
@@ -755,6 +760,7 @@ body {
         // Блок с фото инструкцией
         .container_imgs_instruction {
             @include _imgs (100%);
+            cursor: pointer;
             border: 2px solid black;
             border-radius: 0;
         }

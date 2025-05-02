@@ -1,0 +1,77 @@
+const but_themeToggle = document.getElementById('but_night_theme_toggle');
+const main_logo = document.getElementById('main_logo');
+const header_right_triangle = document.getElementById('header_right_triangle'); // Убедитесь, что у этих элементов есть ID
+const footer_left_triangle = document.getElementById('footer_left_triangle'); // Убедитесь, что у этих элементов есть ID
+const trinagle_for_style = document.getElementsByClassName('trinagle_for_style');
+const body = document.body;
+const savedTheme = localStorage.getItem('theme');
+
+// Функция для плавной смены изображения
+function changeImageWithFade(element, newSrc) {
+  const newImage = new Image();
+  newImage.src = newSrc;
+
+  element.style.opacity = '0';
+  setTimeout(() => {
+    element.src = newSrc;
+    element.style.opacity = '1';
+  }, 200);
+}
+
+// Применяем тему при загрузке
+if (savedTheme) {
+  body.classList.add(savedTheme);
+  if (savedTheme === 'dark_theme') {
+    // ИС-ПРАВ-ЛЕ-НО: Указаны полные пути в asset_path
+    if (but_themeToggle) but_themeToggle.src = "<%= asset_path('images_for_page_style/but_theme_toggle_to_light.png') %>";
+    if (main_logo) main_logo.src = "<%= asset_path('images_for_page_style/cyanidewatch_logo_dark.png') %>";
+    if (header_right_triangle) header_right_triangle.src = "<%= asset_path('images_for_page_style/triangle-right-dark.png') %>";
+    if (footer_left_triangle) footer_left_triangle.src = "<%= asset_path('images_for_page_style/triangle-left-dark.png') %>";
+
+    for (let i = 0; i < trinagle_for_style.length; i++) {
+        // ИС-ПРАВ-ЛЕ-НО: Указан полный путь
+      trinagle_for_style[i].src = "<%= asset_path('images_for_page_style/triangle-all-dark.png') %>";
+    }
+  }
+}
+
+// Обработчик клика с плавной сменой
+if (but_themeToggle) { // Добавлена проверка на существование элемента
+  but_themeToggle.addEventListener('click', () => {
+    // сменить класс на темный для боди
+    body.classList.toggle('dark_theme');
+
+    if (body.classList.contains('dark_theme')) {
+      // картинки - ИС-ПРАВ-ЛЕ-НО: Указаны полные пути
+      changeImageWithFade(but_themeToggle, "<%= asset_path('images_for_page_style/but_theme_toggle_to_light.png') %>");
+      changeImageWithFade(main_logo, "<%= asset_path('images_for_page_style/cyanidewatch_logo_dark.png') %>");
+      if (header_right_triangle) changeImageWithFade(header_right_triangle, "<%= asset_path('images_for_page_style/triangle-right-dark.png') %>"); // Добавлена проверка
+      if (footer_left_triangle) changeImageWithFade(footer_left_triangle, "<%= asset_path('images_for_page_style/triangle-left-dark.png') %>"); // Добавлена проверка
+
+      setTimeout(() => {
+        for (let i = 0; i < trinagle_for_style.length; i++) {
+            // ИС-ПРАВ-ЛЕ-НО: Указан полный путь
+            trinagle_for_style[i].src = "<%= asset_path('images_for_page_style/triangle-all-dark.png') %>";
+        }
+      }, 100);
+
+      localStorage.setItem('theme', 'dark_theme');
+    }
+    else {
+      // картинки - ИС-ПРАВ-ЛЕ-НО: Указаны полные пути
+      changeImageWithFade(but_themeToggle, "<%= asset_path('images_for_page_style/but_theme_toggle_to_dark.png') %>");
+      changeImageWithFade(main_logo, "<%= asset_path('images_for_page_style/cyanidewatch_logo_light.png') %>");
+       if (header_right_triangle) changeImageWithFade(header_right_triangle, "<%= asset_path('images_for_page_style/triangle-right-light.png') %>"); // Добавлена проверка
+       if (footer_left_triangle) changeImageWithFade(footer_left_triangle, "<%= asset_path('images_for_page_style/triangle-left-light.png') %>"); // Добавлена проверка
+
+      setTimeout(() => {
+        for (let i = 0; i < trinagle_for_style.length; i++) {
+            // ИС-ПРАВ-ЛЕ-НО: Указан полный путь
+            trinagle_for_style[i].src = "<%= asset_path('images_for_page_style/triangle-all-light.png') %>";
+        }
+      }, 100);
+
+      localStorage.setItem('theme', 'light_theme'); // Лучше явно сохранить светлую тему или удалить item
+    }
+  });
+}

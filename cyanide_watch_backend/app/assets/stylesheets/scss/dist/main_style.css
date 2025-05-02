@@ -133,6 +133,9 @@
   .img_content_divs_MP {
     display: none;
   }
+  .img_content_divs_MP {
+    cursor: pointer !important;
+  }
   .modal {
     display: none;
     position: fixed;
@@ -621,6 +624,7 @@
     border-radius: 25px;
     border: 1px solid black;
     display: flex;
+    cursor: pointer;
     border: 2px solid black;
     border-radius: 0;
   }

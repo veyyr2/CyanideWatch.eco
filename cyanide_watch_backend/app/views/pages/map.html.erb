@@ -22,20 +22,39 @@
         <!-- контент хидера -->
         <div class="header_content">
             <!-- логотип -->
-            <img src="images/images for page style/cyanidewatch_logo_light.png" alt="Вернуться на главную страницу" id="main_logo" title="Вернуться на главную страницу" onclick="window.location.href='index.html'" loading="lazy">
+           <%= image_tag "images_for_page_style/cyanidewatch_logo_light.png",
+                alt: "Вернуться на главную страницу",
+                id: "main_logo",
+                title: "Вернуться на главную страницу",
+                loading: "lazy",
+                onclick: "location.href='index.html'",
+                data: { # Добавляем data атрибуты
+                dark_src: asset_path('images_for_page_style/cyanidewatch_logo_dark.png'),
+                light_src: asset_path('images_for_page_style/cyanidewatch_logo_light.png')
+                }
+            %>
 
             <!-- Кнопка меню для МУ -->
             <button id="mobileMenuButton" class="nav_button" title="Меню">☰</button>
 
             <!-- Блок с кнопками навигации -->
             <nav id="container_nav_button">
-                <div title="Перейти на страницу 'Карта'" class="nav_button"><a href="#">Карта</a></div>
+                <div title="Перейти на страницу 'Карта'" class="nav_button"><a href="map.html">Карта</a></div>
                 <div title="Перейти на страницу 'Пожертвовать'" class="nav_button nav_button--but-2"><a href="#">Пожертвовать</a></div>
                 <div title="Перейти на страницу 'Новости'" class="nav_button"><a href="#">Новости</a></div>
                 <div title="Перейти на страницу 'Игра'" class="nav_button"><a href="#">Игра</a></div>
                 <!-- кнопка темной темы -->
                 <div id="div_with_but_night_theme_toggle" title="Сменить тему">
-                    <img id="but_night_theme_toggle" src="images/images for page style/but_theme_toggle_to_dark.png" alt="Темная тема" width="20px" loading="lazy">
+                    <%= image_tag "images_for_page_style/but_theme_toggle_to_dark.png",
+                        id: "but_night_theme_toggle",
+                        alt: "Сменить тему",
+                        width: "20px",
+                        loading: "lazy",
+                        data: { # Добавляем data атрибуты
+                        dark_src: asset_path('images_for_page_style/but_theme_toggle_to_light.png'),
+                        light_src: asset_path('images_for_page_style/but_theme_toggle_to_dark.png')
+                        }
+                    %>
                     <!-- Подпись смены темы для МУ -->
                     <p id="title_night_but" class="nav_button">← Сменить тему</p> 
                 </div>        
@@ -46,8 +65,7 @@
         <!-- КОНЕЦ контент хидера -->
 
         <!-- треугольник для дизайна (отдельно, чтобы не был включен в flex) -->
-        <img src="images/images for page style/triangle-right-light.png" alt="" id="header_right_triangle" loading="lazy">
-    </header>
+        <%= image_tag "images_for_page_style/triangle-right-light.png", alt: "", id: "header_right_triangle", loading: "lazy" %>    </header>
     <!-- КОНЕЦ хидер -->
 
 
@@ -184,8 +202,7 @@
         <!-- Левая часть футер -->
         <div class="footer_left">
             <!-- Треугольник для дизайна -->
-            <img src="images/images for page style/triangle-left-light.png" alt="" id="footer_left_triangle" loading="lazy">
-        </div>
+            <%= image_tag "images_for_page_style/triangle-left-light.png", alt: "", id: "footer_left_triangle", loading: "lazy" %>        </div>
         <!-- КОНЕЦ Левая часть футер -->
 
         <!-- Правая часть футер -->

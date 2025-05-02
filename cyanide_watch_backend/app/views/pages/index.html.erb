@@ -19,7 +19,17 @@
         <!-- контент хидера -->
         <div class="header_content">
             <!-- логотип -->
-            <img src="images/images for page style/cyanidewatch_logo_light.png" alt="Вернуться на главную страницу" id="main_logo" title="Вернуться на главную страницу" onclick="window.location.href='index.html'" loading="lazy">
+           <%= image_tag "images_for_page_style/cyanidewatch_logo_light.png",
+                alt: "Вернуться на главную страницу",
+                id: "main_logo",
+                title: "Вернуться на главную страницу",
+                loading: "lazy",
+                onclick: "location.href='index.html'",
+                data: { # Добавляем data атрибуты
+                dark_src: asset_path('images_for_page_style/cyanidewatch_logo_dark.png'),
+                light_src: asset_path('images_for_page_style/cyanidewatch_logo_light.png')
+                }
+            %>
 
             <!-- Кнопка меню для МУ -->
             <button id="mobileMenuButton" class="nav_button" title="Меню">☰</button>
@@ -32,7 +42,16 @@
                 <div title="Перейти на страницу 'Игра'" class="nav_button"><a href="#">Игра</a></div>
                 <!-- кнопка темной темы -->
                 <div id="div_with_but_night_theme_toggle" title="Сменить тему">
-                    <img id="but_night_theme_toggle" src="images/images for page style/but_theme_toggle_to_dark.png" alt="Темная тема" width="20px" loading="lazy">
+                    <%= image_tag "images_for_page_style/but_theme_toggle_to_dark.png",
+                        id: "but_night_theme_toggle",
+                        alt: "Сменить тему",
+                        width: "20px",
+                        loading: "lazy",
+                        data: { # Добавляем data атрибуты
+                        dark_src: asset_path('images_for_page_style/but_theme_toggle_to_light.png'),
+                        light_src: asset_path('images_for_page_style/but_theme_toggle_to_dark.png')
+                        }
+                    %>
                     <!-- Подпись смены темы для МУ -->
                     <p id="title_night_but" class="nav_button">← Сменить тему</p> 
                 </div>        
@@ -43,7 +62,7 @@
         <!-- КОНЕЦ контент хидера -->
 
         <!-- треугольник для дизайна (отдельно, чтобы не был включен в flex) -->
-        <img src="images/images for page style/triangle-right-light.png" alt="" id="header_right_triangle" loading="lazy">
+        <%= image_tag "images_for_page_style/triangle-right-light.png", alt: "", id: "header_right_triangle", loading: "lazy" %>
     </header>
     <!-- КОНЕЦ хидер -->
 
@@ -62,7 +81,7 @@
                     <!-- Заголовок -->
                     <h1 class="title_divs">Добро пожаловать на платформу CyanideWatch!</h1>
                     <!-- Треугольник для стиля -->
-                    <img class="trinagle_for_style" src="images/images for page style/triangle-all-light.png" alt="" loading="lazy">
+                    <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
                 </div>
                 <!-- КОНЕЦ Шапка блока -->
 
@@ -90,9 +109,11 @@
                         
                         <!-- Блок с картинками -->
                         <div class="container_with_imgs_of_div">
-                            <img class="img_content_divs imgs_of_div_1" src="images/images for index/div 1 content/welcome_content_1.jpeg" alt="" title="https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html" loading="lazy">
-                            <img class="img_content_divs imgs_of_div_1" src="images/images for index/div 1 content/welcome_content_2.jpg" alt="" title="https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/" loading="lazy">
-                            <img class="img_content_divs imgs_of_div_1" src="images/images for index/div 1 content/welcome_content_3.png" alt="" title="https://ru.freepik.com/premium-photo/growth-new-life-concept-hands-with-water-watering-small-sprout_18101973.htm" loading="lazy">
+                            <%= image_tag "images_for_index/div_1_content/welcome_content_1.jpeg", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html", loading: "lazy" %>
+
+                            <%= image_tag "images_for_index/div_1_content/welcome_content_2.jpg", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/", loading: "lazy" %>
+
+                            <%= image_tag "images_for_index/div_1_content/welcome_content_3.png", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://ru.freepik.com/premium-photo/growth-new-life-concept-hands-with-water-watering-small-sprout_18101973.htm", loading: "lazy" %>
                         </div>
                         <!-- КОНЕЦ Блок с картинками -->
                     </div>
@@ -109,7 +130,7 @@
                     <!-- Заголовок -->
                     <h1 class="title_divs">О цианидах</h1>
                     <!-- Треугольник для стиля -->
-                    <img class="trinagle_for_style" src="images/images for page style/triangle-all-light.png" alt="" loading="lazy">
+                    <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
                 </div>
                 <!-- КОНЕЦ Шапка блока -->
 
@@ -122,10 +143,10 @@
 
                         <!-- Блок с фотографиями что такое цианид -->
                         <div class="container_cyanide_imgs">
-                            <img class="img_content_divs imgs_cyanide_inf_1" onclick="openmodalZoomImgs(this)" src="images/images for index/div 2 content/div_2_content_1.png" alt="" title="https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html" loading="lazy">
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_1.png", class: "img_content_divs imgs_cyanide_inf_1", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html", loading: "lazy" %>
                             <!-- Вертикальная линия разделения -->
                             <div class="vertical_line"></div>
-                            <img class="img_content_divs imgs_cyanide_inf_2" onclick="openmodalZoomImgs(this)" src="images/images for index/div 2 content/div_2_content_2.png" alt="" title="https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/" loading="lazy">
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_2.png", class: "img_content_divs imgs_cyanide_inf_1", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/", loading: "lazy" %>
                         </div>
 
                         <!-- Модальное окно для увеличения изображений -->
@@ -147,10 +168,10 @@
 
                         <!-- Блок 2 с фотографиями что такое цианид -->
                         <div class="container_cyanide_imgs">
-                            <img class="img_content_divs imgs_cyanide_inf_3" src="images/images for index/div 2 content/div_2_content_3.png" alt="" title="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tisza_cyanide_spill_1.jpg/800px-Tisza_cyanide_spill_1.jpg" loading="lazy">
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_3.png", class: "img_content_divs imgs_cyanide_inf_1", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tisza_cyanide_spill_1.jpg/800px-Tisza_cyanide_spill_1.jpg", loading: "lazy" %>
                             <!-- Вертикальная линия разделения -->
                             <div class="vertical_line"></div>
-                            <img class="img_content_divs imgs_cyanide_inf_4" src="images/images for index/div 2 content/div_2_content_4.png" alt="" title="https://data.vb.kg/image/big/2018-09-18_21-44-29_630338.jpg" loading="lazy">
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_4.png", class: "img_content_divs imgs_cyanide_inf_1", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://data.vb.kg/image/big/2018-09-18_21-44-29_630338.jpg", loading: "lazy" %>
                         </div>
                         <!-- КОНЕЦ Блок 2 с фотографиями что такое цианид -->
 
@@ -161,7 +182,7 @@
 
                         <!-- Блок 3 с фотографиями что такое цианид -->
                         <div class="container_cyanide_imgs">
-                            <img class="img_content_divs imgs_cyanide_inf_5" src="images/images for index/div 2 content/div_2_content_5.jpg" alt="" title="" loading="lazy">
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_5.jpg", class: "img_content_divs imgs_cyanide_inf_1", onclick: "openmodalZoomImgs(this)", alt: "", loading: "lazy" %>
                         </div>
                         <!-- КОНЕЦ Блок 3 с фотографиями что такое цианид -->
                     </div>
@@ -177,7 +198,7 @@
                     <!-- Заголовок -->
                     <h1 class="title_divs">Текущие показатели</h1>
                     <!-- Треугольник для стиля -->
-                    <img class="trinagle_for_style" src="images/images for page style/triangle-all-light.png" alt="" loading="lazy">
+                    <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
                 </div>
                 <!-- КОНЕЦ Шапка блока -->
 
@@ -196,7 +217,7 @@
                     <!-- Заголовок -->
                     <h1 class="title_divs">Прогноз</h1>
                     <!-- Треугольник для стиля -->
-                    <img class="trinagle_for_style" src="images/images for page style/triangle-all-light.png" alt="" loading="lazy">
+                    <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
 
                 </div>
                 <!-- КОНЕЦ Шапка блока -->
@@ -216,7 +237,7 @@
                     <!-- Заголовок -->
                     <h1 class="title_alert_divs_of_main">Хотите помочь в борьбе против цианида?</h1>
                     <!-- Треугольник для стиля -->
-                    <img class="trinagle_for_style" src="images/images for page style/triangle-all-light.png" alt="" loading="lazy">
+                    <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
                 </div>
                 <!-- КОНЕЦ Шапка блока -->
 
@@ -259,9 +280,9 @@
                             <!-- блок с фото и описанием эко 1 -->
                             <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
                                 <!-- Блок с фото эко -->
-                                <a href="https://www.greenpeace.org/international/support/donate-today/" target="_blank">
+                                <a href="https://www.greenpeace.org/international/support/donate-today" target="_blank">
                                     <div class="container_imgs_eco">
-                                        <img class="img_content_divs imgs_eco" src="images/images for all/greenpeace_logo.png" alt="greenpeace" loading="lazy">                                     
+                                        <%= image_tag "images_for_all/greenpeace_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>                        
                                     </div>
                                 </a>
                                 <!-- Подпись -->
@@ -273,7 +294,7 @@
                                 <!-- Блок с фото эко -->
                                 <a href="https://act.350.org/donate/web_banner_main_nav_v1/" target="_blank">
                                     <div class="container_imgs_eco">
-                                        <img class="img_content_divs imgs_eco" src="images/images for all/350_logo.png" alt="350" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                                        <%= image_tag "images_for_all/350_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
                                     </div>
                                 </a>
                                 <!-- Подпись -->
@@ -285,7 +306,7 @@
                                 <!-- Блок с фото эко -->
                                 <a href="https://climatenetwork.org/get-involved/support/" target="_blank">
                                     <div class="container_imgs_eco">
-                                        <img class="img_content_divs imgs_eco imgs_eco--third" src="images/images for all/climate action network_logo.png" alt="Climate action network" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                                        <%= image_tag "images_for_all/climate action network_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
                                     </div>
                                 </a>
                                 <!-- Подпись -->
@@ -297,7 +318,7 @@
                                 <!-- Блок с фото эко -->
                                 <a href="https://donate.edf.org/campaign/676415/donate?recurring=1" target="_blank">
                                     <div class="container_imgs_eco">
-                                        <img class="img_content_divs imgs_eco" src="images/images for all/environmental defence fund_logo.png" alt="Environmental defence fund" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                                        <%= image_tag "images_for_all/environmental defence fund_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
                                     </div>
                                 </a>
                                 <!-- Подпись -->
@@ -309,7 +330,7 @@
                                 <!-- Блок с фото эко -->
                                 <a href="https://iucn.org/donate" target="_blank">
                                     <div class="container_imgs_eco">
-                                        <img class="img_content_divs imgs_eco" src="images/images for all/IUCN_logo.png" alt="IUCN" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                                        <%= image_tag "images_for_all/IUCN_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>   
                                     </div>
                                 </a>
                                 <!-- Подпись -->
@@ -320,7 +341,7 @@
                             <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
                                 <!-- Блок с фото эко -->
                                 <a href="https://preserve.nature.org/page/169344/donate/1?set.DonationLevel=" target="_blank"><div class="container_imgs_eco">
-                                    <img class="img_content_divs imgs_eco" src="images/images for all/the nature conservancy_logo.png" alt="The nature conservancy" title="Нажмите, чтобы перейти по ссылке на донат" loading="lazy">    
+                                    <%= image_tag "images_for_all/the nature conservancy_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>
                                 </div>
                                 </a>
                                 <!-- Подпись -->
@@ -339,10 +360,11 @@
 
                             <!-- Блок с фото инструкцией 1 для пк -->
                             <div class="container_imgs_instruction">
-                                <!-- Фото для ПК -->
-                                <img src="images/images for index/instruction content/show1t.png" alt="" class="img_content_divs img_content_divs_PC" loading="lazy">
-                                <!-- Фото для МУ -->
-                                <img src="images/images for index/instruction content/show_mobile.png" alt="" class="img_content_divs img_content_divs_MP" loading="lazy">
+                                <%# Фото для ПК %>
+                                <%= image_tag "images_for_index/instruction content/show1t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                                <%# Фото для МУ %>
+                                <%= image_tag "images_for_index/instruction content/show_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
                             </div>
                             <!-- КОНЕЦ Блок с фото инструкцией 1 -->
 
@@ -351,10 +373,11 @@
 
                             <!-- Блок с фото инструкцией 2 -->
                             <div class="container_imgs_instruction">
-                                <!-- Фото для ПК -->
-                                <img src="images/images for index/instruction content/show2t.png" alt="" class="img_content_divs img_content_divs_PC" loading="lazy">
-                                <!-- Фото для МУ -->
-                                <img src="images/images for index/instruction content/show2_mobile.png" alt="" class="img_content_divs img_content_divs_MP" loading="lazy">
+                                <%# Фото для ПК %>
+                                <%= image_tag "images_for_index/instruction content/show2t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                                <%# Фото для МУ %>
+                                <%= image_tag "images_for_index/instruction content/show2_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
                             </div>
                             <!-- КОНЕЦ Блок с фото инструкцией 2 -->
 
@@ -363,10 +386,11 @@
 
                             <!-- Блок с фото инструкцией 3 -->
                             <div class="container_imgs_instruction">
-                                <!-- Фото для ПК -->
-                                <img src="images/images for index/instruction content/show3t.png" alt="" class="img_content_divs img_content_divs_PC" loading="lazy">
-                                <!-- Фото для МУ -->
-                                <img src="images/images for index/instruction content/show3_mobile.png" alt="" class="img_content_divs img_content_divs_MP" loading="lazy">
+                                <%# Фото для ПК %>
+                                <%= image_tag "images_for_index/instruction content/show3t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                                <%# Фото для МУ %>
+                                <%= image_tag "images_for_index/instruction content/show3_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
                             </div>
                             <!-- КОНЕЦ Блок с фото инструкцией 3 -->
                             
@@ -478,7 +502,7 @@
         <!-- Левая часть футер -->
         <div class="footer_left">
             <!-- Треугольник для дизайна -->
-            <img src="images/images for page style/triangle-left-light.png" alt="" id="footer_left_triangle" loading="lazy">
+            <%= image_tag "images_for_page_style/triangle-left-light.png", alt: "", id: "footer_left_triangle", loading: "lazy" %>
         </div>
         <!-- КОНЕЦ Левая часть футер -->
 

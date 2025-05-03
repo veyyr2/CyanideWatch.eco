@@ -67,7 +67,7 @@ ActiveAdmin.register Spot do
         f.input :lat
         f.input :lng
         # Вы можете указать тип контрола, например, :select для выпадающего списка
-        f.input :measurement_type, as: :select, collection: ["water", "soil", "air", "solid"] # Пример с вашими типами из seeds.rb
+        f.input :measurement_type, as: :select, collection: ["water", "soil", "air"] # Пример с вашими типами из seeds.rb
         f.input :measurement_value
         # Для поля даты часто удобно использовать datepicker
         # f.input :date, as: :datepicker # Для этого может потребоваться дополнительная настройка или гем (например, activeadmin-addons)

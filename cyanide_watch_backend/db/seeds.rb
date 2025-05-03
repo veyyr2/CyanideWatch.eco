@@ -7,7 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-spots = [
+spots_data = [
   {
     location: "Река Тиса",
     lat: 47.9,
@@ -110,7 +110,24 @@ spots = [
   }
 ]
   
-  Spot.create!(spots)
-  
-  puts "Создано #{spots.size} точек загрязнения."
-  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+spots_data.each do |spot_attributes|
+  Spot.find_or_create_by!(location: spot_attributes[:location], date: spot_attributes[:date]) do |spot|
+    spot.lat = spot_attributes[:lat]
+    spot.lng = spot_attributes[:lng]
+    spot.measurement_type = spot_attributes[:measurement_type]
+    spot.measurement_value = spot_attributes[:measurement_value]
+    spot.description = spot_attributes[:description]
+    spot.news_link = spot_attributes[:news_link]
+  end
+end
+
+puts "Создано или найдено #{Spot.count} точек загрязнения." # Теперь подсчитываем общее количество в базе
+
+# Создание AdminUser (лучше использовать find_or_create_by! и для него, чтобы не дублировать админа)
+if Rails.env.development?
+  AdminUser.find_or_create_by!(email: 'admin@example.com') do |u|
+    u.password = 'password'
+    u.password_confirmation = 'password'
+  end
+  puts "AdminUser создан или найден."
+end

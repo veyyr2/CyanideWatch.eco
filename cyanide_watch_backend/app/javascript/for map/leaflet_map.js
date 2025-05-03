@@ -28,7 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const newsLink = spot.news_link || null; // Приводим к null для JS
                 marker.bindPopup(`
                     <h3>${spot.location}</h3>
-                    <p><strong>Тип загрязнения:</strong> ${spot.measurement_type === 'water' ? 'вода' : 'твердые отходы'}</p>
+                    <p><strong>Тип загрязнения:</strong> ${
+                        spot.measurement_type === 'water' ? 'Вода' :
+                        spot.measurement_type === 'soil' ? 'Почва' :
+                        spot.measurement_type === 'air' ? 'Воздух' :
+                        'другое' // Значение по умолчанию, если ни один из вышеперечисленных типов не совпал
+                      }</p>
                     <p><strong>Уровень загрязнения:</strong> ${spot.measurement_value} мг/л</p>
                     <p><strong>Дата:</strong> ${spot.date}</p>
                     <p>${spot.description}</p>

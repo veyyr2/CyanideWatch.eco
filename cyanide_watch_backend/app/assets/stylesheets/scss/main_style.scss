@@ -932,6 +932,15 @@ body {
     }
 
     // #region стили для карты-----------------------------------------------------------
+        // Стили для popup на карте
+        .leaflet-popup-content {
+            width: auto !important;
+            font-size: 8pt !important; // Размер шрифта
+            max-width: 100px; // Ограничение максимальной ширины
+            margin: 10px;
+        }
+
+        // контейнер с картой
         .map-container {
             // style
             color: var(--text-color-map);

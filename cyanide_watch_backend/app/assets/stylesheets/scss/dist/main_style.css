@@ -744,6 +744,12 @@
   .img_content_divs_PC {
     display: none !important;
   }
+  .leaflet-popup-content {
+    width: auto !important;
+    font-size: 8pt !important;
+    max-width: 100px;
+    margin: 10px;
+  }
   .map-container {
     color: var(--text-color-map);
     width: 100%;

@@ -56,6 +56,7 @@ body {
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --eco-bg-color: #e4d497; // для фонового цвета эко-организациий
     --text-color: #ffffff; // цвет текста
+    --text-color-map: #000000; // цвет текста для карты
     color: var(--text-color);
     background-color: #0A0A0A;
 }
@@ -73,7 +74,8 @@ body {
     --background-text-color: #515151; // фоновый цвет для текста в блоках с контентом
     --background-text-color-alert: #0151a1; // фоновый цвет для текста в блоке второго контента
     --eco-bg-color: #877a56; // для фонового цвета эко-организациий
-    --text-color: #d4d4d4; // цвет текста
+    --text-color: #ffffff; // цвет текста
+    --text-color-map: #ffffff; // цвет текста для карты
     color: var(--text-color);
     background-color: #0A0A0A;
 
@@ -104,6 +106,7 @@ body {
         // заголовок карты
         .map_title {
             display: inline-block;
+            text-align: center; // сделать по центру
             color: var(--text-color);
             font-size: 24px;
             font-weight: bold;
@@ -125,7 +128,7 @@ body {
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             
-            button, select {
+            select {
                 margin: 0 5px;
                 padding: 5px 10px;
             }
@@ -135,6 +138,7 @@ body {
             width: 100%;
             height: 100%;
             border-radius: 8px;
+            z-index: 1;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
@@ -168,7 +172,7 @@ body {
             }
         }
     }
-// #endregionстили для карты-----------------------------------------------------------
+// #endregion стили для карты-----------------------------------------------------------
 
 // #endregion technical------------------------------------------------------------------------------
 /*---------------------------------END TECHNICAL---------------------------------*/
@@ -217,7 +221,7 @@ body {
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 2000;
             left: 0;
             top: 0;
             width: 100%;
@@ -892,6 +896,10 @@ body {
     // боди со свелой темой
     body {
         background-color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
     }
 
     // убрать aside
@@ -924,12 +932,65 @@ body {
         display: none !important;
     }
 
+    // #region стили для карты-----------------------------------------------------------
+        .map-container {
+            // style
+            color: var(--text-color-map);
+            width: 100%;
+            position: relative;
+            margin-bottom: 20px; 
+            padding: 10px;
+            // flex
+            display: flex;
+            flex-direction: column;
+
+            // карта
+            #world-map {
+                flex: 1;
+                width: 100%;
+                border-radius: 8px;
+                box-shadow: none;
+            }
+
+            // Контейнер для фильтра и легенды (для адаптации)
+            .container_map_legendfilter {   
+                margin-top: 10px;
+                // FLEX
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            // легенда карты
+            .map-legend {
+                position: relative;
+                background-color: var(--div-main-color);
+                box-shadow: none;
+                // для исправления бага:
+                z-index: 0;
+                bottom: 0;
+                right: 0;
+            }
+
+            // фильтр карты
+            .map-controls {
+                position: relative;
+                background-color: var(--div-main-color);
+                box-shadow: none;
+                // для исправления бага:
+                z-index: 0;
+                top: 0;
+                right: 0;
+            }
+        }
+    // #endregion стили для карты-----------------------------------------------------------
+
     // #region модальное окна-----------------------------------------------
         // любое модальное окно
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 10000 !important;
             left: 0;
             top: 0;
             width: 100%;
@@ -1038,7 +1099,7 @@ body {
             // style
             display: none;
             position: absolute;
-            z-index: 1000; 
+            z-index: 2000; 
             top: 100%;
             left: 0;
             width: 100%;
@@ -1480,6 +1541,8 @@ main{
         background-color: var(--header-and-footer-color);
         margin-top: 20px;
         padding: 10px;  
+        margin-top: auto; // это поможет прижать футер к низу
+        z-index: 10; // убедимся, что футер поверх других элементов
     }
     
     // правая часть футера

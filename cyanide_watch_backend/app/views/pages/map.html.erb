@@ -76,34 +76,46 @@
 
         <!-- мэин-->
         <main>
+            <!-- Контейнер карты -->
             <div class="map-container">
+                <!-- Заголовок карты -->
                 <h1 class="map_title">Карта загрязнений цианидом</h1>
-                <div class="map-controls">
-                    <!-- <button id="zoom-in">+</button>
-                    <button id="zoom-out">-</button> -->
-                    <select id="year-filter">
-                        <option value="all">Все годы</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <!-- Добавьте другие годы по необходимости -->
-                    </select>
-                </div>
+
+                <!-- карта для отображения -->
                 <div id="world-map"></div>
-                <div class="map-legend">
-                    <div class="legend-item">
-                        <span class="legend-color small"></span>
-                        <span>Незначительное загрязнение</span>
+
+                <!-- Контейнер для фильтра и легенды (для адаптации) -->
+                <div class="container_map_legendfilter"> 
+                    <!-- фильтр годов -->
+                    <div class="map-controls">
+                        <select id="year-filter">
+                            <option value="all">Все годы</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
                     </div>
-                    <div class="legend-item">
-                        <span class="legend-color medium"></span>
-                        <span>Среднее загрязнение</span>
+                    <!-- КОНЕЦ фильтр годов -->
+
+                    <!-- Легенда карты -->
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-color small"></span>
+                            <span>Незначительное загрязнение</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color medium"></span>
+                            <span>Среднее загрязнение</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color large"></span>
+                            <span>Сильное загрязнение</span>
+                        </div>
                     </div>
-                    <div class="legend-item">
-                        <span class="legend-color large"></span>
-                        <span>Сильное загрязнение</span>
-                    </div>
+                    <!-- КОНЕЦ Легенда карты -->
                 </div>
+                <!-- КОНЕЦ Контейнер для фильтра и легенды (для адаптации) -->
             </div>
+            <!-- КОНЕЦ Контейнер карты -->
         </main>
         <!-- КОНЕЦ мэин-->
 
@@ -240,9 +252,12 @@
                     <span class="close">&times;</span>
                     <h2 class="title_alert_divs_of_main">Свяжитесь со мной</h2>
                     <div class="contact_images">
-                        <a href="https://github.com/veyyr2" target="_blank"><img class="img_content_divs" src="images/images for all/contact_logos/github.png" alt="https://github.com/veyyr2" loading="lazy"></a>
-                        <a href="mailto:dimagorhov602@gmail.com" target="_blank"><img class="img_content_divs" src="images/images for all/contact_logos/gmail.png" alt="dimagorhov602@gmail.com" loading="lazy"></a>
-                        <a href="www.linkedin.com/in/дмитрий-горохов-153404362/" target="_blank"><img class="img_content_divs" src="images/images for all/contact_logos/linkedin.png" alt="www.linkedin.com/in/дмитрий-горохов-153404362" loading="lazy"></a>
+                        <!-- github -->
+                        <a href="https://github.com/veyyr2" target="_blank"><%= image_tag "images_for_all/contact_logos/github.png", class: "img_content_divs", alt: "https://github.com/veyyr2", loading: "lazy" %></a>
+                        <!-- gmail -->
+                        <a href="mailto:dimagorhov602@gmail.com" target="_blank"><%= image_tag "images_for_all/contact_logos/gmail.png", class: "img_content_divs", alt: "dimagorhov602@gmail.com", loading: "lazy" %></a>
+                        <!-- linkedin -->
+                        <a href="www.linkedin.com/in/дмитрий-горохов-153404362/" target="_blank"><%= image_tag "images_for_all/contact_logos/linkedin.png", class: "img_content_divs", alt: "www.linkedin.com/in/дмитрий-горохов-153404362", loading: "lazy" %></a>
                     </div>
                 </div>
             </div>

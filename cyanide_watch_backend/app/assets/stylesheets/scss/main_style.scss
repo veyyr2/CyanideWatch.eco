@@ -366,7 +366,6 @@ body {
                 width: auto;
                 font-size: 1.2em;
                 font-family: "Times New Roman", Times, serif;
-                
             }
         }
 
@@ -1134,6 +1133,11 @@ body {
             background-color: var(--button-color);
             padding: 10px;
             width: 100%;
+            // Анимация при нажатии
+            &:active {
+                transform: scale(0.95);
+            }
+
             // кнопки футера
             &--footer-but {
                 display: inline-block;
@@ -1152,7 +1156,10 @@ body {
             border-radius: 25px;
             width: 70%;
             aspect-ratio: 4/1;
-            cursor: pointer;
+            // Анимация при нажатии
+            &:active {
+                transform: scale(0.95);
+            }
         }
 
         // блок с кнопкой которая менять тему

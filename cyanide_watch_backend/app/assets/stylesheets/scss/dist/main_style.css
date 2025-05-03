@@ -902,6 +902,9 @@
     padding: 10px;
     width: 100%;
   }
+  .nav_button:active {
+    transform: scale(0.95);
+  }
   .nav_button--footer-but {
     display: inline-block;
     width: auto;
@@ -915,7 +918,9 @@
     border-radius: 25px;
     width: 70%;
     aspect-ratio: 4/1;
-    cursor: pointer;
+  }
+  #main_logo:active {
+    transform: scale(0.95);
   }
   #div_with_but_night_theme_toggle {
     padding: 0 15% 0 15%;

@@ -7,7 +7,6 @@ class CreateSpots < ActiveRecord::Migration[8.0]
       t.string :severity
       t.date :date
       t.text :description
-
       t.timestamps
     end
   end

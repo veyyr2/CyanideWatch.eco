@@ -24,21 +24,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).addTo(map);
                 
                 // Добавление всплывающей информации
+                // Если news_link отсутствует (null/nil), ссылка не отображается
+                const newsLink = spot.news_link || null; // Приводим к null для JS
                 marker.bindPopup(`
                     <h3>${spot.location}</h3>
                     <p><strong>Уровень загрязнения:</strong> ${spot.severity}</p>
                     <p><strong>Дата:</strong> ${spot.date}</p>
                     <p>${spot.description}</p>
-                    <a href="/details/${spot.id}" target="_blank">Подробнее</a>
+                    ${newsLink ? `<a href="${newsLink}" target="_blank" rel="noopener noreferrer">Читать новость</a>` : ''}
                 `);
             });
         });
     
+    // Функция для определения цвета маркера в зависимости от уровня загрязнения
     function getColor(severity) {
         return severity === 'high' ? '#d62728' :
                severity === 'medium' ? '#ff7f0e' : '#2ca02c';
     }
     
+    // Функция для определения размера маркера в зависимости от уровня загрязнения
     function getRadius(severity) {
         return severity === 'high' ? 10 :
                severity === 'medium' ? 7 : 5;

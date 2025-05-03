@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_02_060812) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_03_100241) do
   create_table "spots", force: :cascade do |t|
     t.string "location"
     t.float "lat"
@@ -20,5 +20,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_02_060812) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "news_link"
   end
 end

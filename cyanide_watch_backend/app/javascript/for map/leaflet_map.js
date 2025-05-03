@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Функция для определения цвета маркера в зависимости от уровня загрязнения
     function getColor(value) {
         if (value < 0.01) {
-            return '#2ca02c'; // зеленый - отсутствие/очень слабое загрязнение
+            return '#1f77b4'; // голубой - незначительное загрязнение
         } else if (value >= 0.01 && value < 0.07) {
             return '#ffcc00'; // желтый - слабое загрязнение
         } else if (value >= 0.07 && value < 0.1) {
-            return '#ff7f0e'; // оранжевый - умеренное загрязнение
+            return '#ff7f0e'; // оранжевый - среднее загрязнение
         } else {
             return '#d62728'; // красный - сильное загрязнение
         }

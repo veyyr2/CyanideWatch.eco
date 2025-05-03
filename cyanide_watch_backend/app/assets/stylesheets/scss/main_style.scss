@@ -165,7 +165,8 @@ body {
                     border-radius: 50%;
                     margin-right: 10px;
                     
-                    &.small { background-color: #2ca02c; }
+                    &.verysmall { background-color: #1f77b4; }
+                    &.small { background-color: #ffcc00; }
                     &.medium { background-color: #ff7f0e; }
                     &.large { background-color: #d62728; }
                 }

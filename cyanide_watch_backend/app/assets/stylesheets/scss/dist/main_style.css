@@ -115,8 +115,11 @@
   border-radius: 50%;
   margin-right: 10px;
 }
+.map-container .map-legend .legend-item .legend-color.verysmall {
+  background-color: #1f77b4;
+}
 .map-container .map-legend .legend-item .legend-color.small {
-  background-color: #2ca02c;
+  background-color: #ffcc00;
 }
 .map-container .map-legend .legend-item .legend-color.medium {
   background-color: #ff7f0e;

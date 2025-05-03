@@ -53,6 +53,33 @@
   #main_logo, #header_right_triangle, #but_night_theme_toggle, #footer_left_triangle {
     transition: opacity 0.3s ease-in-out;
   }
+  .charts-container {
+    margin-top: 80px;
+    padding: 1rem;
+    background: var(--div-main-color);
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .charts-container .chart-box {
+    flex: 1 1 45%;
+    min-width: 300px;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .charts-container .chart-box h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  .charts-container .chart-box canvas {
+    width: 100% !important;
+    height: 500px !important;
+  }
 }
 .map-container {
   color: black;

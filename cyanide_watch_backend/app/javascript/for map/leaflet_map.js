@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/spots')
         .then(response => response.json())
         .then(data => {
+            // Сохраняем данные для графиков
+            window.allSpotsData = data;
+            
+            // Создаем событие о загрузке данных
+            const event = new CustomEvent('mapDataLoaded', { detail: data });
+            document.dispatchEvent(event);
+            
             // Создаем маркеры для всех данных
             createMarkers(data);
             

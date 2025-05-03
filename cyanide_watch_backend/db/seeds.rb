@@ -12,7 +12,8 @@ spots = [
     location: "Река Тиса",
     lat: 47.9,
     lng: 21.7,
-    severity: "high",
+    measurement_type: "water",
+    measurement_value: 0.5,
     date: Date.new(2020, 2, 1),
     description: "Крупный разлив цианида на границе Румынии и Венгрии",
     news_link: "https://www.theguardian.com/world/2000/feb/14/1"
@@ -21,7 +22,8 @@ spots = [
     location: "Завод Золотодобычи в Казахстане",
     lat: 48.0,
     lng: 70.3,
-    severity: "medium",
+    measurement_type: "solid",
+    measurement_value: 0.01,
     date: Date.new(2021, 5, 14),
     description: "Утечка цианида во время обработки руды",
     news_link: "https://www.business-humanrights.org/en/latest-news/kazakhstan-kazzinc-paid-almost-50-mln-tenge-in-fines-for-river-pollution/"
@@ -30,7 +32,8 @@ spots = [
     location: "Южная Африка — шахта",
     lat: -28.7,
     lng: 24.7,
-    severity: "high",
+    measurement_type: "water",
+    measurement_value: 1.2,
     date: Date.new(2022, 9, 11),
     description: "Плотина на алмазном руднике в Ягерсфонтейне рухнула, вызвав поток горнодобывающих отходов",
     news_link: "https://www.livescience.com/planet-earth/pollution/earth-from-space-golden-river-of-toxic-waste-spills-out-from-deadly-mining-disaster-in-south-africa"
@@ -39,7 +42,8 @@ spots = [
     location: "Китай — Хэнань",
     lat: 34.7,
     lng: 113.6,
-    severity: "low",
+    measurement_type: "water",
+    measurement_value: 0.2,
     date: Date.new(2023, 3, 22),
     description: "Незначительное превышение уровня цианида в реке",
     news_link: "https://enviliance.com/regions/east-asia/cn/report_2551"
@@ -48,7 +52,8 @@ spots = [
     location: "США — Невада",
     lat: 39.3,
     lng: -116.6,
-    severity: "medium",
+    measurement_type: "solid",
+    measurement_value: 0.5,
     date: Date.new(2020, 9, 12),
     description: "Выброс из хранилища промышленных отходов",
     news_link: "https://www.epa.gov/archive/epapages/newsroom_archive/newsreleases/16d63f090f10696385257d5e005ae237.html"
@@ -57,7 +62,8 @@ spots = [
     location: "Индонезия — Суматра",
     lat: -0.5,
     lng: 101.4,
-    severity: "high",
+    measurement_type: "solid",
+    measurement_value: 0.5,
     date: Date.new(2021, 11, 2),
     description: "Неофициальная добыча с использованием цианида",
     news_link: nil
@@ -66,7 +72,8 @@ spots = [
     location: "Россия — Красноярский край",
     lat: 56.0,
     lng: 93.0,
-    severity: "medium",
+    measurement_type: "water",
+    measurement_value: 0.8,
     date: Date.new(2023, 7, 10),
     description: "Разлив на территории золоторудного предприятия",
     news_link: nil
@@ -75,7 +82,8 @@ spots = [
     location: "Бразилия — Амазония",
     lat: -3.1,
     lng: -60.0,
-    severity: "low",
+    measurement_type: "water",
+    measurement_value: 1.5,
     date: Date.new(2022, 1, 18),
     description: "Фиксация загрязнения в результате нелегальной добычи",
     news_link: "https://agenciabrasil.ebc.com.br/en/geral/noticia/2025-02/federal-police-destroy-illegal-gold-mines-amazon"
@@ -84,7 +92,8 @@ spots = [
     location: "Румыния — река Сомеш",
     lat: 47.8,
     lng: 23.9,
-    severity: "high",
+    measurement_type: "water",
+    measurement_value: 1.8,
     date: Date.new(2000, 1, 30),
     description: "Одна из самых известных катастроф с цианидом в Европе",
     news_link: "https://www.theguardian.com/world/2000/feb/14/1"
@@ -93,7 +102,8 @@ spots = [
     location: "Монголия — северный регион",
     lat: 49.0,
     lng: 106.9,
-    severity: "medium",
+    measurement_type: "water",
+    measurement_value: 0.8,
     date: Date.new(2007, 4, 5),
     description: "Разлив цианида натрия в результате золотодобычи в сомоне Хонгор",
     news_link: "https://reliefweb.int/report/mongolia/mongolia-sodium-cyanide-and-mercury-pollution-and-mining-related-environmental-emergencies-july-2007"
@@ -103,5 +113,4 @@ spots = [
   Spot.create!(spots)
   
   puts "Создано #{spots.size} точек загрязнения."
-  
-  
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

@@ -42,6 +42,10 @@ if (but_themeToggle) { // Добавлена проверка на сущест�
     body.classList.toggle('dark_theme');
 
     if (body.classList.contains('dark_theme')) {
+      // для смены темы графиков
+      const themeEvent = new Event('themeChanged');
+      document.dispatchEvent(themeEvent);
+
       // картинки - ИС-ПРАВ-ЛЕ-НО: Указаны полные пути
       changeImageWithFade(but_themeToggle, "<%= asset_path('images_for_page_style/but_theme_toggle_to_light.png') %>");
       changeImageWithFade(main_logo, "<%= asset_path('images_for_page_style/cyanidewatch_logo_dark.png') %>");
@@ -58,6 +62,10 @@ if (but_themeToggle) { // Добавлена проверка на сущест�
       localStorage.setItem('theme', 'dark_theme');
     }
     else {
+      // для смены темы графиков
+      const themeEvent = new Event('themeChanged');
+      document.dispatchEvent(themeEvent);
+
       // картинки - ИС-ПРАВ-ЛЕ-НО: Указаны полные пути
       changeImageWithFade(but_themeToggle, "<%= asset_path('images_for_page_style/but_theme_toggle_to_dark.png') %>");
       changeImageWithFade(main_logo, "<%= asset_path('images_for_page_style/cyanidewatch_logo_light.png') %>");

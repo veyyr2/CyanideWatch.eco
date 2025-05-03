@@ -14,7 +14,58 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('year-filter').addEventListener('change', function() {
         updateCharts();
     });
+
+    // Обработчик изменения темы
+    document.addEventListener('themeChanged', function() {
+        updateChartColors();
+    });
 });
+
+function updateChartColors() {
+    const isDarkTheme = document.body.classList.contains('dark_theme');
+    const textColor = isDarkTheme ? '#ffffff' : '#333333';
+    const gridColor = isDarkTheme ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+    const bgColor = isDarkTheme ? '#2E2222' : '#ffffff';
+
+    // Обновляем цвета для первого графика
+    if (pollutionLevelsChart) {
+        pollutionLevelsChart.options.scales.x.ticks.color = textColor;
+        pollutionLevelsChart.options.scales.y.ticks.color = textColor;
+        pollutionLevelsChart.options.scales.x.grid.color = gridColor;
+        pollutionLevelsChart.options.scales.y.grid.color = gridColor;
+        // Добавляем обновление цвета заголовка оси X
+        if (pollutionLevelsChart.options.scales.x.title) {
+            pollutionLevelsChart.options.scales.x.title.color = textColor;
+        }
+        // Добавляем обновление цвета заголовка оси Y
+        if (pollutionLevelsChart.options.scales.y.title) {
+            pollutionLevelsChart.options.scales.y.title.color = textColor;
+        }
+        pollutionLevelsChart.update();
+    }
+
+    // Обновляем цвета для второго графика
+    if (topPollutedChart) {
+        topPollutedChart.options.scales.x.ticks.color = textColor;
+        topPollutedChart.options.scales.y.ticks.color = textColor;
+        topPollutedChart.options.scales.x.grid.color = gridColor;
+        topPollutedChart.options.scales.y.grid.color = gridColor;
+         // Добавляем обновление цвета заголовка оси X
+        if (topPollutedChart.options.scales.x.title) {
+            topPollutedChart.options.scales.x.title.color = textColor;
+        }
+        // Добавляем обновление цвета заголовка оси Y
+        if (topPollutedChart.options.scales.y.title) {
+            topPollutedChart.options.scales.y.title.color = textColor;
+        }
+        topPollutedChart.update();
+    }
+
+    // Обновляем фон контейнеров графиков
+    document.querySelectorAll('.chart-box').forEach(box => {
+        box.style.backgroundColor = bgColor;
+    });
+}
 
 function updateCharts() {
     const selectedYear = document.getElementById('year-filter').value;
@@ -33,10 +84,14 @@ function updateCharts() {
 function renderCharts(data) {
     renderPollutionLevelsChart(data);
     renderTopPollutedChart(data);
+    updateChartColors(); // Обновляем цвета при первой загрузке
 }
 
 function renderPollutionLevelsChart(data) {
     const ctx = document.getElementById('pollutionLevelsChart');
+    const isDarkTheme = document.body.classList.contains('dark_theme');
+    const textColor = isDarkTheme ? '#ffffff' : '#333333';
+    const gridColor = isDarkTheme ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
     
     // Группируем данные по уровням загрязнения
     const levels = {
@@ -70,13 +125,56 @@ function renderPollutionLevelsChart(data) {
                     borderWidth: 1
                 }]
             },
-            options: getCommonChartOptions('Уровень загрязнения', 'Количество точек')
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            color: textColor
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: textColor
+                        },
+                        grid: {
+                            color: gridColor
+                        },
+                        title: {
+                            display: true,
+                            text: 'Уровень загрязнения',
+                            color: textColor
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: textColor
+                        },
+                        grid: {
+                            color: gridColor
+                        },
+                        title: {
+                            display: true,
+                            text: 'Количество точек',
+                            color: textColor
+                        }
+                    }
+                }
+            }
         });
     }
 }
 
 function renderTopPollutedChart(data) {
     const ctx = document.getElementById('topPollutedChart');
+    const isDarkTheme = document.body.classList.contains('dark_theme');
+    const textColor = isDarkTheme ? '#ffffff' : '#333333';
+    const gridColor = isDarkTheme ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
     
     // Сортируем и берем топ-10
     const topSpots = [...data]
@@ -102,47 +200,47 @@ function renderTopPollutedChart(data) {
                 }]
             },
             options: {
-                ...getCommonChartOptions('Уровень загрязнения (мг/л)', 'Местоположение'),
+                responsive: true,
+                maintainAspectRatio: false,
                 indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            color: textColor
+                        }
+                    }
+                },
                 scales: {
                     x: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        ticks: {
+                            color: textColor
+                        },
+                        grid: {
+                            color: gridColor
+                        },
+                        title: {
+                            display: true,
+                            text: 'Уровень загрязнения (мг/л)',
+                            color: textColor
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: textColor
+                        },
+                        grid: {
+                            color: gridColor
+                        },
+                        title: {
+                            display: true,
+                            text: 'Местоположение',
+                            color: textColor
+                        }
                     }
                 }
             }
         });
     }
-}
-
-function getCommonChartOptions(xTitle, yTitle) {
-    return {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: false
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return `${context.dataset.label}: ${context.raw}`;
-                    }
-                }
-            }
-        },
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: xTitle
-                }
-            },
-            y: {
-                title: {
-                    display: true,
-                    text: yTitle
-                }
-            }
-        }
-    };
 }

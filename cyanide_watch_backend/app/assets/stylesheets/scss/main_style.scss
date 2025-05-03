@@ -37,7 +37,7 @@ $main_padding: 1em; // переменная отступа у мэина
     margin: 0;
     padding: 0;
     // для плавного перехода темы
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
     box-sizing: border-box; // обязательно
 }
 
@@ -59,6 +59,11 @@ body {
     --text-color-map: #000000; // цвет текста для карты
     color: var(--text-color);
     background-color: #0A0A0A;
+
+    // для графиков
+    .chart-box {
+        border: 1px solid black;
+    }
 }
 
 // боди с темной темой
@@ -85,8 +90,13 @@ body {
     }
 
     // всем изображениям внутри контентов мэина и модального окна
-    .img_content_divs, .modalZoomImgs-content { 
+    .img_content_divs, .modalZoomImgs-content, .formap { 
         filter: brightness(70%);
+    }
+
+    // для графиков
+    .chart-box {
+        border: 1px solid white;
     }
 }
 
@@ -113,15 +123,16 @@ body {
         .chart-box {
             flex: 1 1 45%;
             min-width: 300px;
-            background: white;
+            background-color: white;
             padding: 1rem;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            
+            background-color: var(--div-main-color);
+
             h2 {
                 font-size: 1.2rem;
                 margin-bottom: 1rem;
-                color: #333;
+                color: var(--text-color);
             }
             
             canvas {
@@ -143,7 +154,7 @@ body {
 
 // #region стили для карты-----------------------------------------------------------
     .map-container {
-        color: black;
+        color: var(--text-color-map);
         width: 100%;
         height: 80vh;
         position: relative;
@@ -168,7 +179,7 @@ body {
             top: 20px;
             right: 20px;
             z-index: 1000;
-            background: white;
+            background-color: var(--div-main-color);
             padding: 10px;
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -176,6 +187,8 @@ body {
             select {
                 margin: 0 5px;
                 padding: 5px 10px;
+                background-color: var(--div-main-color);
+                color: var(--text-color-map);
             }
         }
 
@@ -193,7 +206,7 @@ body {
             bottom: -30px;
             right: 20px;
             z-index: 1000;
-            background: white;
+            background-color: var(--div-main-color);
             padding: 10px;
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);

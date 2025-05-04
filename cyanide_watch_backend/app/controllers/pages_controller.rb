@@ -8,6 +8,11 @@ class PagesController < ApplicationController
     end
 
     def news
-      render layout: false
+      @news = News.all
+      
+      respond_to do |format|
+        format.html  # для обычного HTML-запроса
+        format.json { render json: @news }  # для JSON-запроса
+      end
     end
   end

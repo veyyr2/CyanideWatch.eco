@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_03_131457) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_04_152655) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -37,6 +37,24 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_131457) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "moderators", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_moderators_on_user_id"
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "image_url"
+    t.string "news_link"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_news_on_user_id"
+  end
+
   create_table "spots", force: :cascade do |t|
     t.string "location"
     t.float "lat"
@@ -49,4 +67,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_03_131457) do
     t.string "measurement_type"
     t.float "measurement_value"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "moderators", "users"
+  add_foreign_key "news", "users"
 end

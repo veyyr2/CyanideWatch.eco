@@ -1,0 +1,19 @@
+/* app/assets/stylesheets/news.css */
+.field {
+    margin-bottom: 1rem;
+  }
+  
+  .field label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .field input[type="text"],
+  .field textarea {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  
+  .actions {
+    margin-top: 1.5rem;
+  }

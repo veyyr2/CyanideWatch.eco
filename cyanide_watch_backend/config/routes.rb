@@ -1,23 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    registrations: 'registrations'
+  }
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  post 'moderators', to: 'moderators#create'
+  ActiveAdmin.routes(self)
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # главная страница
-  get '/index', to: 'pages#index'
-
-  # моя карта
+  root 'pages#index'
   get '/map', to: 'pages#map'
 
-   # новости
-   get '/news', to: 'pages#news'
-  
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Изменяем маршруты для новостей
+  resources :news, only: [:index, :new, :create] do
+    collection do
+      get 'list' # Добавляем новый маршрут для просмотра списка новостей
+    end
+  end
 
   namespace :api do
     resources :spots, only: [:index]

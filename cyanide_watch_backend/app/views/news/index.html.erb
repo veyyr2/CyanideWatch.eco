@@ -1,0 +1,27 @@
+<h1>Создание новой новости</h1>
+
+<%= form_with(model: @news, url: news_index_path) do |form| %>
+  <div class="field">
+    <%= form.label :title, "Заголовок" %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, "Описание" %>
+    <%= form.text_area :description, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url, "URL изображения" %>
+    <%= form.url_field :image_url, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :news_link, "Ссылка на новость" %>
+    <%= form.url_field :news_link, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Создать новость", class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -58,6 +58,11 @@
                     <p id="title_night_but" class="nav_button">← Сменить тему</p> 
                 </div>        
                 <!-- КОНЕЦ Блок с кнопкой темной темы и подписью к ней -->  
+                <% if user_signed_in? && current_user.moderator? %>
+                    <%= link_to "Создать новость", new_news_path, class: "nav_button nav_button--but-2" %>
+                <% else %>
+                    <%= link_to "Стать модератором", "#", id: "becomeModerator", class: "nav_button nav_button--but-2", data: { turbo_method: :post } %>
+                <% end %>          
             </nav>
             <!-- КОНЕЦ Блок с кнопками навигации -->
         </div>
@@ -76,7 +81,7 @@
 
         <!-- мэин-->
         <main>
-            
+
         </main>
         <!-- КОНЕЦ мэин-->
 
@@ -238,6 +243,10 @@
     <%= javascript_include_tag 'open_contact' %>
     <!-- Открытие модального окна источников -->
     <%= javascript_include_tag 'open_sources' %>
+
+    <!-- модерация -->
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <%= javascript_include_tag 'moderator.js' %>
     <!-- КОНЕЦ Скрипты -->
 </body>
 </html>

@@ -12,11 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <!-- CSS -->
     <%= stylesheet_link_tag 'scss/dist/main_style.min' %>
-    <!-- Leaflet для карты -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- Chart.js для графиков -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 
@@ -45,7 +40,7 @@
             <nav id="container_nav_button">
                 <a href="map.html"><div title="Перейти на страницу 'Карта'" class="nav_button">Карта</div></a>
                 <a href="#"><div title="Перейти на страницу 'Пожертвовать'" class="nav_button nav_button--but-2">Пожертвовать</div></a>
-                <a href="news.html"><div title="Перейти на страницу 'Новости'" class="nav_button">Новости</div></a>
+                <a href="#"><div title="Перейти на страницу 'Новости'" class="nav_button">Новости</div></a>
                 <a href="#"><div title="Перейти на страницу 'Игра'" class="nav_button">Игра</div></a>
                 <!-- кнопка темной темы -->
                 <div id="div_with_but_night_theme_toggle" title="Сменить тему">
@@ -81,88 +76,7 @@
 
         <!-- мэин-->
         <main>
-            <!-- Контейнер карты -->
-            <div class="map-container">
-                <!-- Заголовок карты -->
-                <h1 class="map_title">Карта загрязнений цианидом</h1>
-
-                <!-- карта для отображения -->
-                <div id="world-map" class="formap"></div>
-
-                <!-- Контейнер для фильтра и легенды (для адаптации) -->
-                <div class="container_map_legendfilter"> 
-                    <!-- фильтр годов -->
-                    <div class="map-controls">
-                        <select id="year-filter">
-                            <option value="all">Все годы</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                            <option value="2019">2019</option>
-                            <option value="2018">2018</option>
-                            <option value="2017">2017</option>
-                            <option value="2016">2016</option>
-                            <option value="2015">2015</option>
-                            <option value="2014">2014</option>
-                            <option value="2013">2013</option>
-                            <option value="2012">2012</option>
-                            <option value="2011">2011</option>
-                            <option value="2010">2010</option>
-                            <option value="2009">2009</option>
-                            <option value="2008">2008</option>
-                            <option value="2007">2007</option>
-                            <option value="2006">2006</option>
-                            <option value="2005">2005</option>
-                            <option value="2004">2004</option>
-                            <option value="2003">2003</option>
-                            <option value="2002">2002</option>
-                            <option value="2001">2001</option>
-                            <option value="2000">2000</option>
-                        </select>
-                    </div>
-                    <!-- КОНЕЦ фильтр годов -->
-
-                    <!-- Легенда карты -->
-                    <div class="map-legend">
-                        <div class="legend-item">
-                            <span class="legend-color verysmall"></span>
-                            <span>Незначительное загрязнение</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color small"></span>
-                            <span>Слабое загрязнение</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color medium"></span>
-                            <span>Среднее загрязнение</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color large"></span>
-                            <span>Сильное загрязнение</span>
-                        </div>
-                    </div>
-                    <!-- КОНЕЦ Легенда карты -->
-                </div>
-                <!-- КОНЕЦ Контейнер для фильтра и легенды (для адаптации) -->
-            </div>
-            <!-- КОНЕЦ Контейнер карты -->
-
-            <!-- Контейнер для графиков -->
-            <div class="charts-container">
-                <!-- График распределения по уровням загрязнения -->
-                <div class="chart-box">
-                    <h2>Распределение точек по уровню загрязнения</h2>
-                    <canvas id="pollutionLevelsChart"></canvas>
-                </div>
-                
-                <!-- График топ самых загрязненных мест -->
-                <div class="chart-box">
-                    <h2>Топ самых загрязненных мест</h2>
-                    <canvas id="topPollutedChart"></canvas>
-                </div>
-            </div>
-            <!-- КОНЕЦ Контейнер для графиков -->
+            
         </main>
         <!-- КОНЕЦ мэин-->
 
@@ -324,11 +238,6 @@
     <%= javascript_include_tag 'open_contact' %>
     <!-- Открытие модального окна источников -->
     <%= javascript_include_tag 'open_sources' %>
-
-    <!-- Добавление интерактивной карты -->
-    <%= javascript_include_tag 'for map/leaflet_map' %>
-    <!-- Графики для карты -->
-    <%= javascript_include_tag 'for map/charts' %>
     <!-- КОНЕЦ Скрипты -->
 </body>
 </html>

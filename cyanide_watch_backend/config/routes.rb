@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   # моя карта
   get '/map', to: 'pages#map'
+
+   # новости
+   get '/news', to: 'pages#news'
   
   # Defines the root path route ("/")
   # root "posts#index"

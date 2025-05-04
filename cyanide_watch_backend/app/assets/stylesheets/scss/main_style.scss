@@ -86,7 +86,9 @@ body {
 
     // для блока заднего фона
     #body_bg_imgs {
-        display: none;
+        // display: none; // Убираем это
+        opacity: 0; // Скрываем через opacity
+        visibility: hidden; // Скрываем визуально, но элемент занимает место
     }
 
     // всем изображениям внутри контентов мэина и модального окна
@@ -140,14 +142,6 @@ body {
                 height: 500px !important;
             }
         }
-        
-        // @media (max-width: 768px) {
-        //     flex-direction: column;
-            
-        //     .chart-box {
-        //         flex: 1 1 100%;
-        //     }
-        // }
     }
 // #endregion стили для графиков-----------------------------------------------------------
 }
@@ -258,6 +252,13 @@ body {
         background-repeat: repeat-y;
         background-size: 100% auto;
         filter: blur(2px);
+
+        // Добавляем свойства для плавного скрытия/появления
+        opacity: 1;
+        visibility: visible;
+
+        // Добавляем плавный переход для filter, opacity и visibility
+        transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     }
 
     // Стили для кнопки меню МУ

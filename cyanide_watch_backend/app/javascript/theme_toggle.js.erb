@@ -24,8 +24,8 @@ if (savedTheme) {
   if (savedTheme === 'dark_theme') {
     // ИС-ПРАВ-ЛЕ-НО: Указаны полные пути в asset_path
     if (but_themeToggle) but_themeToggle.src = "<%= asset_path('images_for_page_style/but_theme_toggle_to_light.png') %>";
-    if (main_logo) main_logo.src = "<%= asset_path('images_for_page_style/cyanidewatch_logo_dark.png') %>";
-    if (header_right_triangle) header_right_triangle.src = "<%= asset_path('images_for_page_style/triangle-right-dark.png') %>";
+    if (main_logo) changeImageWithFade(main_logo, "<%= asset_path('images_for_page_style/cyanidewatch_logo_dark.png') %>");
+    if (header_right_triangle) header_right_triangle.src = "<%= asset_path('images_for_page_style/triangle-right-dark.png') %>";
     if (footer_left_triangle) footer_left_triangle.src = "<%= asset_path('images_for_page_style/triangle-left-dark.png') %>";
 
     for (let i = 0; i < trinagle_for_style.length; i++) {

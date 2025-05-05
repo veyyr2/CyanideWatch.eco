@@ -610,8 +610,9 @@
     overflow: hidden;
   }
   .container_video iframe {
+    width: 100%;
     max-width: 100%;
-    aspect-ratio: 16/9;
+    height: 530px;
   }
   .container_with_imgs_of_div {
     height: auto;
@@ -1228,6 +1229,7 @@
   }
   .container_video iframe {
     max-width: 100%;
+    min-height: 300px;
     aspect-ratio: 16/9;
   }
   .container_with_imgs_of_div {

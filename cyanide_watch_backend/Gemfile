@@ -38,6 +38,12 @@ gem 'devise'
 # тоже для работы с административным интерфейсом, но для стиля
 gem 'sassc-rails'
 
+# валидация URL
+gem 'validate_url'
+
+# Для поиска и фильтрации данных
+gem 'ransack'
+
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
 

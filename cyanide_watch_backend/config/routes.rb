@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  # Объединённая конфигурация Devise + ActiveAdmin
+  devise_for :admin_users, {
+    controllers: {
+      registrations: 'admin_users/registrations',
+      sessions: 'active_admin/devise/sessions'  # Используем стандартный контроллер ActiveAdmin
+    }
+  }.merge(ActiveAdmin::Devise.config)
+
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -21,5 +28,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :spots, only: [:index]
+  end
+
+  namespace :api do
+    resources :news, only: [:index]  # Доступ по /api/news
   end
 end

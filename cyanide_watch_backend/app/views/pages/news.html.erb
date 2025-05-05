@@ -58,6 +58,11 @@
                     <p id="title_night_but" class="nav_button">← Сменить тему</p> 
                 </div>        
                 <!-- КОНЕЦ Блок с кнопкой темной темы и подписью к ней -->  
+                <% if current_admin_user&.moderator? || current_admin_user&.admin? %>
+                <%= link_to "Добавить новость", admin_news_index_path, class: "btn btn-success" %>
+                <% else %>
+                <%= link_to "Стать модератором", new_admin_user_registration_path(role: 'moderator'), class: "btn btn-primary" %>
+                <% end %> 
             </nav>
             <!-- КОНЕЦ Блок с кнопками навигации -->
         </div>
@@ -76,7 +81,8 @@
 
         <!-- мэин-->
         <main>
-            
+            <h1>Новости</h1>
+            <div id="news-container"></div>
         </main>
         <!-- КОНЕЦ мэин-->
 

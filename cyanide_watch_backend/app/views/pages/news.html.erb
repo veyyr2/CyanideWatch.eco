@@ -39,9 +39,13 @@
             <!-- Блок с кнопками навигации -->
             <nav id="container_nav_button">
                 <a href="map.html"><div title="Перейти на страницу 'Карта'" class="nav_button">Карта</div></a>
-                <a href="#"><div title="Перейти на страницу 'Пожертвовать'" class="nav_button nav_button--but-2">Пожертвовать</div></a>
+                <a href="donate.html"><div title="Перейти на страницу 'Пожертвовать'" class="nav_button nav_button--but-2">Пожертвовать</div></a>
                 <a href="news.html"><div title="Перейти на страницу 'Новости'" class="nav_button">Новости</div></a>
-                <a href="#"><div title="Перейти на страницу 'Игра'" class="nav_button">Игра</div></a>
+                <% if current_admin_user&.moderator? || current_admin_user&.admin? %>
+                <%= link_to "Добавить новость", admin_news_index_path, class: "nav_button nav_button--but-2" %>
+                <% else %>
+                <%= link_to "Стать модератором", new_admin_user_registration_path(role: 'moderator'), class: "nav_button nav_button--but-2" %>
+                <% end %> 
                 <!-- кнопка темной темы -->
                 <div id="div_with_but_night_theme_toggle" title="Сменить тему">
                     <%= image_tag "images_for_page_style/but_theme_toggle_to_dark.png",
@@ -58,11 +62,6 @@
                     <p id="title_night_but" class="nav_button">← Сменить тему</p> 
                 </div>        
                 <!-- КОНЕЦ Блок с кнопкой темной темы и подписью к ней -->  
-                <% if current_admin_user&.moderator? || current_admin_user&.admin? %>
-                <%= link_to "Добавить новость", admin_news_index_path, class: "nav_button nav_button--but-2" %>
-                <% else %>
-                <%= link_to "Стать модератором", new_admin_user_registration_path(role: 'moderator'), class: "nav_button nav_button--but-2" %>
-                <% end %> 
             </nav>
             <!-- КОНЕЦ Блок с кнопками навигации -->
         </div>

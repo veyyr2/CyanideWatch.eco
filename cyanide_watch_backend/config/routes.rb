@@ -20,8 +20,11 @@ Rails.application.routes.draw do
   # моя карта
   get '/map', to: 'pages#map'
 
-   # новости
-   get '/news', to: 'pages#news'
+  # новости
+  get '/news', to: 'pages#news'
+
+  # пожертвовать
+  get '/donate', to: 'pages#donate'
   
   # Defines the root path route ("/")
   # root "posts#index"

@@ -23,6 +23,7 @@
     --eco-bg-color: #e4d497;
     --text-color: #ffffff;
     --text-color-map: #000000;
+    --news-card-color: #0151a1;
     color: var(--text-color);
     background-color: #0A0A0A;
   }
@@ -43,6 +44,7 @@
     --eco-bg-color: #877a56;
     --text-color: #ffffff;
     --text-color-map: #ffffff;
+    --news-card-color: #023e7a;
     color: var(--text-color);
     background-color: #0A0A0A;
   }
@@ -87,6 +89,108 @@
   .charts-container .chart-box canvas {
     width: 100% !important;
     height: 500px !important;
+  }
+  #news_main {
+    height: 100% !important;
+  }
+  .news_style_background {
+    background-color: var(--div-main-color);
+    border: 1px solid black;
+    height: 100%;
+  }
+  .main_container_news {
+    position: relative;
+    padding: 1em;
+    background-color: var(--head-div-backtext-color);
+    height: fit-content;
+  }
+  .news-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--div-main-color);
+    border: 1px solid black;
+  }
+  .news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .news-card {
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background-color: var(--news-card-color);
+  }
+  .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  .news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .news-content {
+    padding: 15px;
+  }
+  .news-title {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: var(--alert-div-backtext-color);
+    text-align: center;
+  }
+  .news-description {
+    color: var(--text-color-map);
+    margin-bottom: 15px;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: var(--div-main-color);
+  }
+  .news-description::before {
+    content: "Описание: ";
+  }
+  .news-link {
+    display: inline-block;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .news-link:hover {
+    text-decoration: underline;
+  }
+  .news-date {
+    display: inline-block;
+    color: var(--text-color);
+    background-color: #7e7e7e;
+    font-size: 0.8rem;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+  }
+  .news-date::before {
+    content: "Опубликовано: ";
+  }
+  .news-link-date-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .error {
+    color: #d32f2f;
+    text-align: center;
   }
 }
 .map-container {

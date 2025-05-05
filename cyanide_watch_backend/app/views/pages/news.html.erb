@@ -59,9 +59,9 @@
                 </div>        
                 <!-- КОНЕЦ Блок с кнопкой темной темы и подписью к ней -->  
                 <% if current_admin_user&.moderator? || current_admin_user&.admin? %>
-                <%= link_to "Добавить новость", admin_news_index_path, class: "btn btn-success" %>
+                <%= link_to "Добавить новость", admin_news_index_path, class: "nav_button nav_button--but-2" %>
                 <% else %>
-                <%= link_to "Стать модератором", new_admin_user_registration_path(role: 'moderator'), class: "btn btn-primary" %>
+                <%= link_to "Стать модератором", new_admin_user_registration_path(role: 'moderator'), class: "nav_button nav_button--but-2" %>
                 <% end %> 
             </nav>
             <!-- КОНЕЦ Блок с кнопками навигации -->
@@ -80,9 +80,25 @@
         <div id="body_bg_imgs" style="background-image: url(<%= asset_path('imgs/background_img.png') %>);"></div>
 
         <!-- мэин-->
-        <main>
-            <h1>Новости</h1>
-            <div id="news-container"></div>
+        <main id="news_main">
+            <!-- блок для заднего фона новостей-->
+            <div class="news_style_background">
+                <!-- шапка мэин-->
+                <div class="hat_divs">
+                    <!-- Заголовок -->
+                    <h1 class="title_divs">Последние новости</h1>
+                </div>
+                <!-- КОНЕЦ шапка мэин-->
+
+                <div class="main_container_news"> 
+                    <div class="news-container">
+                        <div id="news-list" class="news-list">
+                            <!-- Новости будут загружаться сюда -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- КОНЕЦ блок для заднего фона новостей-->
         </main>
         <!-- КОНЕЦ мэин-->
 
@@ -244,6 +260,9 @@
     <%= javascript_include_tag 'open_contact' %>
     <!-- Открытие модального окна источников -->
     <%= javascript_include_tag 'open_sources' %>
+
+    <!-- Подключить новости -->
+    <%= javascript_include_tag 'news' %>
     <!-- КОНЕЦ Скрипты -->
 </body>
 </html>

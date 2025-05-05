@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyanideWatch</title>
+    <!-- иконка -->
+    <%= favicon_link_tag 'images_for_page_style/cyanide_watch_icon.png' %>
+    <!-- Шрифт -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <%= stylesheet_link_tag 'scss/dist/main_style.min' %>
+</head>
+
+
+<body>
+    <!-- хидер -->
+    <header>
+        <!-- контент хидера -->
+        <div class="header_content">
+            <!-- логотип -->
+           <%= image_tag "images_for_page_style/cyanidewatch_logo_light.png",
+                alt: "Вернуться на главную страницу",
+                id: "main_logo",
+                title: "Вернуться на главную страницу",
+                loading: "lazy",
+                onclick: "location.href='index.html'",
+                data: { # Добавляем data атрибуты
+                dark_src: asset_path('images_for_page_style/cyanidewatch_logo_dark.png'),
+                light_src: asset_path('images_for_page_style/cyanidewatch_logo_light.png')
+                }
+            %>
+
+            <!-- Кнопка меню для МУ -->
+            <button id="mobileMenuButton" class="nav_button" title="Меню">☰</button>
+
+            <!-- Блок с кнопками навигации -->
+            <nav id="container_nav_button">
+                <a href="map.html"><div title="Перейти на страницу 'Карта'" class="nav_button">Карта</div></a>
+                <a href="donate.html"><div title="Перейти на страницу 'Пожертвовать'" class="nav_button nav_button--but-2">Пожертвовать</div></a>
+                <a href="news.html"><div title="Перейти на страницу 'Новости'" class="nav_button">Новости</div></a>
+                <!-- кнопка темной темы -->
+                <div id="div_with_but_night_theme_toggle" title="Сменить тему">
+                    <%= image_tag "images_for_page_style/but_theme_toggle_to_dark.png",
+                        id: "but_night_theme_toggle",
+                        alt: "Сменить тему",
+                        width: "20px",
+                        loading: "lazy",
+                        data: { # Добавляем data атрибуты
+                        dark_src: asset_path('images_for_page_style/but_theme_toggle_to_light.png'),
+                        light_src: asset_path('images_for_page_style/but_theme_toggle_to_dark.png')
+                        }
+                    %>
+                    <!-- Подпись смены темы для МУ -->
+                    <p id="title_night_but" class="nav_button">← Сменить тему</p> 
+                </div>        
+                <!-- КОНЕЦ Блок с кнопкой темной темы и подписью к ней -->  
+            </nav>
+            <!-- КОНЕЦ Блок с кнопками навигации -->
+        </div>
+        <!-- КОНЕЦ контент хидера -->
+
+        <!-- треугольник для дизайна (отдельно, чтобы не был включен в flex) -->
+        <%= image_tag "images_for_page_style/triangle-right-light.png", alt: "", id: "header_right_triangle", loading: "lazy" %>
+    </header>
+    <!-- КОНЕЦ хидер -->
+
+
+    <!-- мэин и эсайд -->
+    <div id="container_main_aside">
+        <!-- фото для фона -->
+        <div id="body_bg_imgs" style="background-image: url(<%= asset_path('imgs/background_img.png') %>);"></div>
+
+        <!-- мэин-->
+        <main>
+            <!-- Блок приветствия -->
+           <div class="divs_of_main">
+                <!-- Шапка блока -->
+                <div class="hat_divs" id="welcome_hat">
+                    <!-- Заголовок -->
+                    <h1 class="title_divs">Добро пожаловать на платформу CyanideWatch!</h1>
+                    <!-- Треугольник для стиля -->
+                    <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Шапка блока -->
+
+                <!-- Контент блока -->
+                <div class="content_divs_of_main">
+                    <!-- Второй блок контента для стиля -->
+                    <div class="second_divs_content_of_main">
+                        <!-- Блок с текстами в колонку -->
+                        <div class="divs_columntext_content_of_main">
+                            <!-- div с заголовком 1 -->
+                            <div class="container_h_content welcome_h2_1"><h2><strong>CyanideWatch</strong></h2></div>
+                            <!-- div с заголовком 2 -->
+                            <div class="container_h_content welcome_h2_2"><h2><strong>Цель проекта</strong></h2></div>
+                            <!-- div с заголовком 3 -->
+                            <div class="container_h_content welcome_h2_3"><h2><strong>Возможности</strong></h2></div>
+
+                            <!-- div с параграфом 1 -->
+                            <div class="container_p_content welcome_p_1"><p>Это платформа, направленная на наблюдение за выбросами цианида в окружающую среду в режиме реального времени.</p></div>
+                            <!-- div с параграфом 2 -->
+                            <div class="container_p_content welcome_p_2" style="text-align: justify;"><p>Предоставить открытый доступ к экологически значимой информации, повысить осведомлённость общественности и поддержать усилия по снижению рисков, связанных с промышленным загрязнением. Платформа собирает и анализирует данные со всего мира, чтобы каждый мог видеть картину происходящего — будь то учёный, эколог, журналист или неравнодушный гражданин.</p></div>
+                            <!-- div с параграфом 3 -->
+                            <div class="container_p_content welcome_p_3"><p>Используйте карту, чтобы отслеживать уровень загрязнения, узнавайте последние новости, и узнайте, как вы можете повлиять на ситуацию уже сегодня.</p></div>                         
+                        </div>
+                        <!-- КОНЕЦ Блок с текстами в колонку -->
+                        
+                        <!-- Блок с картинками -->
+                        <div class="container_with_imgs_of_div">
+                            <%= image_tag "images_for_index/div_1_content/welcome_content_1.jpeg", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html", loading: "lazy" %>
+
+                            <%= image_tag "images_for_index/div_1_content/welcome_content_2.jpg", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/", loading: "lazy" %>
+
+                            <%= image_tag "images_for_index/div_1_content/welcome_content_3.png", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://ru.freepik.com/premium-photo/growth-new-life-concept-hands-with-water-watering-small-sprout_18101973.htm", loading: "lazy" %>
+                        </div>
+                        <!-- КОНЕЦ Блок с картинками -->
+                    </div>
+                    <!-- КОНЕЦ Второй блок контента для стиля -->
+                </div>
+                <!-- КОНЕЦ Контент блока -->
+            </div>
+            <!-- КОНЕЦ Блок приветствия -->
+
+            <!-- О цианиде -->
+            <div class="divs_of_main">
+                <!-- Шапка блока -->
+                <div class="hat_divs">
+                    <!-- Заголовок -->
+                    <h1 class="title_divs">О цианидах</h1>
+                    <!-- Треугольник для стиля -->
+                    <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Шапка блока -->
+
+                <!-- Контент блока -->
+                <div class="content_divs_of_main">
+                    <!-- Второй блок контента для стиля -->
+                    <div class="second_divs_content_of_main"> 
+                        <!-- Блок с видео что такое цианид -->
+                        <div class="container_video"><iframe src="https://www.youtube.com/embed/0LvXQctzeKU?si=CdTcrhDLY9RMEfQa" title="What is cyanide?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+                        <!-- Блок с фотографиями что такое цианид -->
+                        <div class="container_cyanide_imgs">
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_1.png", class: "img_content_divs imgs_cyanide_inf_1", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html", loading: "lazy" %>
+                            <!-- Вертикальная линия разделения -->
+                            <div class="vertical_line"></div>
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_2.png", class: "img_content_divs imgs_cyanide_inf_2", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/", loading: "lazy" %>
+                        </div>
+
+                        <!-- Модальное окно для увеличения изображений -->
+                        <div id="imageModal" class="modal">
+                            <!-- крестик закрытия -->
+                            <span class="close" id="close_zoom" onclick="closemodalZoomImgs()">&times;</span>
+                            <!-- изображение -->
+                            <img class="modalZoomImgs-content" id="modalImage" loading="lazy">
+                        </div>
+                        <!-- КОНЕЦ Блок с фотографиями что такое цианид -->
+
+                        <!-- Блок с видео об утечках цианида -->
+                        <div class="container_video"><iframe src="https://www.youtube.com/embed/Xjh6LCHYjBM?si=Vr20flqOWVTltrw4" title="Cyanide leak" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+                        <!-- Блок с текстом -->
+                        <div class="container_text">
+                            <p><strong class="underline_words">Загрязнение цианидом</strong> — это форма химического загрязнения окружающей среды, возникающая при попадании цианидов в воздух, воду или почву. Цианиды могут быть побочным продуктом горнодобывающей промышленности, особенно при добыче золота и серебра с использованием цианидного выщелачивания.</p>
+                        </div>
+
+                        <!-- Блок 2 с фотографиями что такое цианид -->
+                        <div class="container_cyanide_imgs">
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_3.png", class: "img_content_divs imgs_cyanide_inf_3", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tisza_cyanide_spill_1.jpg/800px-Tisza_cyanide_spill_1.jpg", loading: "lazy" %>
+                            <!-- Вертикальная линия разделения -->
+                            <div class="vertical_line"></div>
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_4.png", class: "img_content_divs imgs_cyanide_inf_4", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://data.vb.kg/image/big/2018-09-18_21-44-29_630338.jpg", loading: "lazy" %>
+                        </div>
+                        <!-- КОНЕЦ Блок 2 с фотографиями что такое цианид -->
+
+                        <!-- Блок с текстом 2 -->
+                        <div class="container_text">
+                            <p>Попадание цианидов в окружающую среду может привести к массовой гибели водной фауны, загрязнению источников питьевой воды и нарушению экосистем. Для человека <strong class="underline_words">цианиды чрезвычайно опасны</strong> — при попадании в организм они блокируют клеточное дыхание, что может привести к смерти.</p>
+                        </div>
+
+                        <!-- Блок 3 с фотографиями что такое цианид -->
+                        <div class="container_cyanide_imgs">
+                            <%= image_tag "images_for_index/div_2_content/div_2_content_5.jpg", class: "img_content_divs imgs_cyanide_inf_5", onclick: "openmodalZoomImgs(this)", alt: "", loading: "lazy" %>
+                        </div>
+                        <!-- КОНЕЦ Блок 3 с фотографиями что такое цианид -->
+                    </div>
+                </div>
+                <!-- КОНЕЦ Контент блока -->
+            </div>
+            <!-- КОНЕЦ О цианиде -->
+
+            <!-- Call to action -->
+            <div class="divs_of_main">
+                <!-- Шапка блока -->
+                <div class="hat_divs hat_alert_divs_of_main">
+                    <!-- Заголовок -->
+                    <h1 class="title_alert_divs_of_main">Хотите помочь в борьбе против цианида?</h1>
+                    <!-- Треугольник для стиля -->
+                    <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Шапка блока -->
+
+                <!-- Контент блока -->
+                <div class="content_divs_of_main">
+                    <!-- Второй блок контента для стиля -->
+                    <div class="second_divs_content_of_main second_div_content_alert">
+                        <!-- div с заголовком call to action -->
+                        <div class="container_h_content_alert"><h2 class="title_alert_divs_of_main"><strong>Что вы можете сделать:</strong></h2></div>
+
+                        <!-- Блок с текстом alert -->
+                        <div class="container_text container_text_alert">
+                            <p><strong class="underline_words underline_words_alert">Распространяйте информацию:</strong></p>
+                            <p>Повышайте осведомленность о вреде цианида и его опасности для окружающей среды и здоровья человека.</p>
+                        </div>
+
+                        <!-- Блок с текстом 2  alert -->
+                        <div class="container_text container_text_alert">
+                            <p><strong class="underline_words underline_words_alert">Поддерживайте организации:</strong></p>
+                            <p>Финансово или волонтерской работой помогайте организациям, которые занимаются мониторингом и борьбой с загрязнением цианидом.</p>
+                        </div>  
+                        
+                        <!-- Блок с текстом 3  alert -->
+                        <div class="container_text container_text_alert">
+                            <p><strong class="underline_words underline_words_alert">Участвуйте в акциях протеста:</strong></p>
+                            <p>Присоединяйтесь к демонстрациям и акциям протеста против использования цианида в промышленности, особенно в горнодобывающей.</p>
+                        </div> 
+
+                        <!-- Блок с текстом 4  alert -->
+                        <div class="container_text container_text_alert">
+                            <p><strong class="underline_words underline_words_alert">Подписывайте петиции:</strong></p>
+                            <p>Подписывайте петиции, требующие от правительств и компаний ужесточения контроля за использованием цианида и внедрения более безопасных альтернатив.</p>
+                        </div> 
+
+                        <!-- div с заголовком call to action 2 -->
+                        <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>Хотите помочь эко-организации? ↓</strong></h2></div>
+
+                        <!-- Блок с Фотографиями эко-организаций -->
+                        <div class="container_calltoaction_imgs_eco">
+                            <!-- блок с фото и описанием эко 1 -->
+                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                                <!-- Блок с фото эко -->
+                                <a href="https://www.greenpeace.org/international/support/donate-today" target="_blank">
+                                    <div class="container_imgs_eco">
+                                        <%= image_tag "images_for_all/greenpeace_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>                        
+                                    </div>
+                                </a>
+                                <!-- Подпись -->
+                                <p>Greenpeace</p>
+                            </div>
+
+                            <!-- блок с фото и описанием эко 2 -->
+                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                                <!-- Блок с фото эко -->
+                                <a href="https://act.350.org/donate/web_banner_main_nav_v1/" target="_blank">
+                                    <div class="container_imgs_eco">
+                                        <%= image_tag "images_for_all/350_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
+                                    </div>
+                                </a>
+                                <!-- Подпись -->
+                                <p>350</p>
+                            </div>
+
+                            <!-- блок с фото и описанием эко 3 -->
+                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                                <!-- Блок с фото эко -->
+                                <a href="https://climatenetwork.org/get-involved/support/" target="_blank">
+                                    <div class="container_imgs_eco">
+                                        <%= image_tag "images_for_all/climate action network_logo.png", class: "img_content_divs imgs_eco imgs_eco--third", alt: "greenpeace", loading: "lazy" %>  
+                                    </div>
+                                </a>
+                                <!-- Подпись -->
+                                <p>Climate action network</p>
+                            </div>
+
+                            <!-- блок с фото и описанием эко 4 -->
+                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                                <!-- Блок с фото эко -->
+                                <a href="https://donate.edf.org/campaign/676415/donate?recurring=1" target="_blank">
+                                    <div class="container_imgs_eco">
+                                        <%= image_tag "images_for_all/environmental defence fund_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
+                                    </div>
+                                </a>
+                                <!-- Подпись -->
+                                <p>Environmental defence fund</p>
+                            </div>
+
+                            <!-- блок с фото и описанием эко 5 -->
+                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                                <!-- Блок с фото эко -->
+                                <a href="https://iucn.org/donate" target="_blank">
+                                    <div class="container_imgs_eco">
+                                        <%= image_tag "images_for_all/IUCN_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>   
+                                    </div>
+                                </a>
+                                <!-- Подпись -->
+                                <p>IUCN</p>
+                            </div>
+
+                            <!-- блок с фото и описанием эко 6 -->
+                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                                <!-- Блок с фото эко -->
+                                <a href="https://preserve.nature.org/page/169344/donate/1?set.DonationLevel=" target="_blank"><div class="container_imgs_eco">
+                                    <%= image_tag "images_for_all/the nature conservancy_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>
+                                </div>
+                                </a>
+                                <!-- Подпись -->
+                                <p>The nature conservancy</p>
+                            </div>
+                        </div>
+                        <!-- КОНЕЦ Блок с Фотографиями эко-организаций -->
+
+                        <!-- div с заголовком call to action 3 -->
+                        <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>У вас есть возможность это сделать на нашей платформе! ↓</strong></h2></div>
+
+                        <!-- Блок с инструкцией как донатить -->
+                        <div class="container_donut">
+                            <!-- div с заголовком call to action 4 -->
+                            <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>Инструкция по пожертвованию:</strong></h2></div>
+
+                            <!-- Блок с фото инструкцией 1 для пк -->
+                            <div class="container_imgs_instruction">
+                                <%# Фото для ПК %>
+                                <%= image_tag "images_for_index/instruction content/show1t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                                <%# Фото для МУ %>
+                                <%= image_tag "images_for_index/instruction content/show_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
+                            </div>
+                            <!-- КОНЕЦ Блок с фото инструкцией 1 -->
+
+                            <!-- div с заголовком call to action 5 -->
+                            <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>1. Нажмите на любой логотип эко-организации.</strong></h2></div>
+
+                            <!-- Блок с фото инструкцией 2 -->
+                            <div class="container_imgs_instruction">
+                                <%# Фото для ПК %>
+                                <%= image_tag "images_for_index/instruction content/show2t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                                <%# Фото для МУ %>
+                                <%= image_tag "images_for_index/instruction content/show2_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
+                            </div>
+                            <!-- КОНЕЦ Блок с фото инструкцией 2 -->
+
+                            <!-- div с заголовком call to action 6 -->
+                            <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>2. Выберите сумму и заполните поля.</strong></h2></div>
+
+                            <!-- Блок с фото инструкцией 3 -->
+                            <div class="container_imgs_instruction">
+                                <%# Фото для ПК %>
+                                <%= image_tag "images_for_index/instruction content/show3t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                                <%# Фото для МУ %>
+                                <%= image_tag "images_for_index/instruction content/show3_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
+                            </div>
+                            <!-- КОНЕЦ Блок с фото инструкцией 3 -->
+                            
+                            <!-- div с заголовком call to action 7 -->
+                            <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>3. Нажмите “Подтвердить платеж”.</strong></h2></div>
+                        </div>
+                        <!-- КОНЕЦ Блок с инструкцией как донатить -->
+                    </div>
+                    <!-- КОНЕЦ Второй блок контента для стиля  -->
+                </div>
+                <!-- КОНЕЦ Контент блока -->
+            </div>
+            <!-- КОНЕЦ Call to action -->
+        </main>
+        <!-- КОНЕЦ мэин-->
+
+
+        <!-- эсайд -->
+        <aside>
+            <!-- Шапка эсайд -->
+            <div class="hat_divs" id="aside_hat">
+                <!-- Заголовок -->
+                <h1 class="title_divs title_aside">Эко-организации</h1>
+            </div>
+            <!-- КОНЕЦ Шапка эсайд -->
+
+           <!-- Контент эсайд -->
+            <div class="container_aside">
+                <!-- блок с фото и описанием эко 1 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://www.greenpeace.org/international/support/donate-today" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/greenpeace_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>                        
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>Greenpeace</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 2 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://act.350.org/donate/web_banner_main_nav_v1/" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/350_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>350</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 3 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://climatenetwork.org/get-involved/support/" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/climate action network_logo.png", class: "img_content_divs imgs_eco imgs_eco--third", alt: "greenpeace", loading: "lazy" %>  
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>Climate action network</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 4 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://donate.edf.org/campaign/676415/donate?recurring=1" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/environmental defence fund_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>Environmental defence fund</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 5 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://iucn.org/donate" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/IUCN_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>   
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>IUCN</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 6 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://preserve.nature.org/page/169344/donate/1?set.DonationLevel=" target="_blank"><div class="container_imgs_eco">
+                        <%= image_tag "images_for_all/the nature conservancy_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>
+                    </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>The nature conservancy</p>
+                </div>
+            </div>
+           <!-- КОНЕЦ Контент эсайд -->
+        </aside>
+        <!-- КОНЕЦ эсайд -->
+    </div>
+    <!-- КОНЕЦ мэин и эсайд -->
+    
+
+    <!-- футер -->
+    <footer>
+        <!-- Левая часть футер -->
+        <div class="footer_left">
+            <!-- Треугольник для дизайна -->
+            <%= image_tag "images_for_page_style/triangle-left-light.png", alt: "", id: "footer_left_triangle", loading: "lazy" %>
+        </div>
+        <!-- КОНЕЦ Левая часть футер -->
+
+        <!-- Правая часть футер -->
+        <div class="footer_right">
+            <!-- Кнопка для источников -->
+            <button id="but_sources" class="nav_button nav_button--footer-but">Источники</button>
+            <!-- КОНЕЦ Кнопка для источников -->
+
+            <!-- Модальное окно для источников -->
+            <div id="sourcesModal" class="modal">
+                <div class="modal_content source_content">
+                    <span class="close">&times;</span>
+                    <h2 class="title_alert_divs_of_main">Источники информации и медиа</h2>
+                    <div class="container_numberlist">
+                        <ol>
+                            <li><p>https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html</p></li>
+                            <li><p>https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/</p></li>
+                            <li><p>https://ru.freepik.com/premium-photo/growth-new-life-concept-hands-with-water-watering-small-sprout_18101973.htm</p></li>
+                            <li><p>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tisza_cyanide_spill_1.jpg/800px-Tisza_cyanide_spill_1.jpg</p></li>
+                            <li><p>https://data.vb.kg/image/big/2018-09-18_21-44-29_630338.jpg</p></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- КОНЕЦ Модальное окно для источников -->
+
+            <!-- Кнопка для связи со мной -->
+            <button id="but_contact" class="nav_button nav_button--footer-but">Связь со мной</button>
+            <!-- КОНЕЦ Кнопка для связи со мной -->
+
+            <!-- Модальное окно для связи -->
+            <div id="contactModal" class="modal">
+                <!-- контент модального окна -->
+                <div class="modal_content">
+                    <span class="close">&times;</span>
+                    <h2 class="title_alert_divs_of_main">Свяжитесь со мной</h2>
+                    <div class="contact_images">
+                        <!-- github -->
+                        <a href="https://github.com/veyyr2" target="_blank"><%= image_tag "images_for_all/contact_logos/github.png", class: "img_content_divs", alt: "https://github.com/veyyr2", loading: "lazy" %></a>
+                        <!-- gmail -->
+                        <a href="mailto:dimagorhov602@gmail.com" target="_blank"><%= image_tag "images_for_all/contact_logos/gmail.png", class: "img_content_divs", alt: "dimagorhov602@gmail.com", loading: "lazy" %></a>
+                        <!-- linkedin -->
+                        <a href="www.linkedin.com/in/дмитрий-горохов-153404362/" target="_blank"><%= image_tag "images_for_all/contact_logos/linkedin.png", class: "img_content_divs", alt: "www.linkedin.com/in/дмитрий-горохов-153404362", loading: "lazy" %></a>                    </div>
+                </div>
+            </div>
+            <!-- КОНЕЦ Модальное окно для связи -->
+        </div>
+        <!-- КОНЕЦ Правая часть футер -->
+    </footer>
+    <!-- КОНЕЦ футер -->
+
+    <!-- Скрипты -->
+    <!-- темная тема -->
+    <%= javascript_include_tag 'theme_toggle' %>
+    <!-- Открытие кнопок навигации для МУ -->
+    <%= javascript_include_tag 'open_nav_but' %>
+    <!-- Зум изображений -->
+    <%= javascript_include_tag 'for index/zoom_image' %>
+    <!-- Размер шапки aside -->
+    <%= javascript_include_tag 'for index/aside_hat' %>
+    <!-- Открытие модального окна контактов -->
+    <%= javascript_include_tag 'open_contact' %>
+    <!-- Открытие модального окна источников -->
+    <%= javascript_include_tag 'open_sources' %>
+    <!-- КОНЕЦ Скрипты -->
+</body>
+</html>

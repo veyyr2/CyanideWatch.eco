@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyString
+  lat: 1.5
+  lng: 1.5
+  severity: MyString
+  date: 2025-05-02
+  description: MyText
+
+two:
+  location: MyString
+  lat: 1.5
+  lng: 1.5
+  severity: MyString
+  date: 2025-05-02
+  description: MyText

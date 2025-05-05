@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyanideWatch</title>
+    <!-- иконка -->
+    <%= favicon_link_tag 'images_for_page_style/cyanide_watch_icon.png' %>
+    <!-- Шрифт -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <%= stylesheet_link_tag 'scss/dist/main_style.min' %>
+    <!-- Leaflet для карты -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Chart.js для графиков -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+
+<body>
+    <!-- хидер -->
+    <header>
+        <!-- контент хидера -->
+        <div class="header_content">
+            <!-- логотип -->
+           <%= image_tag "images_for_page_style/cyanidewatch_logo_light.png",
+                alt: "Вернуться на главную страницу",
+                id: "main_logo",
+                title: "Вернуться на главную страницу",
+                loading: "lazy",
+                onclick: "location.href='index.html'",
+                data: { # Добавляем data атрибуты
+                dark_src: asset_path('images_for_page_style/cyanidewatch_logo_dark.png'),
+                light_src: asset_path('images_for_page_style/cyanidewatch_logo_light.png')
+                }
+            %>
+
+            <!-- Кнопка меню для МУ -->
+            <button id="mobileMenuButton" class="nav_button" title="Меню">☰</button>
+
+            <!-- Блок с кнопками навигации -->
+            <nav id="container_nav_button">
+                <a href="map.html"><div title="Перейти на страницу 'Карта'" class="nav_button">Карта</div></a>
+                <a href="donate.html"><div title="Перейти на страницу 'Пожертвовать'" class="nav_button nav_button--but-2">Пожертвовать</div></a>
+                <a href="news.html"><div title="Перейти на страницу 'Новости'" class="nav_button">Новости</div></a>
+                <!-- кнопка темной темы -->
+                <div id="div_with_but_night_theme_toggle" title="Сменить тему">
+                    <%= image_tag "images_for_page_style/but_theme_toggle_to_dark.png",
+                        id: "but_night_theme_toggle",
+                        alt: "Сменить тему",
+                        width: "20px",
+                        loading: "lazy",
+                        data: { # Добавляем data атрибуты
+                        dark_src: asset_path('images_for_page_style/but_theme_toggle_to_light.png'),
+                        light_src: asset_path('images_for_page_style/but_theme_toggle_to_dark.png')
+                        }
+                    %>
+                    <!-- Подпись смены темы для МУ -->
+                    <p id="title_night_but" class="nav_button">← Сменить тему</p> 
+                </div>    
+                <!-- КОНЕЦ Блок с кнопкой темной темы и подписью к ней -->  
+            </nav>
+            <!-- КОНЕЦ Блок с кнопками навигации -->
+        </div>
+        <!-- КОНЕЦ контент хидера -->
+
+        <!-- треугольник для дизайна (отдельно, чтобы не был включен в flex) -->
+        <%= image_tag "images_for_page_style/triangle-right-light.png", alt: "", id: "header_right_triangle", loading: "lazy" %>    
+    </header>
+    <!-- КОНЕЦ хидер -->
+
+
+    <!-- мэин и эсайд -->
+    <div id="container_main_aside">
+        <!-- фото для фона -->
+        <div id="body_bg_imgs" style="background-image: url(<%= asset_path('imgs/background_img.png') %>);"></div>
+
+        <!-- мэин-->
+        <main>
+            <!-- Контейнер карты -->
+            <div class="map-container">
+                <!-- Заголовок карты -->
+                <h1 class="map_title">Карта загрязнений цианидом</h1>
+
+                <!-- карта для отображения -->
+                <div id="world-map" class="formap"></div>
+
+                <!-- Контейнер для фильтра и легенды (для адаптации) -->
+                <div class="container_map_legendfilter"> 
+                    <!-- фильтр годов -->
+                    <div class="map-controls">
+                        <select id="year-filter">
+                            <option value="all">Все годы</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                            <option value="2015">2015</option>
+                            <option value="2014">2014</option>
+                            <option value="2013">2013</option>
+                            <option value="2012">2012</option>
+                            <option value="2011">2011</option>
+                            <option value="2010">2010</option>
+                            <option value="2009">2009</option>
+                            <option value="2008">2008</option>
+                            <option value="2007">2007</option>
+                            <option value="2006">2006</option>
+                            <option value="2005">2005</option>
+                            <option value="2004">2004</option>
+                            <option value="2003">2003</option>
+                            <option value="2002">2002</option>
+                            <option value="2001">2001</option>
+                            <option value="2000">2000</option>
+                        </select>
+                    </div>
+                    <!-- КОНЕЦ фильтр годов -->
+
+                    <!-- Легенда карты -->
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-color verysmall"></span>
+                            <span>Незначительное загрязнение</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color small"></span>
+                            <span>Слабое загрязнение</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color medium"></span>
+                            <span>Среднее загрязнение</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color large"></span>
+                            <span>Сильное загрязнение</span>
+                        </div>
+                    </div>
+                    <!-- КОНЕЦ Легенда карты -->
+                </div>
+                <!-- КОНЕЦ Контейнер для фильтра и легенды (для адаптации) -->
+            </div>
+            <!-- КОНЕЦ Контейнер карты -->
+
+            <!-- Контейнер для графиков -->
+            <div class="charts-container">
+                <!-- График распределения по уровням загрязнения -->
+                <div class="chart-box">
+                    <h2>Распределение точек по уровню загрязнения</h2>
+                    <canvas id="pollutionLevelsChart"></canvas>
+                </div>
+                
+                <!-- График топ самых загрязненных мест -->
+                <div class="chart-box">
+                    <h2>Топ самых загрязненных мест</h2>
+                    <canvas id="topPollutedChart"></canvas>
+                </div>
+            </div>
+            <!-- КОНЕЦ Контейнер для графиков -->
+        </main>
+        <!-- КОНЕЦ мэин-->
+
+
+        <!-- эсайд -->
+        <aside>
+            <!-- Шапка эсайд -->
+            <div class="hat_divs" id="aside_hat">
+                <!-- Заголовок -->
+                <h1 class="title_divs title_aside">Эко-организации</h1>
+            </div>
+            <!-- КОНЕЦ Шапка эсайд -->
+
+           <!-- Контент эсайд -->
+            <div class="container_aside">
+                <!-- блок с фото и описанием эко 1 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://www.greenpeace.org/international/support/donate-today" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/greenpeace_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>                        
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>Greenpeace</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 2 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://act.350.org/donate/web_banner_main_nav_v1/" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/350_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>350</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 3 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://climatenetwork.org/get-involved/support/" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/climate action network_logo.png", class: "img_content_divs imgs_eco imgs_eco--third", alt: "greenpeace", loading: "lazy" %>  
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>Climate action network</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 4 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://donate.edf.org/campaign/676415/donate?recurring=1" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/environmental defence fund_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>Environmental defence fund</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 5 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://iucn.org/donate" target="_blank">
+                        <div class="container_imgs_eco">
+                            <%= image_tag "images_for_all/IUCN_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>   
+                        </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>IUCN</p>
+                </div>
+
+                <!-- блок с фото и описанием эко 6 -->
+                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
+                    <!-- Блок с фото эко -->
+                    <a href="https://preserve.nature.org/page/169344/donate/1?set.DonationLevel=" target="_blank"><div class="container_imgs_eco">
+                        <%= image_tag "images_for_all/the nature conservancy_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>
+                    </div>
+                    </a>
+                    <!-- Подпись -->
+                    <p>The nature conservancy</p>
+                </div>
+            </div>
+           <!-- КОНЕЦ Контент эсайд -->
+        </aside>
+        <!-- КОНЕЦ эсайд -->
+    </div>
+    <!-- КОНЕЦ мэин и эсайд -->
+    
+
+    <!-- футер -->
+    <footer>
+        <!-- Левая часть футер -->
+        <div class="footer_left">
+            <!-- Треугольник для дизайна -->
+            <%= image_tag "images_for_page_style/triangle-left-light.png", alt: "", id: "footer_left_triangle", loading: "lazy" %>        </div>
+        <!-- КОНЕЦ Левая часть футер -->
+
+        <!-- Правая часть футер -->
+        <div class="footer_right">
+            <!-- Кнопка для источников -->
+            <button id="but_sources" class="nav_button nav_button--footer-but">Источники</button>
+            <!-- КОНЕЦ Кнопка для источников -->
+
+            <!-- Модальное окно для источников -->
+            <div id="sourcesModal" class="modal">
+                <div class="modal_content source_content">
+                    <span class="close">&times;</span>
+                    <h2 class="title_alert_divs_of_main">Источники информации и медиа</h2>
+                    <div class="container_numberlist">
+                        <ol>
+                            <li><p>https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html</p></li>
+                            <li><p>https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/</p></li>
+                            <li><p>https://ru.freepik.com/premium-photo/growth-new-life-concept-hands-with-water-watering-small-sprout_18101973.htm</p></li>
+                            <li><p>https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tisza_cyanide_spill_1.jpg/800px-Tisza_cyanide_spill_1.jpg</p></li>
+                            <li><p>https://data.vb.kg/image/big/2018-09-18_21-44-29_630338.jpg</p></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- КОНЕЦ Модальное окно для источников -->
+
+            <!-- Кнопка для связи со мной -->
+            <button id="but_contact" class="nav_button nav_button--footer-but">Связь со мной</button>
+            <!-- КОНЕЦ Кнопка для связи со мной -->
+
+            <!-- Модальное окно для связи -->
+            <div id="contactModal" class="modal">
+                <!-- контент модального окна -->
+                <div class="modal_content">
+                    <span class="close">&times;</span>
+                    <h2 class="title_alert_divs_of_main">Свяжитесь со мной</h2>
+                    <div class="contact_images">
+                        <!-- github -->
+                        <a href="https://github.com/veyyr2" target="_blank"><%= image_tag "images_for_all/contact_logos/github.png", class: "img_content_divs", alt: "https://github.com/veyyr2", loading: "lazy" %></a>
+                        <!-- gmail -->
+                        <a href="mailto:dimagorhov602@gmail.com" target="_blank"><%= image_tag "images_for_all/contact_logos/gmail.png", class: "img_content_divs", alt: "dimagorhov602@gmail.com", loading: "lazy" %></a>
+                        <!-- linkedin -->
+                        <a href="www.linkedin.com/in/дмитрий-горохов-153404362/" target="_blank"><%= image_tag "images_for_all/contact_logos/linkedin.png", class: "img_content_divs", alt: "www.linkedin.com/in/дмитрий-горохов-153404362", loading: "lazy" %></a>
+                    </div>
+                </div>
+            </div>
+            <!-- КОНЕЦ Модальное окно для связи -->
+        </div>
+        <!-- КОНЕЦ Правая часть футер -->
+    </footer>
+    <!-- КОНЕЦ футер -->
+
+    <!-- Скрипты -->
+    <%= javascript_include_tag 'theme_toggle' %>
+    <!-- Открытие кнопок навигации для МУ -->
+    <%= javascript_include_tag 'open_nav_but' %>
+    <!-- Размер шапки aside -->
+    <%= javascript_include_tag 'for index/aside_hat' %>
+    <!-- Открытие модального окна контактов -->
+    <%= javascript_include_tag 'open_contact' %>
+    <!-- Открытие модального окна источников -->
+    <%= javascript_include_tag 'open_sources' %>
+
+    <!-- Добавление интерактивной карты -->
+    <%= javascript_include_tag 'for map/leaflet_map' %>
+    <!-- Графики для карты -->
+    <%= javascript_include_tag 'for map/charts' %>
+    <!-- КОНЕЦ Скрипты -->
+</body>
+</html>

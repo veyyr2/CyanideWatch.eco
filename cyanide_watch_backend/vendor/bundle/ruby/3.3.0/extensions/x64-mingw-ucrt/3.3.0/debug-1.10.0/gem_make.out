@@ -1,0 +1,20 @@
+current directory: D:/WORK/Technical task/Project CyanideWatch/Cyanidewatch/cyanide_watch_backend/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+C:/Ruby33-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: D:/WORK/Technical task/Project CyanideWatch/Cyanidewatch/cyanide_watch_backend/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250509-1884-ibp0zh sitelibdir\=./.gem.20250509-1884-ibp0zh clean
+
+current directory: D:/WORK/Technical task/Project CyanideWatch/Cyanidewatch/cyanide_watch_backend/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250509-1884-ibp0zh sitelibdir\=./.gem.20250509-1884-ibp0zh
+generating debug-x64-mingw-ucrt.def
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: D:/WORK/Technical task/Project CyanideWatch/Cyanidewatch/cyanide_watch_backend/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250509-1884-ibp0zh sitelibdir\=./.gem.20250509-1884-ibp0zh install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20250509-1884-ibp0zh/debug
+
+current directory: D:/WORK/Technical task/Project CyanideWatch/Cyanidewatch/cyanide_watch_backend/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250509-1884-ibp0zh sitelibdir\=./.gem.20250509-1884-ibp0zh clean

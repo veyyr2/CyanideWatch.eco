@@ -41,6 +41,21 @@
                 <a href="map.html"><div title="Перейти на страницу 'Карта'" class="nav_button">Карта</div></a>
                 <a href="donate.html"><div title="Перейти на страницу 'Пожертвовать'" class="nav_button nav_button--but-2">Пожертвовать</div></a>
                 <a href="news.html"><div title="Перейти на страницу 'Новости'" class="nav_button">Новости</div></a>
+
+                <!-- кнопка открытия модального окна со списком организаций -->
+                <button id="open_modal_eco" class="nav_button nav_button--but-2">Эко-организации</button>
+
+                <!-- Модальное окно для эко-организаций -->
+                <div id="modal_eco" class="modal">
+                    <div class="modal_content--eco">
+                        <div class="container_calltoaction_imgs_eco">
+                            <span class="close close--eco"></span>
+                            <%= render 'eco-helper' %>
+                        </div>
+                    </div>
+                </div>
+                <!-- КОНЕЦ Модальное окно для эко-организаций -->
+
                 <!-- кнопка темной темы -->
                 <div id="div_with_but_night_theme_toggle" title="Сменить тему">
                     <%= image_tag "images_for_page_style/but_theme_toggle_to_dark.png",
@@ -239,76 +254,7 @@
 
                         <!-- Блок с Фотографиями эко-организаций -->
                         <div class="container_calltoaction_imgs_eco">
-                            <!-- блок с фото и описанием эко 1 -->
-                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                                <!-- Блок с фото эко -->
-                                <a href="https://www.greenpeace.org/international/support/donate-today" target="_blank">
-                                    <div class="container_imgs_eco">
-                                        <%= image_tag "images_for_all/greenpeace_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>                        
-                                    </div>
-                                </a>
-                                <!-- Подпись -->
-                                <p>Greenpeace</p>
-                            </div>
-
-                            <!-- блок с фото и описанием эко 2 -->
-                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                                <!-- Блок с фото эко -->
-                                <a href="https://act.350.org/donate/web_banner_main_nav_v1/" target="_blank">
-                                    <div class="container_imgs_eco">
-                                        <%= image_tag "images_for_all/350_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
-                                    </div>
-                                </a>
-                                <!-- Подпись -->
-                                <p>350</p>
-                            </div>
-
-                            <!-- блок с фото и описанием эко 3 -->
-                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                                <!-- Блок с фото эко -->
-                                <a href="https://climatenetwork.org/get-involved/support/" target="_blank">
-                                    <div class="container_imgs_eco">
-                                        <%= image_tag "images_for_all/climate action network_logo.png", class: "img_content_divs imgs_eco imgs_eco--third", alt: "greenpeace", loading: "lazy" %>  
-                                    </div>
-                                </a>
-                                <!-- Подпись -->
-                                <p>Climate action network</p>
-                            </div>
-
-                            <!-- блок с фото и описанием эко 4 -->
-                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                                <!-- Блок с фото эко -->
-                                <a href="https://donate.edf.org/campaign/676415/donate?recurring=1" target="_blank">
-                                    <div class="container_imgs_eco">
-                                        <%= image_tag "images_for_all/environmental defence fund_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
-                                    </div>
-                                </a>
-                                <!-- Подпись -->
-                                <p>Environmental defence fund</p>
-                            </div>
-
-                            <!-- блок с фото и описанием эко 5 -->
-                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                                <!-- Блок с фото эко -->
-                                <a href="https://iucn.org/donate" target="_blank">
-                                    <div class="container_imgs_eco">
-                                        <%= image_tag "images_for_all/IUCN_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>   
-                                    </div>
-                                </a>
-                                <!-- Подпись -->
-                                <p>IUCN</p>
-                            </div>
-
-                            <!-- блок с фото и описанием эко 6 -->
-                            <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                                <!-- Блок с фото эко -->
-                                <a href="https://preserve.nature.org/page/169344/donate/1?set.DonationLevel=" target="_blank"><div class="container_imgs_eco">
-                                    <%= image_tag "images_for_all/the nature conservancy_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>
-                                </div>
-                                </a>
-                                <!-- Подпись -->
-                                <p>The nature conservancy</p>
-                            </div>
+                            <%= render  "eco-helper" %>
                         </div>
                         <!-- КОНЕЦ Блок с Фотографиями эко-организаций -->
 
@@ -381,76 +327,7 @@
 
            <!-- Контент эсайд -->
             <div class="container_aside">
-                <!-- блок с фото и описанием эко 1 -->
-                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                    <!-- Блок с фото эко -->
-                    <a href="https://www.greenpeace.org/international/support/donate-today" target="_blank">
-                        <div class="container_imgs_eco">
-                            <%= image_tag "images_for_all/greenpeace_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>                        
-                        </div>
-                    </a>
-                    <!-- Подпись -->
-                    <p>Greenpeace</p>
-                </div>
-
-                <!-- блок с фото и описанием эко 2 -->
-                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                    <!-- Блок с фото эко -->
-                    <a href="https://act.350.org/donate/web_banner_main_nav_v1/" target="_blank">
-                        <div class="container_imgs_eco">
-                            <%= image_tag "images_for_all/350_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
-                        </div>
-                    </a>
-                    <!-- Подпись -->
-                    <p>350</p>
-                </div>
-
-                <!-- блок с фото и описанием эко 3 -->
-                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                    <!-- Блок с фото эко -->
-                    <a href="https://climatenetwork.org/get-involved/support/" target="_blank">
-                        <div class="container_imgs_eco">
-                            <%= image_tag "images_for_all/climate action network_logo.png", class: "img_content_divs imgs_eco imgs_eco--third", alt: "greenpeace", loading: "lazy" %>  
-                        </div>
-                    </a>
-                    <!-- Подпись -->
-                    <p>Climate action network</p>
-                </div>
-
-                <!-- блок с фото и описанием эко 4 -->
-                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                    <!-- Блок с фото эко -->
-                    <a href="https://donate.edf.org/campaign/676415/donate?recurring=1" target="_blank">
-                        <div class="container_imgs_eco">
-                            <%= image_tag "images_for_all/environmental defence fund_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>  
-                        </div>
-                    </a>
-                    <!-- Подпись -->
-                    <p>Environmental defence fund</p>
-                </div>
-
-                <!-- блок с фото и описанием эко 5 -->
-                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                    <!-- Блок с фото эко -->
-                    <a href="https://iucn.org/donate" target="_blank">
-                        <div class="container_imgs_eco">
-                            <%= image_tag "images_for_all/IUCN_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>   
-                        </div>
-                    </a>
-                    <!-- Подпись -->
-                    <p>IUCN</p>
-                </div>
-
-                <!-- блок с фото и описанием эко 6 -->
-                <div class="container_eco" title="нажмите, чтобы перейти по ссылке на донат">
-                    <!-- Блок с фото эко -->
-                    <a href="https://preserve.nature.org/page/169344/donate/1?set.DonationLevel=" target="_blank"><div class="container_imgs_eco">
-                        <%= image_tag "images_for_all/the nature conservancy_logo.png", class: "img_content_divs imgs_eco", alt: "greenpeace", loading: "lazy" %>
-                    </div>
-                    </a>
-                    <!-- Подпись -->
-                    <p>The nature conservancy</p>
-                </div>
+                <%= render  "eco-helper" %>
             </div>
            <!-- КОНЕЦ Контент эсайд -->
         </aside>
@@ -530,6 +407,8 @@
     <%= javascript_include_tag 'open_contact' %>
     <!-- Открытие модального окна источников -->
     <%= javascript_include_tag 'open_sources' %>
+    <!-- Открытие списка эко-организаций -->
+    <%= javascript_include_tag 'open_eco_organizations' %>
     <!-- КОНЕЦ Скрипты -->
 </body>
 </html>

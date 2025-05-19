@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get '/donate', to: 'pages#donate'
   
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "pages#index"
 
   namespace :api do
     resources :spots, only: [:index]

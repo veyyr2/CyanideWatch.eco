@@ -109,6 +109,120 @@ body {
     transition: opacity 0.3s ease-in-out;
 }
 
+// #region отступы---------------------------------------------------------------------
+    // #region margin-------
+        // отступы сверху--
+        .mt-sm {
+            margin-top: 0.6rem;
+        }
+
+        .mt, .mt-md {
+            margin-top: 1rem;
+        }
+
+        .mt-lg {
+            margin-top: 1.75rem;
+        }
+        // --отступы сверху
+
+        // отступы снизу--
+        .mb-sm {
+            margin-bottom: 0.6rem;
+        }
+
+        .mb, .mb-md {
+            margin-bottom: 1rem;
+        }
+
+        .mb-lg {
+            margin-bottom: 1.75rem;
+        }
+        // --отступы снизу
+
+        // отступы справа--
+        .mr-sm {
+            margin-bottom: 0.6rem;
+        }
+
+        .mr, .mr-md {
+            margin-bottom: 1rem;
+        }
+
+        .mr-lg {
+            margin-bottom: 1.75rem;
+        }
+        // --отступы справа
+
+        // отступы везде--
+        .m-sm {
+            margin: 0.6rem;
+        }
+
+        .m, .m-md {
+            margin: 1rem;
+        }
+
+        .m-lg {
+            margin: 1.75rem;
+        }
+        // --отступы везде
+    // #endregion margin-------
+    
+    // #region padding-----
+        /* отступы сверху */
+        .pt-sm {
+            margin-top: 0.6rem;
+        }
+
+        .pt, .pt-md {
+            margin-top: 1rem;
+        }
+
+        .pt-lg {
+            margin-top: 1.75rem;
+        }
+
+        /* отступы снизу */
+        .pb-sm {
+            margin-bottom: 0.6rem;
+        }
+
+        .pb, .pb-md {
+            margin-bottom: 1rem;
+        }
+
+        .pb-lg {
+            margin-bottom: 1.75rem;
+        }
+
+        /* отступы справа */
+        .pr-sm {
+            margin-bottom: 0.6rem;
+        }
+
+        .pr, .mr-md {
+            margin-bottom: 1rem;
+        }
+
+        .pr-lg {
+            margin-bottom: 1.75rem;
+        }
+
+        /* отступы вокруг */
+        .p-sm {
+            margin: 0.6rem;
+        }
+
+        .p, .p-md {
+            margin: 1rem;
+        }
+
+        .p-lg {
+            margin: 1.75rem;
+        }
+    // #endregion padding-----
+// #endregion отступы---------------------------------------------------------------------
+
 // #region стили для графиков-----------------------------------------------------------
     // Контейнер для графиков 
     .charts-container {
@@ -273,7 +387,7 @@ body {
         text-align: center;
     }
 // #endregion новости-----------------------------------------------------------
-}
+} // КОНЕЦ media-all
 
 // #region стили для карты-----------------------------------------------------------
     .map-container {
@@ -359,7 +473,7 @@ body {
 // #endregion technical------------------------------------------------------------------------------
 /*---------------------------------END TECHNICAL---------------------------------*/
 
-// Адаптация под ноутбуки
+// Адаптация для ПК
 @media (min-width: 1024px) {
 /*---------------------------------Minor technical---------------------------------*/
 // #region Minor technical------------------------------------------------------------------
@@ -430,6 +544,11 @@ body {
             width: 60%;
             max-width: 500px;
             position: relative;
+
+            // контент модального окна для эко-организаций
+            &--eco {
+                margin: 1.75rem;
+            }
         }
 
         /* Кнопка закрытия */
@@ -443,6 +562,27 @@ body {
             cursor: pointer;
             &:hover {
                 color: #ccc;
+            }
+
+            // кнопка закрытия эко-организаций
+            &--eco {
+                top: -7px;
+                right: -7px;
+                // background-color: var(--triangle-color);
+                width: 50px; 
+                height: 50px;
+                border-radius: 50%; /* Полностью круглый */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1;
+                
+                /* Центрируем крестик */
+                &::before {
+                  content: "×";
+                  display: block;
+                  margin-top: -3px; /* Точная подстройка положения крестика */
+                }
             }
         }
 
@@ -594,6 +734,10 @@ body {
             height: $height_header;
             pointer-events: none;
         }
+
+        // #region выпадающий список с эко-организациями---------------------------------
+            
+        // #endregion выпадающий список с эко-организациями---------------------------------
     // #endregion контент хидера-----------------------------------------------------------------
 // #endregion header-------------------------------------------------------------------------------
 /*---------------------------------END HEADER---------------------------------*/

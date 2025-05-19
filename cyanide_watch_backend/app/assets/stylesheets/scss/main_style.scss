@@ -682,12 +682,14 @@ body {
             padding: 10px;
             width: 100px;
             cursor: pointer; // при наведении менять курсор 
+            font-size: 12pt;
             @include _animation_transform_scale(0.2s, 1.1);
 
             // кнопка требующие своего размера относительно контента
             &--but-2{
                 display: inline-block;
                 width: auto;
+                font-family: "Times New Roman", Times, serif;
             }
 
             // кнопки футера

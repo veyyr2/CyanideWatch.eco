@@ -1,0 +1,737 @@
+// Адаптация под телефоны
+@media (min-width: 320px) and (max-width: 1023px) {
+    /*---------------------------------Minor technical---------------------------------*/
+    // #region Minor technical------------------------------------------------------------------
+        // убрать всю анимацию для оптимизации
+        * {
+            transition: none !important;
+            box-shadow: none !important;
+        }
+    
+        // боди со свелой темой
+        body {
+            background-color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+    
+        // убрать aside
+        aside {
+            display: none !important;
+        }
+    
+        // контейнер с мэин и эсайд
+        #container_main_aside {
+            display: block;
+        }
+    
+        // зум изображений отключить
+        #imageModal {
+            display: none !important;
+        }
+    
+        // Блок с фоновыми изображениями
+        #body_bg_imgs {
+            display: none;
+        } 
+    
+        // убрать все треугольники для дизайна
+        #header_right_triangle, #footer_left_triangle, .trinagle_for_style {
+            display: none;
+        }
+    
+        // для всех фото, которые предназначены для ПК
+        .img_content_divs_PC {
+            display: none !important;
+        }
+    
+        // список новостей
+        .news-list {
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    
+        // #region стили для карты-----------------------------------------------------------
+            // Стили для popup на карте
+            .leaflet-popup-content {
+                width: auto !important;
+                font-size: 8pt !important; // Размер шрифта
+                max-width: 100px; // Ограничение максимальной ширины
+                margin: 10px;
+            }
+    
+            // контейнер с картой
+            .map-container {
+                // style
+                color: var(--text-color-map);
+                width: 100%;
+                position: relative;
+                margin-bottom: 20px; 
+                padding: 10px;
+                // flex
+                display: flex;
+                flex-direction: column;
+    
+                // карта
+                #world-map {
+                    flex: 1;
+                    width: 100%;
+                    border-radius: 8px;
+                    box-shadow: none;
+                }
+    
+                // Контейнер для фильтра и легенды (для адаптации)
+                .container_map_legendfilter {   
+                    margin-top: 10px;
+                    // FLEX
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                
+                // легенда карты
+                .map-legend {
+                    position: relative;
+                    background-color: var(--div-main-color);
+                    box-shadow: none;
+                    // для исправления бага:
+                    z-index: 0;
+                    bottom: 0;
+                    right: 0;
+                }
+    
+                // фильтр карты
+                .map-controls {
+                    position: relative;
+                    background-color: var(--div-main-color);
+                    box-shadow: none;
+                    // для исправления бага:
+                    z-index: 0;
+                    top: 0;
+                    right: 0;
+                }
+            }
+        // #endregion стили для карты-----------------------------------------------------------
+    
+        // #region модальное окна-----------------------------------------------
+            // любое модальное окно
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 10000 !important;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                overflow: auto;
+                text-align: center;
+            }
+    
+            // контент модального окна
+            .modal_content {
+                background-color: var(--background-text-color);
+                margin: 10% auto;
+                padding: 20px;
+                border-radius: 10px;
+                width: 60%;
+                max-width: 500px;
+                position: relative;
+    
+                // контент модального окна для эко-организаций
+                &--eco {
+                    margin: 1.75rem;
+                }
+            }
+    
+            /* Кнопка закрытия */
+            .close {
+                position: absolute;
+                right: -40px;
+                color: white;
+                font-size: 40px;
+                font-weight: bold;
+                &:hover {
+                    color: #ccc;
+                }
+    
+                // кнопка закрытия эко-организаций
+                &--eco {
+                    background-color: var(--triangle-color);
+                    right: 2px;
+                    top: 5px;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%; /* Полностью круглый */
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    line-height: 1;
+                    
+                    /* Центрируем крестик */
+                    &::before {
+                      content: "×";
+                      display: block;
+                      margin-top: -3px; /* Точная подстройка положения крестика */
+                    }
+                }
+            }
+    
+            // #region модальное окно зума картинок-----------------------------------------------
+                /* Изображение внутри модального окна */
+                .modalZoomImgs-content {
+                    display: none;
+                }
+    
+                /* Увеличенное изображение при клике */
+                .modalZoomImgs-content.zoomed {
+                    display: none;
+                }
+            // #endregion модальное окно зума картинок-----------------------------------------------
+    
+            // #region модальное окно для связи со мной-----------------------------------------------
+                // логотипы (гитхаб и т.д.)
+                .contact_images {
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 20px;
+                    a {
+                        @include _imgs(30%);
+                        overflow: hidden;
+                        background-color: var(--div-main-color);
+                        padding: 8px;
+                    }
+                }
+            // #endregion модальное окно для связи со мной-----------------------------------------------
+            
+            // #region модальное окно источников-----------------------------------------------
+                // модальное окно для источников
+                .source_content {
+                    max-width: 1000px;
+                }
+            // #endregion модальное окно источников-----------------------------------------------
+        // #endregion модальное окна-----------------------------------------------
+    // #endregion Minor technical------------------------------------------------------------------
+    /*---------------------------------Minor technical---------------------------------*/
+    
+    /*---------------------------------HEADER---------------------------------*/
+    // #region header-------------------------------------------------------------------------------
+        // сам хидер
+        header{
+            // стиль
+            position: relative;
+            width: 100%;
+            background-color: var(--header-and-footer-color);
+            padding: 10px;
+            margin-bottom: 20px;
+            height: fit-content;
+            // flex
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            // каждой ссылке
+            a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+        }
+    
+        // #region контент хидера-----------------------------------------------------------------
+            // контент хидера
+            .header_content{
+                width: 100%;
+                // flex
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                justify-content: space-between;
+            }
+    
+            // кнопки навигации блок
+            #container_nav_button {
+                // style
+                display: none;
+                position: absolute;
+                z-index: 2000; 
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--head-of-div-color);
+                padding: 10px;                       
+                // Показать при активном состоянии
+                &.active {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px; 
+                }
+            }
+    
+            // Стили для кнопки меню
+            #mobileMenuButton {
+                display: block; // Показывать только на мобильных
+                margin-left: auto; // Разместить справа
+                font-size: 1.5em;
+                padding: 5px 15px;           
+                // Анимация при нажатии
+                &:active {
+                    transform: scale(0.95);
+                }
+            }
+    
+            // каждый блок (кнопка) с ссылкой
+            .nav_button {
+                color: var(--text-color);
+                text-align: center;
+                border: 1px solid black;
+                border-radius: 25px;
+                background-color: var(--button-color);
+                padding: 10px;
+                width: 100%;
+                font-family: "Times New Roman", Times, serif;
+                font-size: 12pt;
+                // Анимация при нажатии
+                &:active {
+                    transform: scale(0.95);
+                }
+    
+                // кнопки футера
+                &--footer-but {
+                    display: inline-block;
+                    width: auto;
+                    font-size: 1.2em;
+                    font-family: "Times New Roman", Times, serif;
+                    // Анимация при нажатии
+                    &:active {
+                        transform: scale(0.95);
+                    }
+                }
+            }
+    
+            // логотип
+            #main_logo {
+                border-radius: 25px;
+                width: 70%;
+                aspect-ratio: 4/1;
+                // Анимация при нажатии
+                &:active {
+                    transform: scale(0.95);
+                }
+            }
+    
+            // блок с кнопкой которая менять тему
+            #div_with_but_night_theme_toggle {
+                padding: 0 15% 0 15%;
+                // flex
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                justify-content: space-between;
+                align-items: center;
+            }
+    
+            // кнопка переключения темной темы
+            #but_night_theme_toggle {
+                border: 1px solid black;
+                border-radius: 100%;
+                width: 25%;
+                aspect-ratio: 1/1;
+            }
+        // #endregion контент хидера-----------------------------------------------------------------
+    // #endregion header-------------------------------------------------------------------------------
+    /*---------------------------------HEADER---------------------------------*/
+    
+    /*---------------------------------MAIN---------------------------------*/
+    // #region main
+    // сам main
+    main{
+        width: 100%;
+        // flex
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    // #region блоки main-------------------------------------------------------------------------------
+        // блоки main
+        .divs_of_main {
+            width: 100%;
+            background-color: var(--div-main-color);
+            border: 1px solid black;
+        }
+    
+        // #region шапки блоков-------------------------------------------------------------------------------
+            // шапки блоков
+            .hat_divs {
+                // стиль
+                position: relative;
+                width: 100%;
+                padding: 1em;
+                background-color: var(--head-of-div-color);
+                text-align: center;
+            }
+            // Заголовок шапки
+            .title_divs {
+                display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
+                border: 1px solid black;
+                border-radius: 15px;
+                padding: 8px;
+                background-color: var(--head-div-backtext-color);
+            }
+            
+        // #endregion шапки блоков
+    
+        // #region шапка алерта (call to action)---------------------------------------------------------------
+                // шапка алерта (call to action)
+                .hat_alert_divs_of_main {
+                    // стиль
+                    padding: 1em;
+                    background-color: var(--alert-div-color);
+                    text-align: center;
+                }
+        
+                // Заголовок шапки алерта
+                .title_alert_divs_of_main {
+                    display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
+                    border: 1px solid black;
+                    border-radius: 15px;
+                    padding: 5px;
+                    background-color: var(--alert-div-backtext-color);
+                }
+        // #endregion шапка алерта (call to action)---------------------------------------------------------------
+    
+        // контент блоков
+        .content_divs_of_main {
+            background-color: var(--div-main-color);
+            padding: 1em;
+            width: 100%;
+        }
+    
+        // #region второй контент блоков
+            // Второй контент блоков (для стиля текста и заднего фона)
+            .second_divs_content_of_main {
+                position: relative;
+                padding: 1em;
+                border-radius: 25px;
+                background-color: var(--head-div-backtext-color);
+                height: fit-content;
+                // flex
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+            }
+    
+            // блоки с текстом в колонку
+            .divs_columntext_content_of_main {
+                display: grid;
+                row-gap: 5px;
+            }
+    
+            // #region блоки с текстом в колонку---------------------------------------------------------
+                // div с заголовком 1
+                .welcome_h2_1 {
+                    grid-row-start: 1;
+                }
+                // div с параграфом 1
+                .welcome_p_1 {
+                    grid-row-start: 2;
+                }
+                // div с заголовком 2
+                .welcome_h2_2 {
+                    grid-row-start: 3;
+                }
+                // div с параграфом 2
+                .welcome_p_2 {
+                    grid-row-start: 4;
+                }
+                // div с заголовком 3
+                .welcome_h2_2 {
+                    grid-row-start: 5;
+                }
+                // div с параграфом 3
+                .welcome_p_2 {
+                    grid-row-start: 6;
+                }
+            // #endregion блоки с текстом в колонку---------------------------------------------------------
+    
+            // Блок параграфа
+            .container_p_content {
+                padding: 5px;
+                border: 1px solid black; 
+                border-radius: 10px;
+                background-color: var(--background-text-color);
+            }
+        // #endregion второй контент блоков
+    
+        // Блоки с текстом
+        .container_text {
+            padding: 1em;
+            font-size: 1.2em;
+            border-radius: 10px;
+            background-color: var(--background-text-color);    
+            display: flex;  
+            flex-direction: column;
+            gap: 5px;  
+        }
+    
+        // Блоки с текстом в alert
+        .container_text_alert {
+            p:nth-child(2) { // второй тег p
+                background-color: var(--alert-div-backtext-color);
+                border-radius: 10px;
+                padding: 10px;
+            } 
+        }
+    
+        // для слов, которые жирные (теги strong)
+        .underline_words {
+            text-decoration: underline;
+        }
+    
+        // для слов, которые жирные в call to action (теги strong)
+        .underline_words_alert {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 15px;
+            background-color: var(--background-text-color-alert);
+        }
+    
+        // Блок с заголовками
+        .container_h_content {
+            text-align: center; // сделать заголовок по середине
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: var(--head-of-div-color);
+        }
+    
+        // Заголовки внутри контента алерта
+        .container_h_content_alert{
+            display: inline-block;
+            padding: 10px;
+            border-radius: 15px;
+            background-color: var(--alert-div-color);
+    
+            // Заголовок "хотите помочь эко-организации?"
+            &--centered {
+                align-self: center; // переопределяем только выравнивание
+                background-color: transparent; // убрать задний фон
+                // НАДПИСЬ
+                h2 {
+                    background-color: var(--background-text-color-alert); // другой фоновый цвет
+                }
+            }
+        }
+    
+        // блок с видео
+        .container_video {
+            background-color: var(--background-text-color);
+            border-radius: 25px;
+            padding: 1em;
+            margin-top: 10px;
+            text-align: center; // поставить видео по центру
+            position: relative;
+            overflow: hidden;
+            
+            // видео
+            iframe {
+                max-width: 100%; // Видео не превысит ширину контейнера
+                min-height: 300px;
+                aspect-ratio: 16/9; // Сохраняет пропорции
+            }
+        }
+    
+        // #region блок с картинками приветствия
+            // блок с картинками приветствия
+            .container_with_imgs_of_div {
+                // height: auto;
+                // flex-direction: row;
+                // justify-content: space-between;
+                // flex-wrap: wrap;
+                // margin-top: 10px;
+                // align-content: center;
+                display: none;
+                
+            }
+    
+            // картинки блока приветствия
+            .imgs_of_div_1 {
+                display: none;
+            } 
+        // #endregion блок с картинками приветствия
+    
+        // #region Блок с фотографиями
+            // Блок с фотографиями что такое цианид
+            .container_cyanide_imgs {
+                height: auto;
+                padding: 1em;
+                background-color: var(--background-text-color);
+                border-radius: 25px;
+                // flex
+                display: flex;
+                flex-direction: column;
+                align-items: center; // Изменено с center на stretch для выравнивания по высоте
+                gap: 10px;
+                margin-top: 10px;
+            }
+    
+            // #region блок с фотографиями эко-организаций----------------------------------------
+                // grid с фотографиями эко-организаций alert
+                .container_calltoaction_imgs_eco {
+                    border-radius: 25px;
+                    padding: 1em;
+                    background-color: var(--background-text-color);
+                    width: 100%;
+                    // flex
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+    
+                // блок с фото и описанием эко
+                .container_eco {
+                    width: auto; // Занимать всю доступную ширину
+                    border: 2px solid black;
+                    border-radius: 25px;
+                    background-color: var(--eco-bg-color);
+                    padding: 1em;
+                    // flex
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    // для подписей
+                    p {
+                        text-align: center;
+                        margin-top: 8px;
+                        background-color: var(--background-text-color-alert);
+                        padding: 5px;
+                        border-radius: 25px;
+                        width: 100%;
+                    }
+                    // для ссылок (чтобы не было багов)
+                    a {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+    
+                // Блок с только фото эко
+                .container_imgs_eco {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 100%;
+                    cursor: pointer;
+                    // aspect-ratio: 2/1; // Соотношение, чтобы было квадратное (если 1/1, то баг)                       
+                }
+    
+                // Для изображений внутри блока эко
+                .imgs_eco {
+                    @include _imgs(50%);
+                    border: none;
+                    aspect-ratio: 1/1;
+                    // третье фото
+                    &--third {
+                        background-color: #8A8A8A;
+                    }
+                }   
+            // #endregion блок с фотографиями эко-организаций----------------------------------------
+    
+            // вертикальная линия
+            .vertical_line {
+                display: none;      
+            }
+    
+            // #region фото что такое цианид-----------------------------------------------
+                // Первая картинка что такое цианид
+                .imgs_cyanide_inf_1 {
+                    @include _imgs (100%);
+                }
+            
+                // Вторая картинка что такое цианид
+                .imgs_cyanide_inf_2 {
+                    @include _imgs (100%);
+                }
+    
+                // Третья картинка что такое цианид
+                .imgs_cyanide_inf_3 {
+                    @include _imgs (100%);
+                }
+    
+                // Четвертая картинка что такое цианид
+                .imgs_cyanide_inf_4 {
+                    @include _imgs (100%);
+                }
+    
+                // Пятая картинка что такое цианид
+                .imgs_cyanide_inf_5 {
+                    @include _imgs (100%);
+                }
+            // #endregion фото что такое цианид-----------------------------------------------
+        // #endregion Блок с фотографиями-----------------------------------------------
+        
+        // #region Блок с инструкцией как донатить-----------------------------------------------
+            // Сам блок с инструкцией как донатить
+            .container_donut {
+                height: fit-content;
+                padding: 1em;
+                background-color: var(--background-text-color);
+                border-radius: 25px;
+                // flex
+                display: flex;
+                flex-direction: column;
+            }
+    
+            // Блок с фото инструкцией
+            .container_imgs_instruction {
+                @include _imgs(100%);
+                display: flex;
+                justify-content: center;
+                border-radius: 0;           
+            }
+            
+        // #endregion Блок с инструкцией как донатить-----------------------------------------------
+    // #endregion блоки main-------------------------------------------------------------------------------
+    
+    // #endregion main
+    /*---------------------------------MAIN---------------------------------*/
+    
+    /*---------------------------------FOOTER---------------------------------*/
+    // #region footer------------------------------------------------------------
+        footer {
+            // стиль
+            position: relative;
+            background-color: var(--header-and-footer-color);
+            margin-top: 20px;
+            padding: 10px;  
+            margin-top: auto; // это поможет прижать футер к низу
+            z-index: 10; // убедимся, что футер поверх других элементов
+        }
+        
+        // правая часть футера
+        .footer_right {
+            // flex
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        // левая часть футера
+        .footer_left {
+            display: none;
+        }
+        
+        // контейнер со списком информации
+        .container_numberlist {
+            margin-top: 10px;
+            width: 100%;
+            text-align: start;
+            p {
+                word-wrap: break-word;
+            }
+        }
+    // #endregion footer-------------------------
+    /*---------------------------------END FOOTER---------------------------------*/
+    }

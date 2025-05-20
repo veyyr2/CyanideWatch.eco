@@ -34,9 +34,9 @@ $main_padding: 1em; // переменная отступа у мэина
 // #region вспомогательные классы-----------------------------------------------------
     // очистить всю анимацию
     .clear_animation {
-        transition: none;
-        transform: none;
-        animation: none
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
     }
 
     // #region отступы---------------------------------------------------------------------
@@ -71,15 +71,15 @@ $main_padding: 1em; // переменная отступа у мэина
 
             // отступы справа--
             .mr-sm {
-                margin-bottom: 0.6rem;
+                margin-right: 0.6rem;
             }
 
             .mr, .mr-md {
-                margin-bottom: 1rem;
+                margin-right: 1rem;
             }
 
             .mr-lg {
-                margin-bottom: 1.75rem;
+                margin-right: 1.75rem;
             }
             // --отступы справа
 
@@ -101,57 +101,65 @@ $main_padding: 1em; // переменная отступа у мэина
         // #region padding-----
             /* отступы сверху */
             .pt-sm {
-                margin-top: 0.6rem;
+                padding-top: 0.6rem;
             }
 
             .pt, .pt-md {
-                margin-top: 1rem;
+                padding-top: 1rem;
             }
 
             .pt-lg {
-                margin-top: 1.75rem;
+                padding-top: 1.75rem;
             }
 
             /* отступы снизу */
             .pb-sm {
-                margin-bottom: 0.6rem;
+                padding-bottom: 0.6rem;
             }
 
             .pb, .pb-md {
-                margin-bottom: 1rem;
+                padding-bottom: 1rem;
             }
 
             .pb-lg {
-                margin-bottom: 1.75rem;
+                padding-bottom: 1.75rem;
             }
 
             /* отступы справа */
             .pr-sm {
-                margin-bottom: 0.6rem;
+                padding-right: 0.6rem;
             }
 
             .pr, .mr-md {
-                margin-bottom: 1rem;
+                padding-right: 1rem;
             }
 
             .pr-lg {
-                margin-bottom: 1.75rem;
+                padding-right: 1.75rem;
             }
 
             /* отступы вокруг */
+            .p-vsm {
+                padding: 0.2rem;
+            }
+
             .p-sm {
-                margin: 0.6rem;
+                padding: 0.6rem;
             }
 
             .p, .p-md {
-                margin: 1rem;
+                padding: 1rem;
             }
 
             .p-lg {
-                margin: 1.75rem;
+                padding: 1.75rem;
             }
         // #endregion padding-----
     // #endregion отступы---------------------------------------------------------------------
+
+    // #region размер шрифта--------------------------------------------------------------------
+
+    // #endregion размер шрифта--------------------------------------------------------------------
 // #endregion вспомогательные классы-----------------------------------------------------
 
 // #region technical media------------------------------------------------------------------------------
@@ -1089,12 +1097,12 @@ body {
                     flex-direction: column;
                     width: 100%;
                     cursor: pointer;
-                    // aspect-ratio: 2/1; // Соотношение, чтобы было квадратное (если 1/1, то баг)                       
                 }
 
                 // Для изображений внутри блока эко
                 .imgs_eco {
                     @include _imgs(50%);
+                    @include _animation_transform_scale(0.3s, 105%);
                     border: none;
                     aspect-ratio: 1/1;
                     // третье фото
@@ -1656,6 +1664,7 @@ main{
     
             // Заголовок шапки алерта
             .title_alert_divs_of_main {
+                font-size: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
                 display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
                 border: 1px solid black;
                 border-radius: 15px;

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # пожертвовать
   get '/donate', to: 'pages#donate'
   
-  # Defines the root path route ("/")
+  # главный путь
   root "pages#index"
 
   namespace :api do
@@ -36,4 +36,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :news, only: [:index]  # Доступ по /api/news
   end
+
+  # запросы на модератора
+  resources :request_moderators, only: [:new, :create] # /request_moderators/new
 end

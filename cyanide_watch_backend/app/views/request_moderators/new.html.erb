@@ -1,0 +1,52 @@
+<%# app/views/request_moderators/new.html.erb %>
+
+<div class="container-moderator-form">
+    <h1>Хотите стать модератором и помочь проекту?</h1>
+
+    <%= form_with(model: @request_moderator, url: request_moderators_path, local: true) do |f| %>
+        <% if @request_moderator.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@request_moderator.errors.count, "ошибка") %> помешали сохранить заявку:</h2>
+            <ul>
+                <%# Вывод всех ошибок %>
+                <% @request_moderator.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
+
+        <div class="field">
+            <%= f.label :first_name, "Имя" %><br>
+            <%= f.text_field :first_name %>
+        </div>
+
+        <div class="field">
+            <%= f.label :last_name, "Фамилия" %><br>
+            <%= f.text_field :last_name %>
+        </div>
+
+        <div class="field">
+            <%= f.label :email, "Электронная почта" %><br>
+            <%= f.email_field :email %>
+        </div>
+
+        <div class="field">
+            <%= f.label :phone_number, "Телефон (не обязательно)" %><br>
+            <%= f.text_field :phone_number %>
+        </div>
+
+        <div class="field">
+            <%= f.label :description, " Почему вы хотите стать модератором:" %><br>
+            <%= f.text_area :description, rows: 10, placeholder: "Расскажите про вашу мотивацию. Также можете указать дополнительную информацию: сколько вам лет, какие языки знаете, ваш часовой пояс, опыт в модерации и т.д." %>
+        </div>
+
+        <div>
+            <p>Став модератором, вы сможете добавлять актуальные новости про цианид</p>
+        </div>
+
+        <div class="actions">
+            <%= f.submit "Отправить заявку" %>
+        </div>
+    <% end %>
+</div>

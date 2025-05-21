@@ -24,7 +24,7 @@ class CustomAuthorizationAdapter < ActiveAdmin::AuthorizationAdapter
     when ActiveAdmin::Page # Разрешения для страниц Active Admin (например, дашборд)
       puts "  Matched: ActiveAdmin::Page"
       true
-    when ->(s) { s.is_a?(Spot) } # ИЗМЕНЕНО: Используем is_a? для более надежной проверки экземпляра
+    when ->(s) { s.is_a?(Spot) } # Используем is_a? для более надежной проверки экземпляра
       puts "  Matched: Spot instance"
       if user.admin?
         true # Администраторы могут делать что угодно с Spot
@@ -33,16 +33,16 @@ class CustomAuthorizationAdapter < ActiveAdmin::AuthorizationAdapter
       else
         false # Все остальные роли не имеют доступа к Spot
       end
-    when ->(s) { s.is_a?(News) } # ИЗМЕНЕНО: Используем is_a? для более надежной проверки экземпляра
+    when ->(s) { s.is_a?(News) } # Используем is_a? для более надежной проверки экземпляра
       puts "  Matched: News instance"
       if user.admin?
         true # Администраторы могут делать что угодно с News
       elsif user.moderator?
-        true # Модераторы могут делать все с News (как было в вашем последнем коде)
+        true # Модераторы могут делать все с News
       else
         false # Все остальные роли не имеют доступа к News
       end
-    when ->(s) { s.is_a?(AdminUser) } # <--- КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Используем is_a? для AdminUser
+    when ->(s) { s.is_a?(AdminUser) } # Используем is_a? для AdminUser
       puts "  Matched: AdminUser instance"
       if user.admin?
         true # Администраторы могут делать что угодно с ЛЮБЫМ AdminUser (включая нового)
@@ -51,6 +51,13 @@ class CustomAuthorizationAdapter < ActiveAdmin::AuthorizationAdapter
         action == :read && subject == user
       else
         false
+      end
+    when ->(s) { s.is_a?(RequestModerator) } # <--- НОВОЕ: Разрешения для экземпляров RequestModerator
+      puts "  Matched: RequestModerator instance"
+      if user.admin?
+        true # Администраторы могут делать что угодно с RequestModerator
+      else
+        false # Другие роли не имеют доступа к экземплярам RequestModerator
       end
     when Class # Разрешения для классов ресурсов (например, ActiveAdmin.register Post)
       puts "  Matched: Class"
@@ -62,8 +69,10 @@ class CustomAuthorizationAdapter < ActiveAdmin::AuthorizationAdapter
         user.admin? || user.moderator? # Только администраторы и модераторы могут видеть ресурс News в меню и списках
       elsif subject == AdminUser
         puts "    Sub-matched: AdminUser Class"
-        # Для класса AdminUser, админы могут делать все (включая создание новых)
-        user.admin?
+        user.admin? # Только администраторы могут видеть и управлять AdminUser
+      elsif subject == RequestModerator # <--- НОВОЕ: Разрешения для класса RequestModerator
+        puts "    Sub-matched: RequestModerator Class"
+        user.admin? # Только администраторы могут видеть ресурс RequestModerator в меню и списках
       else
         puts "    Sub-matched: Other Class"
         false # По умолчанию запрещать доступ к другим ресурсам, если не указано иное

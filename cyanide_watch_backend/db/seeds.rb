@@ -154,4 +154,12 @@ if Rails.env.development?
     u.role = :admin # выдать роль админа сразу
   end
   puts "AdminUser создан или найден."
+
+  # Создание AdminUser (модератор)
+  AdminUser.find_or_create_by!(email: 'test@example.com') do |u|
+    u.password = 'password'
+    u.password_confirmation = 'password'
+    u.role = :moderator # выдать роль модератора
+  end
+  puts "AdminUser (модератор) создан или найден."
 end

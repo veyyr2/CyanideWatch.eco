@@ -1,4 +1,7 @@
 class News < ApplicationRecord
+  # rails db:create db:migrate db:seed
+  # rails tmp:clear
+  
     # Базовые валидации
     validates :title, presence: true
     validates :description, presence: true

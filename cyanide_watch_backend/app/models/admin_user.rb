@@ -10,7 +10,7 @@ class AdminUser < ApplicationRecord
     admin: 'admin', 
     moderator: 'moderator', 
     guest: 'guest' 
-  }, default: :guest
+  }, default: :moderator
 
   # Разрешенные атрибуты для поиска (Ransack)
   def self.ransackable_attributes(auth_object = nil)

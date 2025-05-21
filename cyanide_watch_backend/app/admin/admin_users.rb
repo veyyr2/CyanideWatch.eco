@@ -1,4 +1,7 @@
 ActiveAdmin.register AdminUser do
+  # может смотреть только админ
+  menu if: proc { current_admin_user.admin? }
+
   # 1. Разрешенные параметры (добавлена роль)
   permit_params :email, :password, :password_confirmation, :role
 

@@ -14,6 +14,8 @@ module CyanideWatchBackend
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
+    # rails db:create db:migrate db:seed --trace
+    # rails tmp:clear
     config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
@@ -28,5 +30,13 @@ module CyanideWatchBackend
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = false
+
+    # добавить возможность запрета доступа модераторам
+    # config.to_prepare do
+    #   # Проверяем, включен ли Zeitwerk (он включен по умолчанию в Rails 6+)
+    #   if Rails.autoloaders.zeitwerk_enabled?
+    #     Rails.autoloaders.main.push_dir(Rails.root.join("app", "admin"))
+    #   end
+    # end
   end
 end

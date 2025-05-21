@@ -146,11 +146,12 @@ end
 
 puts "Создано или найдено #{Spot.count} точек загрязнения."
 
-# Создание AdminUser (лучше использовать find_or_create_by! и для него, чтобы не дублировать админа)
+# Создание AdminUser
 if Rails.env.development?
   AdminUser.find_or_create_by!(email: 'admin@example.com') do |u|
     u.password = 'password'
     u.password_confirmation = 'password'
+    u.role = :admin # выдать роль админа сразу
   end
   puts "AdminUser создан или найден."
 end

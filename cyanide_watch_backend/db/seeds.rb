@@ -110,6 +110,20 @@ spots_data = [
   }
 ]
   
+
+# "image_url",
+# "title",
+# "description",
+# "external_link",
+# "created_at",
+# "updated_at"
+
+# news_data [
+#   {
+#     image_url: 
+#   },
+# ]
+
 spots_data.each do |spot_attributes|
   Spot.find_or_create_by!(location: spot_attributes[:location], date: spot_attributes[:date]) do |spot|
     spot.lat = spot_attributes[:lat]

@@ -60,6 +60,12 @@
                 </div>
                 <!-- КОНЕЦ Модальное окно для эко-организаций -->
 
+                <% if current_admin_user&.moderator? || current_admin_user&.admin? %>
+                    <%= link_to "Добавить новость", admin_news_index_path, class: "nav_button nav_button--but-2" %>
+                <% else %>
+                    <%= link_to "Стать модератором", new_admin_user_registration_path(role: 'moderator'), class: "nav_button nav_button--but-2" %>
+                <% end %> 
+
                 <!-- кнопка темной темы -->
                 <div id="div_with_but_night_theme_toggle" title="Сменить тему">
                     <%= image_tag "images_for_page_style/but_theme_toggle_to_dark.png",

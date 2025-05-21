@@ -8,6 +8,14 @@
     <main>
         <%# Рендеринг паршла призыва к действию %>
         <%= render  "call-to-action" %>
+        <!-- Модальное окно для увеличения изображений -->
+        <div id="imageModal" class="modal">
+            <!-- крестик закрытия -->
+            <span class="close" id="close_zoom" onclick="closemodalZoomImgs()">&times;</span>
+            <!-- изображение -->
+            <img class="modalZoomImgs-content" id="modalImage" loading="lazy">
+        </div>
+        <!-- КОНЕЦ Блок с фотографиями что такое цианид -->
     </main>
     <!-- КОНЕЦ мэин-->
 </div>

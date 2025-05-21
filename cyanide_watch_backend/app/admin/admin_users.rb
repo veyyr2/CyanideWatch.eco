@@ -1,3 +1,4 @@
+# app/admin/admin_users.rb
 ActiveAdmin.register AdminUser do
   # может смотреть только админ
   menu if: proc { current_admin_user.admin? }
@@ -18,11 +19,11 @@ ActiveAdmin.register AdminUser do
     selectable_column
     id_column
     column :email
-    column :role # Добавлено отображение роли
+    column :role
     column :current_sign_in_at
     column :sign_in_count
     column :created_at
-    actions
+    actions # Это добавит стандартные кнопки "View", "Edit", "Delete"
   end
 
   # 4. Фильтры (с ограничением для модераторов)
@@ -58,5 +59,9 @@ ActiveAdmin.register AdminUser do
   end
 
   # 7. Ограничение действий для модераторов
+  # Эта строка контролирует, какие действия разрешены на уровне контроллера/маршрутов.
+  # Она работает в связке с вашим CustomAuthorizationAdapter.
+  # Если вы админ, разрешены все действия, включая удаление.
+  # Если вы не админ, удаление запрещено.
   actions :all, except: [:destroy] unless proc { current_admin_user.admin? }
 end

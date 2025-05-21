@@ -14,10 +14,18 @@ class CustomAuthorizationAdapter < ActiveAdmin::AuthorizationAdapter
     # Предполагается, что у вашей модели AdminUser есть методы `admin?` и `moderator?`
     # которые возвращают true/false в зависимости от роли пользователя.
 
-    case subject
+    # --- ДОБАВЛЕНЫ ОТЛАДОЧНЫЕ СООБЩЕНИЯ ---
+    puts "--- DEBUG AUTHORIZATION ---"
+    puts "User: #{user.email} (Admin: #{user.admin?}, Moderator: #{user.moderator?})"
+    puts "Action: #{action}, Subject: #{subject.inspect} (Class: #{subject.class})" # Добавлено отображение класса subject
+    # -----------------------------------
+
+    result = case subject
     when ActiveAdmin::Page # Разрешения для страниц Active Admin (например, дашборд)
-      true # Всегда разрешать доступ к страницам Active Admin (например, дашборду)
-    when Spot # Разрешения для вашей модели Spot
+      puts "  Matched: ActiveAdmin::Page"
+      true
+    when ->(s) { s.is_a?(Spot) } # ИЗМЕНЕНО: Используем is_a? для более надежной проверки экземпляра
+      puts "  Matched: Spot instance"
       if user.admin?
         true # Администраторы могут делать что угодно с Spot
       elsif user.moderator?
@@ -25,36 +33,54 @@ class CustomAuthorizationAdapter < ActiveAdmin::AuthorizationAdapter
       else
         false # Все остальные роли не имеют доступа к Spot
       end
-    when News # Разрешения для вашей модели News
+    when ->(s) { s.is_a?(News) } # ИЗМЕНЕНО: Используем is_a? для более надежной проверки экземпляра
+      puts "  Matched: News instance"
       if user.admin?
         true # Администраторы могут делать что угодно с News
       elsif user.moderator?
-        # ИЗМЕНЕНО: Модераторы теперь могут просматривать, создавать и удалять новости
-        true
+        true # Модераторы могут делать все с News (как было в вашем последнем коде)
       else
         false # Все остальные роли не имеют доступа к News
       end
-    when Class # Разрешения для классов ресурсов (например, ActiveAdmin.register Post)
-      if subject == Spot
-        # Только администраторы могут видеть ресурс Spot в меню и списках
-        user.admin?
-      elsif subject == News
-        # Только администраторы и модераторы могут видеть ресурс News в меню и списках
-        user.admin? || user.moderator?
-      elsif subject == AdminUser
-        # Только администраторы могут видеть и управлять AdminUser
-        user.admin?
+    when ->(s) { s.is_a?(AdminUser) } # <--- КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: Используем is_a? для AdminUser
+      puts "  Matched: AdminUser instance"
+      if user.admin?
+        true # Администраторы могут делать что угодно с ЛЮБЫМ AdminUser (включая нового)
+      elsif user.moderator?
+        # Модераторы могут просматривать свой собственный профиль, но не других
+        action == :read && subject == user
       else
-        # По умолчанию запрещать доступ к другим ресурсам, если не указано иное
         false
       end
+    when Class # Разрешения для классов ресурсов (например, ActiveAdmin.register Post)
+      puts "  Matched: Class"
+      if subject == Spot
+        puts "    Sub-matched: Spot Class"
+        user.admin? # Только администраторы могут видеть ресурс Spot в меню и списках
+      elsif subject == News
+        puts "    Sub-matched: News Class"
+        user.admin? || user.moderator? # Только администраторы и модераторы могут видеть ресурс News в меню и списках
+      elsif subject == AdminUser
+        puts "    Sub-matched: AdminUser Class"
+        # Для класса AdminUser, админы могут делать все (включая создание новых)
+        user.admin?
+      else
+        puts "    Sub-matched: Other Class"
+        false # По умолчанию запрещать доступ к другим ресурсам, если не указано иное
+      end
     else
-      # По умолчанию запрещать доступ, если не определено явно
-      false
+      puts "  Matched: Fallback (else)"
+      false # По умолчанию запрещать доступ, если не определено явно
     end
+
+    # --- ДОБАВЛЕНО ОТЛАДОЧНОЕ СООБЩЕНИЕ ---
+    puts "Result: #{result}"
+    puts "---------------------------"
+    # -----------------------------------
+    result
   end
 
-  # Этот метод Active Admin ожидает для обработки отказа в достухе.
+  # Этот метод Active Admin ожидает для обработки отказа в доступе.
   # Он будет вызван, когда authorized? вернет false.
   #
   # Аргументы:

@@ -1654,23 +1654,23 @@ main{
     // #endregion шапки блоков
 
     // #region шапка алерта (call to action)---------------------------------------------------------------
-            // шапка алерта (call to action)
-            .hat_alert_divs_of_main {
-                // стиль
-                padding: 1em;
-                background-color: var(--alert-div-color);
-                text-align: center;
-            }
-    
-            // Заголовок шапки алерта
-            .title_alert_divs_of_main {
-                font-size: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
-                display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-                border: 1px solid black;
-                border-radius: 15px;
-                padding: 5px;
-                background-color: var(--alert-div-backtext-color);
-            }
+        // шапка алерта (call to action)
+        .hat_alert_divs_of_main {
+            // стиль
+            padding: 1em;
+            background-color: var(--alert-div-color);
+            text-align: center;
+        }
+
+        // Заголовок шапки алерта
+        .title_alert_divs_of_main {
+            font-size: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
+            display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
+            border: 1px solid black;
+            border-radius: 15px;
+            padding: 5px;
+            background-color: var(--alert-div-backtext-color);
+        }
     // #endregion шапка алерта (call to action)---------------------------------------------------------------
 
     // контент блоков

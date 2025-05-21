@@ -1,17 +1,17 @@
 class PagesController < ApplicationController
   def index
-    render layout: false
+    render layout: 'page'
   end
 
   def map
-    render layout: false
+    render layout: 'page'
   end
 
   def news
-    render layout: false
+    render layout: 'page'
   end
 
   def donate
-    render layout: false
+    render layout: 'page'
   end
 end

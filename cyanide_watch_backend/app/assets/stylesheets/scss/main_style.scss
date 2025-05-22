@@ -17,6 +17,19 @@ $main_padding: 1em; // переменная отступа у мэина
         }
     }
 
+    // Миксин для картинок, изменяя их размер
+    @mixin _imgs_no_border ($width) {
+        max-width: $width;
+        height: auto;
+        display: flex; // Для правильного растягивания
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // заполнить весь контейнер
+        }
+    }
+
     // Миксин для анимации. При наведении увеличиваться
     @mixin _animation_transform_scale($duration, $scale)
     {
@@ -189,6 +202,7 @@ body {
     --text-color: #ffffff; // цвет текста
     --text-color-map: #000000; // цвет текста для карты
     --news-card-color: #0151a1; // цвет карточек новостей
+    --form-field-bg-color: #ffffff; // задний цвет полей формы
     color: var(--text-color);
     background-color: #0A0A0A;
 
@@ -214,6 +228,7 @@ body {
     --text-color: #ffffff; // цвет текста
     --text-color-map: #ffffff; // цвет текста для карты
     --news-card-color: #023e7a; // цвет карточек новостей
+    --form-field-bg-color: rgb(20, 20, 20); // задний цвет полей формы
     color: var(--text-color);
     background-color: #0A0A0A;
 
@@ -436,6 +451,84 @@ body {
         }
     }
 // #endregion модальное окна---------------------------------------
+
+// #region форма модератора-----------------------------------------------------------
+    // контейнер с формой модератора
+    .container-moderator-form {
+        background-color: var(--div-main-color);
+        width: fit-content;
+        height: 100%;
+        padding-bottom: 1em;
+
+        // flex
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+
+    // блок с введением данных
+    .form-field {
+        border: 1px solid black;
+        border-radius: 15px;
+        background-color: var(--background-text-color);
+        padding: 8px;
+
+        // для каждого поля ввода
+        input {
+            width: 100%;
+            border-radius: 10px;
+            padding: 0 3px 0 3px;
+            background-color: var(--form-field-bg-color);
+            color: var(--text-color-map);
+        }
+        textarea {
+            margin-top: 5px;
+            width: 100%;
+            padding: 0 3px 0 3px;
+            resize: none; // запретить менять размер
+            background-color: var(--form-field-bg-color);
+            color: var(--text-color-map);
+        }
+    }
+
+    // подсказка для пользователя
+    .form-hint {
+        width: 100%;
+        border-radius: 15px;
+        background-color: var(--alert-div-backtext-color);
+        padding: 8px;
+        border: 1px solid #000;
+    }
+
+    // контейнер с кнопкой
+    .form-action {
+        align-self: flex-end;
+    }
+
+    // разделительная линия
+    .form-hr {
+        background-color: var(--text-color-map);
+        height: 2px;
+        border: none;
+    }
+// #endregion форма модератора-----------------------------------------------------------
+
+// #region заголовок с стрелками------------------------------------------------------
+    // заголовок с стрелками
+    .container_arrows {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // див с фото
+    .div_arrow {
+        @include _imgs_no_border(5%)
+    }
+// #endregion заголовок с стрелками------------------------------------------------------
 } // КОНЕЦ media-all
 
 // #region стили для карты-----------------------------------------------------------
@@ -786,9 +879,6 @@ body {
             pointer-events: none;
         }
 
-        // #region выпадающий список с эко-организациями---------------------------------
-            
-        // #endregion выпадающий список с эко-организациями---------------------------------
     // #endregion контент хидера-----------------------------------------------------------------
 // #endregion header-------------------------------------------------------------------------------
 /*---------------------------------END HEADER---------------------------------*/
@@ -840,6 +930,9 @@ body {
                 position: relative;
                 padding: 1em;
                 background-color: var(--head-of-div-color);
+                width: 100%;
+
+                // flex
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -1483,6 +1576,13 @@ body {
             }
         // #endregion модальное окно источников-----------------------------------------------
     // #endregion модальное окна-----------------------------------------------
+
+    // #region заголовок с стрелками------------------------------------------------------
+        // див с фото
+        .div_arrow {
+            @include _imgs_no_border(8%)
+        }
+    // #endregion заголовок с стрелками------------------------------------------------------
 // #endregion Minor technical------------------------------------------------------------------
 /*---------------------------------Minor technical---------------------------------*/
 

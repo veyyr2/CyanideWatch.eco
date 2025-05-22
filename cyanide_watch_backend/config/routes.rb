@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, {
     controllers: {
       registrations: 'admin_users/registrations',
-      sessions: 'active_admin/devise/sessions'  # Используем стандартный контроллер ActiveAdmin
+      sessions: 'active_admin/devise/sessions'
     }
   }.merge(ActiveAdmin::Devise.config)
 
@@ -25,6 +25,9 @@ Rails.application.routes.draw do
 
   # пожертвовать
   get '/donate', to: 'pages#donate'
+
+  # из формы в главную страницу
+  get 'request_moderators/index.html', to: 'pages#index'
   
   # главный путь
   root "pages#index"

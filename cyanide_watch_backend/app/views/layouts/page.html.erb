@@ -104,8 +104,16 @@
     <% end %>
     
 
-    <%# Вставить содержимое из папки pages %>
-    <%= yield %>
+    <!-- мэин container -->
+    <div id="container_main_aside">
+        <!-- фото для фона -->
+        <div id="body_bg_imgs" style="background-image: url(<%= asset_path('imgs/background_img.png') %>);"></div>
+
+        <%# Вставить содержимое из папки pages %>
+        <%= yield %>
+    </div>
+    <!-- КОНЕЦ мэин container -->
+    
 
     <!-- футер -->
     <footer>

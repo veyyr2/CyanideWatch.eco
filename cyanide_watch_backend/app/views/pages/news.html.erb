@@ -1,30 +1,22 @@
 <%# news.html.erb из pages %>
-<!-- мэин и эсайд -->
-<div id="container_main_aside">
-    <!-- фото для фона -->
-    <div id="body_bg_imgs" style="background-image: url(<%= asset_path('imgs/background_img.png') %>);"></div>
+<!-- мэин-->
+<main id="news_main">
+    <!-- блок для заднего фона новостей-->
+    <div class="news_style_background">
+        <!-- шапка мэин-->
+        <div class="hat_divs">
+            <!-- Заголовок -->
+            <h1 class="title_divs">Последние новости</h1>
+        </div>
+        <!-- КОНЕЦ шапка мэин-->
 
-    <!-- мэин-->
-    <main id="news_main">
-        <!-- блок для заднего фона новостей-->
-        <div class="news_style_background">
-            <!-- шапка мэин-->
-            <div class="hat_divs">
-                <!-- Заголовок -->
-                <h1 class="title_divs">Последние новости</h1>
-            </div>
-            <!-- КОНЕЦ шапка мэин-->
-
-            <div class="main_container_news"> 
-                <div class="news-container">
-                    <div id="news-list" class="news-list">
-                        <!-- Новости будут загружаться сюда -->
-                    </div>
+        <div class="main_container_news"> 
+            <div class="news-container">
+                <div id="news-list" class="news-list">
+                    <!-- Новости будут загружаться сюда -->
                 </div>
             </div>
         </div>
-        <!-- КОНЕЦ блок для заднего фона новостей-->
-    </main>
-    <!-- КОНЕЦ мэин-->
-</div>
-<!-- КОНЕЦ мэин и эсайд -->
+    </div>
+    <!-- КОНЕЦ блок для заднего фона новостей-->
+</main>

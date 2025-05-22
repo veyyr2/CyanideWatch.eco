@@ -1,131 +1,122 @@
 <%# index.html.erb из pages %>
-<!-- мэин container -->
-<div id="container_main_aside">
-    <!-- фото для фона -->
-    <div id="body_bg_imgs" style="background-image: url(<%= asset_path('imgs/background_img.png') %>);"></div>
-
-    <!-- мэин-->
-    <main>
-        <!-- Блок приветствия -->
-        <div class="divs_of_main">
-            <!-- Шапка блока -->
-            <div class="hat_divs" id="welcome_hat">
-                <!-- Заголовок -->
-                <h1 class="title_divs">Добро пожаловать на платформу CyanideWatch!</h1>
-                <!-- Треугольник для стиля -->
-                <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
-            </div>
-            <!-- КОНЕЦ Шапка блока -->
-
-            <!-- Контент блока -->
-            <div class="content_divs_of_main">
-                <!-- Второй блок контента для стиля -->
-                <div class="second_divs_content_of_main">
-                    <!-- Блок с текстами в колонку -->
-                    <div class="divs_columntext_content_of_main">
-                        <!-- div с заголовком 1 -->
-                        <div class="container_h_content welcome_h2_1"><h2><strong>CyanideWatch</strong></h2></div>
-                        <!-- div с заголовком 2 -->
-                        <div class="container_h_content welcome_h2_2"><h2><strong>Цель проекта</strong></h2></div>
-                        <!-- div с заголовком 3 -->
-                        <div class="container_h_content welcome_h2_3"><h2><strong>Возможности</strong></h2></div>
-
-                        <!-- div с параграфом 1 -->
-                        <div class="container_p_content welcome_p_1"><p class="p-vsm">Это платформа, направленная на наблюдение за выбросами цианида в окружающую среду в режиме реального времени.</p></div>
-                        <!-- div с параграфом 2 -->
-                        <div class="container_p_content welcome_p_2" style="text-align: justify;"><p class="p-vsm">Предоставить открытый доступ к экологически значимой информации, повысить осведомлённость общественности и поддержать усилия по снижению рисков, связанных с промышленным загрязнением. Платформа собирает и анализирует данные со всего мира, чтобы каждый мог видеть картину происходящего — будь то учёный, эколог, журналист или неравнодушный гражданин.</p></div>
-                        <!-- div с параграфом 3 -->
-                        <div class="container_p_content welcome_p_3"><p class="p-vsm">Используйте карту, чтобы отслеживать уровень загрязнения, узнавайте последние новости, и узнайте, как вы можете повлиять на ситуацию уже сегодня.</p></div>                         
-                    </div>
-                    <!-- КОНЕЦ Блок с текстами в колонку -->
-                    
-                    <!-- Блок с картинками -->
-                    <div class="container_with_imgs_of_div">
-                        <%= image_tag "images_for_index/div_1_content/welcome_content_1.jpeg", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html", loading: "lazy" %>
-
-                        <%= image_tag "images_for_index/div_1_content/welcome_content_2.jpg", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/", loading: "lazy" %>
-
-                        <%= image_tag "images_for_index/div_1_content/welcome_content_3.png", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://ru.freepik.com/premium-photo/growth-new-life-concept-hands-with-water-watering-small-sprout_18101973.htm", loading: "lazy" %>
-                    </div>
-                    <!-- КОНЕЦ Блок с картинками -->
-                </div>
-                <!-- КОНЕЦ Второй блок контента для стиля -->
-            </div>
-            <!-- КОНЕЦ Контент блока -->
+<main>
+    <!-- Блок приветствия -->
+    <div class="divs_of_main">
+        <!-- Шапка блока -->
+        <div class="hat_divs" id="welcome_hat">
+            <!-- Заголовок -->
+            <h1 class="title_divs">Добро пожаловать на платформу CyanideWatch!</h1>
+            <!-- Треугольник для стиля -->
+            <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
         </div>
-        <!-- КОНЕЦ Блок приветствия -->
+        <!-- КОНЕЦ Шапка блока -->
 
-        <!-- О цианиде -->
-        <div class="divs_of_main">
-            <!-- Шапка блока -->
-            <div class="hat_divs">
-                <!-- Заголовок -->
-                <h1 class="title_divs">О цианидах</h1>
-                <!-- Треугольник для стиля -->
-                <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
-            </div>
-            <!-- КОНЕЦ Шапка блока -->
+        <!-- Контент блока -->
+        <div class="content_divs_of_main">
+            <!-- Второй блок контента для стиля -->
+            <div class="second_divs_content_of_main">
+                <!-- Блок с текстами в колонку -->
+                <div class="divs_columntext_content_of_main">
+                    <!-- div с заголовком 1 -->
+                    <div class="container_h_content welcome_h2_1"><h2><strong>CyanideWatch</strong></h2></div>
+                    <!-- div с заголовком 2 -->
+                    <div class="container_h_content welcome_h2_2"><h2><strong>Цель проекта</strong></h2></div>
+                    <!-- div с заголовком 3 -->
+                    <div class="container_h_content welcome_h2_3"><h2><strong>Возможности</strong></h2></div>
 
-            <!-- Контент блока -->
-            <div class="content_divs_of_main">
-                <!-- Второй блок контента для стиля -->
-                <div class="second_divs_content_of_main"> 
-                    <!-- Блок с видео что такое цианид -->
-                    <div class="container_video"><iframe src="https://www.youtube.com/embed/0LvXQctzeKU?si=CdTcrhDLY9RMEfQa" title="What is cyanide?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-
-                    <!-- Блок с фотографиями что такое цианид -->
-                    <div class="container_cyanide_imgs">
-                        <%= image_tag "images_for_index/div_2_content/div_2_content_1.png", class: "img_content_divs imgs_cyanide_inf_1", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html", loading: "lazy" %>
-                        <!-- Вертикальная линия разделения -->
-                        <div class="vertical_line"></div>
-                        <%= image_tag "images_for_index/div_2_content/div_2_content_2.png", class: "img_content_divs imgs_cyanide_inf_2", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/", loading: "lazy" %>
-                    </div>
-
-                    <!-- Модальное окно для увеличения изображений -->
-                    <div id="imageModal" class="modal">
-                        <!-- крестик закрытия -->
-                        <span class="close" id="close_zoom" onclick="closemodalZoomImgs()">&times;</span>
-                        <!-- изображение -->
-                        <img class="modalZoomImgs-content" id="modalImage" loading="lazy">
-                    </div>
-                    <!-- КОНЕЦ Блок с фотографиями что такое цианид -->
-
-                    <!-- Блок с видео об утечках цианида -->
-                    <div class="container_video"><iframe src="https://www.youtube.com/embed/Xjh6LCHYjBM?si=Vr20flqOWVTltrw4" title="Cyanide leak" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-
-                    <!-- Блок с текстом -->
-                    <div class="container_text">
-                        <p><strong class="underline_words">Загрязнение цианидом</strong> — это форма химического загрязнения окружающей среды, возникающая при попадании цианидов в воздух, воду или почву. Цианиды могут быть побочным продуктом горнодобывающей промышленности, особенно при добыче золота и серебра с использованием цианидного выщелачивания.</p>
-                    </div>
-
-                    <!-- Блок 2 с фотографиями что такое цианид -->
-                    <div class="container_cyanide_imgs">
-                        <%= image_tag "images_for_index/div_2_content/div_2_content_3.png", class: "img_content_divs imgs_cyanide_inf_3", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tisza_cyanide_spill_1.jpg/800px-Tisza_cyanide_spill_1.jpg", loading: "lazy" %>
-                        <!-- Вертикальная линия разделения -->
-                        <div class="vertical_line"></div>
-                        <%= image_tag "images_for_index/div_2_content/div_2_content_4.png", class: "img_content_divs imgs_cyanide_inf_4", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://data.vb.kg/image/big/2018-09-18_21-44-29_630338.jpg", loading: "lazy" %>
-                    </div>
-                    <!-- КОНЕЦ Блок 2 с фотографиями что такое цианид -->
-
-                    <!-- Блок с текстом 2 -->
-                    <div class="container_text">
-                        <p>Попадание цианидов в окружающую среду может привести к массовой гибели водной фауны, загрязнению источников питьевой воды и нарушению экосистем. Для человека <strong class="underline_words">цианиды чрезвычайно опасны</strong> — при попадании в организм они блокируют клеточное дыхание, что может привести к смерти.</p>
-                    </div>
-
-                    <!-- Блок 3 с фотографиями что такое цианид -->
-                    <div class="container_cyanide_imgs">
-                        <%= image_tag "images_for_index/div_2_content/div_2_content_5.jpg", class: "img_content_divs imgs_cyanide_inf_5", onclick: "openmodalZoomImgs(this)", alt: "", loading: "lazy" %>
-                    </div>
-                    <!-- КОНЕЦ Блок 3 с фотографиями что такое цианид -->
+                    <!-- div с параграфом 1 -->
+                    <div class="container_p_content welcome_p_1"><p class="p-vsm">Это платформа, направленная на наблюдение за выбросами цианида в окружающую среду в режиме реального времени.</p></div>
+                    <!-- div с параграфом 2 -->
+                    <div class="container_p_content welcome_p_2" style="text-align: justify;"><p class="p-vsm">Предоставить открытый доступ к экологически значимой информации, повысить осведомлённость общественности и поддержать усилия по снижению рисков, связанных с промышленным загрязнением. Платформа собирает и анализирует данные со всего мира, чтобы каждый мог видеть картину происходящего — будь то учёный, эколог, журналист или неравнодушный гражданин.</p></div>
+                    <!-- div с параграфом 3 -->
+                    <div class="container_p_content welcome_p_3"><p class="p-vsm">Используйте карту, чтобы отслеживать уровень загрязнения, узнавайте последние новости, и узнайте, как вы можете повлиять на ситуацию уже сегодня.</p></div>                         
                 </div>
-            </div>
-            <!-- КОНЕЦ Контент блока -->
-        </div>
-        <!-- КОНЕЦ О цианиде -->
+                <!-- КОНЕЦ Блок с текстами в колонку -->
+                
+                <!-- Блок с картинками -->
+                <div class="container_with_imgs_of_div">
+                    <%= image_tag "images_for_index/div_1_content/welcome_content_1.jpeg", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html", loading: "lazy" %>
 
-        <%# Рендеринг паршла призыва к действию %>
-        <%= render  "call-to-action" %>
-    </main>
-    <!-- КОНЕЦ мэин-->
-</div>
-<!-- КОНЕЦ мэин container -->
+                    <%= image_tag "images_for_index/div_1_content/welcome_content_2.jpg", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/", loading: "lazy" %>
+
+                    <%= image_tag "images_for_index/div_1_content/welcome_content_3.png", class: "img_content_divs imgs_of_div_1", alt: "", title: "https://ru.freepik.com/premium-photo/growth-new-life-concept-hands-with-water-watering-small-sprout_18101973.htm", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Блок с картинками -->
+            </div>
+            <!-- КОНЕЦ Второй блок контента для стиля -->
+        </div>
+        <!-- КОНЕЦ Контент блока -->
+    </div>
+    <!-- КОНЕЦ Блок приветствия -->
+
+    <!-- О цианиде -->
+    <div class="divs_of_main">
+        <!-- Шапка блока -->
+        <div class="hat_divs">
+            <!-- Заголовок -->
+            <h1 class="title_divs">О цианидах</h1>
+            <!-- Треугольник для стиля -->
+            <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
+        </div>
+        <!-- КОНЕЦ Шапка блока -->
+
+        <!-- Контент блока -->
+        <div class="content_divs_of_main">
+            <!-- Второй блок контента для стиля -->
+            <div class="second_divs_content_of_main"> 
+                <!-- Блок с видео что такое цианид -->
+                <div class="container_video"><iframe src="https://www.youtube.com/embed/0LvXQctzeKU?si=CdTcrhDLY9RMEfQa" title="What is cyanide?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+                <!-- Блок с фотографиями что такое цианид -->
+                <div class="container_cyanide_imgs">
+                    <%= image_tag "images_for_index/div_2_content/div_2_content_1.png", class: "img_content_divs imgs_cyanide_inf_1", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://ortho-rus.ru/ekologiya/5094-karta-stokov-v-dagestane-zapuschen-ekologicheskiy-proekt.html", loading: "lazy" %>
+                    <!-- Вертикальная линия разделения -->
+                    <div class="vertical_line"></div>
+                    <%= image_tag "images_for_index/div_2_content/div_2_content_2.png", class: "img_content_divs imgs_cyanide_inf_2", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://p-profimed.ru/article/issledovanie-krovi-biokhimicheskiy-analiz/", loading: "lazy" %>
+                </div>
+
+                <!-- Модальное окно для увеличения изображений -->
+                <div id="imageModal" class="modal">
+                    <!-- крестик закрытия -->
+                    <span class="close" id="close_zoom" onclick="closemodalZoomImgs()">&times;</span>
+                    <!-- изображение -->
+                    <img class="modalZoomImgs-content" id="modalImage" loading="lazy">
+                </div>
+                <!-- КОНЕЦ Блок с фотографиями что такое цианид -->
+
+                <!-- Блок с видео об утечках цианида -->
+                <div class="container_video"><iframe src="https://www.youtube.com/embed/Xjh6LCHYjBM?si=Vr20flqOWVTltrw4" title="Cyanide leak" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+
+                <!-- Блок с текстом -->
+                <div class="container_text">
+                    <p><strong class="underline_words">Загрязнение цианидом</strong> — это форма химического загрязнения окружающей среды, возникающая при попадании цианидов в воздух, воду или почву. Цианиды могут быть побочным продуктом горнодобывающей промышленности, особенно при добыче золота и серебра с использованием цианидного выщелачивания.</p>
+                </div>
+
+                <!-- Блок 2 с фотографиями что такое цианид -->
+                <div class="container_cyanide_imgs">
+                    <%= image_tag "images_for_index/div_2_content/div_2_content_3.png", class: "img_content_divs imgs_cyanide_inf_3", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Tisza_cyanide_spill_1.jpg/800px-Tisza_cyanide_spill_1.jpg", loading: "lazy" %>
+                    <!-- Вертикальная линия разделения -->
+                    <div class="vertical_line"></div>
+                    <%= image_tag "images_for_index/div_2_content/div_2_content_4.png", class: "img_content_divs imgs_cyanide_inf_4", onclick: "openmodalZoomImgs(this)", alt: "", title: "https://data.vb.kg/image/big/2018-09-18_21-44-29_630338.jpg", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Блок 2 с фотографиями что такое цианид -->
+
+                <!-- Блок с текстом 2 -->
+                <div class="container_text">
+                    <p>Попадание цианидов в окружающую среду может привести к массовой гибели водной фауны, загрязнению источников питьевой воды и нарушению экосистем. Для человека <strong class="underline_words">цианиды чрезвычайно опасны</strong> — при попадании в организм они блокируют клеточное дыхание, что может привести к смерти.</p>
+                </div>
+
+                <!-- Блок 3 с фотографиями что такое цианид -->
+                <div class="container_cyanide_imgs">
+                    <%= image_tag "images_for_index/div_2_content/div_2_content_5.jpg", class: "img_content_divs imgs_cyanide_inf_5", onclick: "openmodalZoomImgs(this)", alt: "", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Блок 3 с фотографиями что такое цианид -->
+            </div>
+        </div>
+        <!-- КОНЕЦ Контент блока -->
+    </div>
+    <!-- КОНЕЦ О цианиде -->
+
+    <%# Рендеринг паршла призыва к действию %>
+    <%= render  "call-to-action" %>
+</main>

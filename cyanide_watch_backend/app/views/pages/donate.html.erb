@@ -1,22 +1,13 @@
 <%# donate.html.erb из pages %>
-<!-- мэин и эсайд -->
-<div id="container_main_aside">
-    <!-- фото для фона -->
-    <div id="body_bg_imgs" style="background-image: url(<%= asset_path('imgs/background_img.png') %>);"></div>
-
-    <!-- мэин-->
-    <main>
-        <%# Рендеринг паршла призыва к действию %>
-        <%= render  "call-to-action" %>
-        <!-- Модальное окно для увеличения изображений -->
-        <div id="imageModal" class="modal">
-            <!-- крестик закрытия -->
-            <span class="close" id="close_zoom" onclick="closemodalZoomImgs()">&times;</span>
-            <!-- изображение -->
-            <img class="modalZoomImgs-content" id="modalImage" loading="lazy">
-        </div>
-        <!-- КОНЕЦ Блок с фотографиями что такое цианид -->
-    </main>
-    <!-- КОНЕЦ мэин-->
-</div>
-<!-- КОНЕЦ мэин и эсайд -->
+<main>
+    <%# Рендеринг паршла призыва к действию %>
+    <%= render  "call-to-action" %>
+    <!-- Модальное окно для увеличения изображений -->
+    <div id="imageModal" class="modal">
+        <!-- крестик закрытия -->
+        <span class="close" id="close_zoom" onclick="closemodalZoomImgs()">&times;</span>
+        <!-- изображение -->
+        <img class="modalZoomImgs-content" id="modalImage" loading="lazy">
+    </div>
+    <!-- КОНЕЦ Блок с фотографиями что такое цианид -->
+</main>

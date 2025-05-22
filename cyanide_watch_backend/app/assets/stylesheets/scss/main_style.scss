@@ -317,7 +317,7 @@ body {
     .news-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 0 20px 20px 20px;
         background-color: var(--div-main-color);
         border: 1px solid black;
     }
@@ -337,8 +337,8 @@ body {
         background-color: var(--news-card-color);
     
         &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
     }
     
@@ -758,7 +758,7 @@ body {
                     padding: 8px;
                     transition: transform 0.3s;
                     &:hover {
-                        transform: scale(1.2);
+                        transform: scale(1.15);
                     }
                 }
             }
@@ -1028,7 +1028,7 @@ body {
 
         // Блоки с текстом
         .container_text {
-            padding: 1em;
+            padding: 15px;
             font-size: 1.2em;
             border-radius: 10px;
             background-color: var(--background-text-color);    
@@ -1415,6 +1415,14 @@ body {
     .news-list {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
+
+    // отключить анимацию для карточек новостей
+    .news-card {
+        transform: none !important;  
+    }
+    // .clear_animation_MP {
+
+    // }
 
     // #region стили для карты-----------------------------------------------------------
         // Стили для popup на карте
@@ -1838,7 +1846,7 @@ main{
 
     // Блоки с текстом
     .container_text {
-        padding: 1em;
+        padding: 10px;
         font-size: 1.2em;
         border-radius: 10px;
         background-color: var(--background-text-color);    

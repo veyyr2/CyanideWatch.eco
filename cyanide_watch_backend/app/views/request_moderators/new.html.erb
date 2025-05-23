@@ -16,38 +16,38 @@
             <div class='second_divs_content_of_main'>
                 <% if @request_moderator.errors.any? %>
                     <div id="error_explanation">
-                    <h2><%= pluralize(@request_moderator.errors.count, "ошибка") %> помешали сохранить заявку:</h2>
-                    <ul>
-                        <%# Вывод всех ошибок %>
-                        <% @request_moderator.errors.full_messages.each do |message| %>
-                            <li><%= message %></li>
-                        <% end %>
-                    </ul>
+                    <h2><%= "#{@request_moderator.errors.count} ошибок" %> помешали сохранить заявку:</h2>
+                        <ul>
+                            <%# Вывод всех ошибок %>
+                            <% @request_moderator.errors.messages.values.flatten.each do |message| %>
+                                <li><%= message %></li>
+                            <% end %>
+                        </ul>
                     </div>
                 <% end %>
 
                 <div class="form-field">
-                    <%= f.label :first_name, "Имя" %><br>
+                    <%= f.label :first_name, "Имя" %>
                     <%= f.text_field :first_name %>
                 </div>
 
                 <div class="form-field">
-                    <%= f.label :last_name, "Фамилия" %><br>
+                    <%= f.label :last_name, "Фамилия" %>
                     <%= f.text_field :last_name %>
                 </div>
 
                 <div class="form-field">
-                    <%= f.label :email, "Электронная почта" %><br>
+                    <%= f.label :email, "Электронная почта" %>
                     <%= f.email_field :email %>
                 </div>
 
                 <div class="form-field">
-                    <%= f.label :phone_number, "Телефон (не обязательно)" %><br>
+                    <%= f.label :phone_number, "Телефон (не обязательно)" %>
                     <%= f.text_field :phone_number %>
                 </div>
 
                 <div class="form-field">
-                    <%= f.label :description, " Почему вы хотите стать модератором:" %><br>
+                    <%= f.label :description, " Почему вы хотите стать модератором:" %>
                     <%= f.text_area :description, rows: 10, placeholder: "Расскажите про вашу мотивацию. Также можете указать дополнительную информацию: сколько вам лет, какие языки знаете, ваш часовой пояс, опыт в модерации и т.д." %>
                 </div>
 

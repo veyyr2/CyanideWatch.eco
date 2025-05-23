@@ -475,6 +475,12 @@ body {
         background-color: var(--background-text-color);
         padding: 8px;
 
+        // flex
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 2px;
+
         // для каждого поля ввода
         input {
             width: 100%;
@@ -529,6 +535,51 @@ body {
         @include _imgs_no_border(5%)
     }
 // #endregion заголовок с стрелками------------------------------------------------------
+
+// #region flash--------------------------------------------------------------------
+    .container-flash {
+        padding: 10px;
+    }
+
+    .div-flash {
+        width: 100%;
+        border: 2px solid #912808;
+        border-radius: 13px;
+        padding: 5px;
+
+        // текст внутри
+        p {
+            font-size: 16pt;
+        }
+    }
+
+    // flash об успехе
+    .flash-notice {
+        background-color: #48e128;
+    }
+
+    // flash об успехе
+    .flash-alert {
+        background-color: rgb(252, 56, 56);
+    }
+
+    // вывод ошибок
+    #error_explanation {
+        border: 1px solid #000;
+        border-radius: 15px;
+        background-color: rgb(252, 56, 56);
+        padding: 8px;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    }
+// #endregion flash--------------------------------------------------------------------
 } // КОНЕЦ media-all
 
 // #region стили для карты-----------------------------------------------------------
@@ -783,7 +834,6 @@ body {
         width: 100%;
         background-color: var(--header-and-footer-color);
         padding: 10px;
-        margin-bottom: 20px;
         height: fit-content;
         // flex
         display: flex;
@@ -1420,10 +1470,7 @@ body {
     .news-card {
         transform: none !important;  
     }
-    // .clear_animation_MP {
-
-    // }
-
+    
     // #region стили для карты-----------------------------------------------------------
         // Стили для popup на карте
         .leaflet-popup-content {
@@ -1603,8 +1650,8 @@ body {
         width: 100%;
         background-color: var(--header-and-footer-color);
         padding: 10px;
-        margin-bottom: 20px;
         height: fit-content;
+
         // flex
         display: flex;
         flex-direction: row;

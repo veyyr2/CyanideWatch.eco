@@ -1,13 +1,13 @@
 # app/models/request_moderator.rb
 class RequestModerator < ApplicationRecord
     # Валидации для обязательных полей
-    validates :first_name, presence: true
-    validates :last_name, presence: true
-    validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: "неверный формат" }
-    validates :description, presence: true
+    validates :first_name, presence: { message: "Имя не может быть пустым." }
+    validates :last_name, presence: { message: "Фамилия не может быть пустой." }
+    validates :email, presence: { message: "Email не может быть пустым." }, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Email неверный формат" }
+    validates :description, presence: { message: "Описание про мотивацию не может быть пустым." }
 
     # Дополнительные валидации (по желанию)
-    validates :phone_number, format: { with: /\A\+?[0-9\s\-\(\)]+\z/, message: "неверный формат", allow_blank: true }
+    validates :phone_number, format: { with: /\A\+?[0-9\s\-\(\)]+\z/, message: "У номера телефона неверный формат", allow_blank: true }
 
     # Ransackable attributes for searching and filtering in Active Admin
     def self.ransackable_attributes(auth_object = nil)

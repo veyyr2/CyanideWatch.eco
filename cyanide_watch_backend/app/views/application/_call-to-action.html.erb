@@ -1,0 +1,130 @@
+<!-- Call to action -->
+<div class="divs_of_main">
+    <!-- Шапка блока -->
+    <div class="hat_divs hat_alert_divs_of_main">
+        <!-- Заголовок -->
+        <h1 class="title_alert_divs_of_main">Хотите помочь в борьбе против цианида?</h1>
+        <!-- Треугольник для стиля -->
+        <%= image_tag "images_for_page_style/triangle-all-light.png", class: "trinagle_for_style", alt: "", loading: "lazy" %>
+    </div>
+    <!-- КОНЕЦ Шапка блока -->
+
+    <!-- Контент блока -->
+    <div class="content_divs_of_main">
+        <!-- Второй блок контента для стиля -->
+        <div class="second_divs_content_of_main second_div_content_alert">
+            <!-- div с заголовком call to action -->
+            <div class="container_h_content_alert--centered container_arrows">
+                <div class="div_arrow"><%= image_tag 'images_for_page_style/arrow_down.png' %></div>
+                <div><h1 class="title_alert_divs_of_main"><strong>Что вы можете сделать:</strong></h1></div>
+                <div class="div_arrow"><%= image_tag 'images_for_page_style/arrow_down.png' %></div>
+            </div>
+
+            <!-- Блок с текстом alert -->
+            <div class="container_text container_text_alert">
+                <p><strong class="underline_words underline_words_alert">Распространяйте информацию:</strong></p>
+                <p>Повышайте осведомленность о вреде цианида и его опасности для окружающей среды и здоровья человека.</p>
+            </div>
+
+            <!-- Блок с текстом 2  alert -->
+            <div class="container_text container_text_alert">
+                <p><strong class="underline_words underline_words_alert">Поддерживайте организации:</strong></p>
+                <p>Финансово или волонтерской работой помогайте организациям, которые занимаются мониторингом и борьбой с загрязнением цианидом.</p>
+            </div>  
+            
+            <!-- Блок с текстом 3  alert -->
+            <div class="container_text container_text_alert">
+                <p><strong class="underline_words underline_words_alert">Участвуйте в акциях протеста:</strong></p>
+                <p>Присоединяйтесь к демонстрациям и акциям протеста против использования цианида в промышленности, особенно в горнодобывающей.</p>
+            </div> 
+
+            <!-- Блок с текстом 4  alert -->
+            <div class="container_text container_text_alert">
+                <p><strong class="underline_words underline_words_alert">Подписывайте петиции:</strong></p>
+                <p>Подписывайте петиции, требующие от правительств и компаний ужесточения контроля за использованием цианида и внедрения более безопасных альтернатив.</p>
+            </div> 
+
+            <!-- div с заголовком call to action 2 -->
+            <div class="container_h_content_alert--centered container_arrows">
+                <div class="div_arrow"><%= image_tag 'images_for_page_style/arrow_down.png' %></div>
+                <div><h1 class="title_alert_divs_of_main"><strong>Хотите помочь эко-организации?</strong></h1></div>
+                <div class="div_arrow"><%= image_tag 'images_for_page_style/arrow_down.png' %></div>
+            </div>
+
+            <!-- Блок с Фотографиями эко-организаций -->
+            <div class="container_calltoaction_imgs_eco">
+                <%= render  "eco-helper" %>
+            </div>
+            <!-- КОНЕЦ Блок с Фотографиями эко-организаций -->
+
+            <!-- div с заголовком call to action 3 -->
+            <div class="container_h_content_alert--centered container_arrows">
+                <div class="div_arrow"><%= image_tag 'images_for_page_style/arrow_down.png' %></div>
+                <div><h1 class="title_alert_divs_of_main"><strong>У вас есть возможность это сделать на нашей платформе!</strong></h1></div>
+                <div class="div_arrow"><%= image_tag 'images_for_page_style/arrow_down.png' %></div>
+            </div>
+
+            <!-- Блок с инструкцией как донатить -->
+            <div class="container_donut">
+                <!-- div с заголовком call to action 4 -->
+                <div class="container_h_content_alert container_h_content_alert--centered"><h1 class="title_alert_divs_of_main"><strong>Инструкция по пожертвованию:</strong></h1></div>
+
+                <!-- Блок с фото инструкцией 1 для пк -->
+                <div class="container_imgs_instruction">
+                    <%# Фото для ПК %>
+                    <%= image_tag "images_for_index/instruction content/show1t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                    <%# Фото для МУ %>
+                    <%= image_tag "images_for_index/instruction content/show1-2_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Блок с фото инструкцией 1 -->
+
+                <!-- div с заголовком call to action 5 -->
+                <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>1. Нажмите на кнопку "Эко-организации".</strong></h2></div>
+
+                <!-- Блок с фото ПРОМЕЖУТОЧНЫЙ инструкцией -->
+                <div class="container_imgs_instruction">
+                    <%# Фото для ПК %>
+                    <%= image_tag "images_for_index/instruction content/show1-2t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                    <%# Фото для МУ %>
+                    <%= image_tag "images_for_index/instruction content/show_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Блок с фото ПРОМЕЖУТОЧНЫЙ инструкцией -->
+
+                <!-- div с заголовком call to action 5 -->
+                <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>2. Нажмите на любой логотип эко-организации.</strong></h2></div>
+
+                <!-- Блок с фото инструкцией 2 -->
+                <div class="container_imgs_instruction">
+                    <%# Фото для ПК %>
+                    <%= image_tag "images_for_index/instruction content/show2t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                    <%# Фото для МУ %>
+                    <%= image_tag "images_for_index/instruction content/show2_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Блок с фото инструкцией 2 -->
+
+                <!-- div с заголовком call to action 6 -->
+                <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>3. Выберите сумму и заполните поля.</strong></h2></div>
+
+                <!-- Блок с фото инструкцией 3 -->
+                <div class="container_imgs_instruction">
+                    <%# Фото для ПК %>
+                    <%= image_tag "images_for_index/instruction content/show3t.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_PC", alt: "", loading: "lazy" %>
+
+                    <%# Фото для МУ %>
+                    <%= image_tag "images_for_index/instruction content/show3_mobile.png", onclick: "openmodalZoomImgs(this)", class: "img_content_divs img_content_divs_MP", alt: "", loading: "lazy" %>
+                </div>
+                <!-- КОНЕЦ Блок с фото инструкцией 3 -->
+                
+                <!-- div с заголовком call to action 7 -->
+                <div class="container_h_content_alert container_h_content_alert--centered"><h2 class="title_alert_divs_of_main"><strong>4. Нажмите “Подтвердить платеж”.</strong></h2></div>
+            </div>
+            <!-- КОНЕЦ Блок с инструкцией как донатить -->
+        </div>
+        <!-- КОНЕЦ Второй блок контента для стиля  -->
+    </div>
+    <!-- КОНЕЦ Контент блока -->
+</div>
+<!-- КОНЕЦ Call to action -->

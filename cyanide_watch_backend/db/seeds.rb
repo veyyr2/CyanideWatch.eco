@@ -1,12 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
 spots_data = [
   {
     location: "Река Тиса",
@@ -110,6 +101,38 @@ spots_data = [
   }
 ]
   
+news_data = [
+  {
+    image_url: "https://energoseti.ru/files/art_image/zagryaznenie_okruzhayushchey_prirodnoy_sredy.jpg",
+    title: "новость 1",
+    description: "test",
+    external_link: "https://www.business-humanrights.org/en/latest-news/kazakhstan-kazzinc-paid-almost-50-mln-tenge-in-fines-for-river-pollution/"
+  },
+  {
+    image_url: "https://enviliance.com/src-tsr/wp-content/uploads/2021/05/%E6%B0%B4_24.jpg",
+    title: "новость 2",
+    description: "test",
+    external_link: "https://enviliance.com/regions/east-asia/cn/report_2551"
+  },
+  {
+    image_url: "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_679b3a2ad6518e145fe1170a_679b3aa6d6518e145fe147ba/scale_1200",
+    title: "новость 3",
+    description: "test",
+    external_link: "https://dzen.ru/a/Z5s6KtZRjhRf4RcK"
+  }
+]
+
+# Создание или поиск News
+news_data.each do |news_attributes|
+  News.find_or_create_by!(title: news_attributes[:title]) do |news|
+    news.image_url = news_attributes[:image_url]
+    news.description = news_attributes[:description]
+    news.external_link = news_attributes[:external_link]
+  end
+end
+
+puts "Создано или найдено #{News.count} новостей."
+
 spots_data.each do |spot_attributes|
   Spot.find_or_create_by!(location: spot_attributes[:location], date: spot_attributes[:date]) do |spot|
     spot.lat = spot_attributes[:lat]
@@ -121,13 +144,22 @@ spots_data.each do |spot_attributes|
   end
 end
 
-puts "Создано или найдено #{Spot.count} точек загрязнения." # Теперь подсчитываем общее количество в базе
+puts "Создано или найдено #{Spot.count} точек загрязнения."
 
-# Создание AdminUser (лучше использовать find_or_create_by! и для него, чтобы не дублировать админа)
+# Создание AdminUser
 if Rails.env.development?
   AdminUser.find_or_create_by!(email: 'admin@example.com') do |u|
     u.password = 'password'
     u.password_confirmation = 'password'
+    u.role = :admin # выдать роль админа сразу
   end
   puts "AdminUser создан или найден."
+
+  # Создание AdminUser (модератор)
+  AdminUser.find_or_create_by!(email: 'test@example.com') do |u|
+    u.password = 'password'
+    u.password_confirmation = 'password'
+    u.role = :moderator # выдать роль модератора
+  end
+  puts "AdminUser (модератор) создан или найден."
 end

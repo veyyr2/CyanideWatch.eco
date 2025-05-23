@@ -17,6 +17,19 @@ $main_padding: 1em; // переменная отступа у мэина
         }
     }
 
+    // Миксин для картинок, изменяя их размер
+    @mixin _imgs_no_border ($width) {
+        max-width: $width;
+        height: auto;
+        display: flex; // Для правильного растягивания
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // заполнить весь контейнер
+        }
+    }
+
     // Миксин для анимации. При наведении увеличиваться
     @mixin _animation_transform_scale($duration, $scale)
     {
@@ -31,7 +44,138 @@ $main_padding: 1em; // переменная отступа у мэина
 
 
 /*---------------------------------TECHNICAL---------------------------------*/
-// #region technical------------------------------------------------------------------------------
+// #region вспомогательные классы-----------------------------------------------------
+    // очистить всю анимацию
+    .clear_animation {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
+    // #region отступы---------------------------------------------------------------------
+        // #region margin-------
+            // отступы сверху--
+            .mt-sm {
+                margin-top: 0.6rem;
+            }
+
+            .mt, .mt-md {
+                margin-top: 1rem;
+            }
+
+            .mt-lg {
+                margin-top: 1.75rem;
+            }
+            // --отступы сверху
+
+            // отступы снизу--
+            .mb-sm {
+                margin-bottom: 0.6rem;
+            }
+
+            .mb, .mb-md {
+                margin-bottom: 1rem;
+            }
+
+            .mb-lg {
+                margin-bottom: 1.75rem;
+            }
+            // --отступы снизу
+
+            // отступы справа--
+            .mr-sm {
+                margin-right: 0.6rem;
+            }
+
+            .mr, .mr-md {
+                margin-right: 1rem;
+            }
+
+            .mr-lg {
+                margin-right: 1.75rem;
+            }
+            // --отступы справа
+
+            // отступы везде--
+            .m-sm {
+                margin: 0.6rem;
+            }
+
+            .m, .m-md {
+                margin: 1rem;
+            }
+
+            .m-lg {
+                margin: 1.75rem;
+            }
+            // --отступы везде
+        // #endregion margin-------
+        
+        // #region padding-----
+            /* отступы сверху */
+            .pt-sm {
+                padding-top: 0.6rem;
+            }
+
+            .pt, .pt-md {
+                padding-top: 1rem;
+            }
+
+            .pt-lg {
+                padding-top: 1.75rem;
+            }
+
+            /* отступы снизу */
+            .pb-sm {
+                padding-bottom: 0.6rem;
+            }
+
+            .pb, .pb-md {
+                padding-bottom: 1rem;
+            }
+
+            .pb-lg {
+                padding-bottom: 1.75rem;
+            }
+
+            /* отступы справа */
+            .pr-sm {
+                padding-right: 0.6rem;
+            }
+
+            .pr, .mr-md {
+                padding-right: 1rem;
+            }
+
+            .pr-lg {
+                padding-right: 1.75rem;
+            }
+
+            /* отступы вокруг */
+            .p-vsm {
+                padding: 0.2rem;
+            }
+
+            .p-sm {
+                padding: 0.6rem;
+            }
+
+            .p, .p-md {
+                padding: 1rem;
+            }
+
+            .p-lg {
+                padding: 1.75rem;
+            }
+        // #endregion padding-----
+    // #endregion отступы---------------------------------------------------------------------
+
+    // #region размер шрифта--------------------------------------------------------------------
+
+    // #endregion размер шрифта--------------------------------------------------------------------
+// #endregion вспомогательные классы-----------------------------------------------------
+
+// #region technical media------------------------------------------------------------------------------
 @media all {
 * {
     margin: 0;
@@ -58,6 +202,7 @@ body {
     --text-color: #ffffff; // цвет текста
     --text-color-map: #000000; // цвет текста для карты
     --news-card-color: #0151a1; // цвет карточек новостей
+    --form-field-bg-color: #ffffff; // задний цвет полей формы
     color: var(--text-color);
     background-color: #0A0A0A;
 
@@ -83,6 +228,7 @@ body {
     --text-color: #ffffff; // цвет текста
     --text-color-map: #ffffff; // цвет текста для карты
     --news-card-color: #023e7a; // цвет карточек новостей
+    --form-field-bg-color: rgb(20, 20, 20); // задний цвет полей формы
     color: var(--text-color);
     background-color: #0A0A0A;
 
@@ -171,7 +317,7 @@ body {
     .news-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 0 20px 20px 20px;
         background-color: var(--div-main-color);
         border: 1px solid black;
     }
@@ -191,8 +337,8 @@ body {
         background-color: var(--news-card-color);
     
         &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
     }
     
@@ -273,7 +419,168 @@ body {
         text-align: center;
     }
 // #endregion новости-----------------------------------------------------------
-}
+
+// #region модальное окна---------------------------------------
+    // любое модальное окно
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow: auto;
+        text-align: center;
+    }
+
+    // контент модального окна
+    .modal_content {
+        background-color: var(--background-text-color);
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 60%;
+        max-width: 500px;
+        position: relative;
+
+        // контент модального окна для эко-организаций
+        &--eco {
+            margin: 1.75rem;
+        }
+    }
+// #endregion модальное окна---------------------------------------
+
+// #region форма модератора-----------------------------------------------------------
+    // контейнер с формой модератора
+    .container-moderator-form {
+        background-color: var(--div-main-color);
+        width: fit-content;
+        height: 100%;
+        padding-bottom: 1em;
+
+        // flex
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+    }
+
+    // блок с введением данных
+    .form-field {
+        border: 1px solid black;
+        border-radius: 15px;
+        background-color: var(--background-text-color);
+        padding: 8px;
+
+        // flex
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 2px;
+
+        // для каждого поля ввода
+        input {
+            width: 100%;
+            border-radius: 10px;
+            padding: 0 3px 0 3px;
+            background-color: var(--form-field-bg-color);
+            color: var(--text-color-map);
+        }
+        textarea {
+            margin-top: 5px;
+            width: 100%;
+            padding: 0 3px 0 3px;
+            resize: none; // запретить менять размер
+            background-color: var(--form-field-bg-color);
+            color: var(--text-color-map);
+        }
+    }
+
+    // подсказка для пользователя
+    .form-hint {
+        width: 100%;
+        border-radius: 15px;
+        background-color: var(--alert-div-backtext-color);
+        padding: 8px;
+        border: 1px solid #000;
+    }
+
+    // контейнер с кнопкой
+    .form-action {
+        align-self: flex-end;
+    }
+
+    // разделительная линия
+    .form-hr {
+        background-color: var(--text-color-map);
+        height: 2px;
+        border: none;
+    }
+// #endregion форма модератора-----------------------------------------------------------
+
+// #region заголовок с стрелками------------------------------------------------------
+    // заголовок с стрелками
+    .container_arrows {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    // див с фото
+    .div_arrow {
+        @include _imgs_no_border(5%)
+    }
+// #endregion заголовок с стрелками------------------------------------------------------
+
+// #region flash--------------------------------------------------------------------
+    .container-flash {
+        padding: 10px;
+    }
+
+    .div-flash {
+        width: 100%;
+        border: 2px solid #912808;
+        border-radius: 13px;
+        padding: 5px;
+
+        // текст внутри
+        p {
+            font-size: 16pt;
+        }
+    }
+
+    // flash об успехе
+    .flash-notice {
+        background-color: #48e128;
+    }
+
+    // flash об успехе
+    .flash-alert {
+        background-color: rgb(252, 56, 56);
+    }
+
+    // вывод ошибок
+    #error_explanation {
+        border: 1px solid #000;
+        border-radius: 15px;
+        background-color: rgb(252, 56, 56);
+        padding: 8px;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+    }
+// #endregion flash--------------------------------------------------------------------
+} // КОНЕЦ media-all
 
 // #region стили для карты-----------------------------------------------------------
     .map-container {
@@ -356,10 +663,10 @@ body {
     }
 // #endregion стили для карты-----------------------------------------------------------
 
-// #endregion technical------------------------------------------------------------------------------
+// #endregion technical media------------------------------------------------------------------------------
 /*---------------------------------END TECHNICAL---------------------------------*/
 
-// Адаптация под ноутбуки
+// Адаптация для ПК
 @media (min-width: 1024px) {
 /*---------------------------------Minor technical---------------------------------*/
 // #region Minor technical------------------------------------------------------------------
@@ -430,6 +737,11 @@ body {
             width: 60%;
             max-width: 500px;
             position: relative;
+
+            // контент модального окна для эко-организаций
+            &--eco {
+                margin: 1.75rem;
+            }
         }
 
         /* Кнопка закрытия */
@@ -443,6 +755,27 @@ body {
             cursor: pointer;
             &:hover {
                 color: #ccc;
+            }
+
+            // кнопка закрытия эко-организаций
+            &--eco {
+                top: -7px;
+                right: -7px;
+                // background-color: var(--triangle-color);
+                width: 50px; 
+                height: 50px;
+                border-radius: 50%; /* Полностью круглый */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1;
+                
+                /* Центрируем крестик */
+                &::before {
+                  content: "×";
+                  display: block;
+                  margin-top: -3px; /* Точная подстройка положения крестика */
+                }
             }
         }
 
@@ -476,7 +809,7 @@ body {
                     padding: 8px;
                     transition: transform 0.3s;
                     &:hover {
-                        transform: scale(1.2);
+                        transform: scale(1.15);
                     }
                 }
             }
@@ -501,7 +834,6 @@ body {
         width: 100%;
         background-color: var(--header-and-footer-color);
         padding: 10px;
-        margin-bottom: 20px;
         height: fit-content;
         // flex
         display: flex;
@@ -542,12 +874,14 @@ body {
             padding: 10px;
             width: 100px;
             cursor: pointer; // при наведении менять курсор 
+            font-size: 12pt;
             @include _animation_transform_scale(0.2s, 1.1);
 
             // кнопка требующие своего размера относительно контента
             &--but-2{
                 display: inline-block;
                 width: auto;
+                font-family: "Times New Roman", Times, serif;
             }
 
             // кнопки футера
@@ -594,6 +928,7 @@ body {
             height: $height_header;
             pointer-events: none;
         }
+
     // #endregion контент хидера-----------------------------------------------------------------
 // #endregion header-------------------------------------------------------------------------------
 /*---------------------------------END HEADER---------------------------------*/
@@ -605,7 +940,7 @@ body {
     main{
         width: 50%;
         height: 100%;
-        margin-left: 3%;
+        margin: 0 3% 0 3%;
         padding: $main_padding;
         // flex
         flex: 1;
@@ -645,6 +980,9 @@ body {
                 position: relative;
                 padding: 1em;
                 background-color: var(--head-of-div-color);
+                width: 100%;
+
+                // flex
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -740,7 +1078,7 @@ body {
 
         // Блоки с текстом
         .container_text {
-            padding: 1em;
+            padding: 15px;
             font-size: 1.2em;
             border-radius: 10px;
             background-color: var(--background-text-color);    
@@ -902,12 +1240,12 @@ body {
                     flex-direction: column;
                     width: 100%;
                     cursor: pointer;
-                    // aspect-ratio: 2/1; // Соотношение, чтобы было квадратное (если 1/1, то баг)                       
                 }
 
                 // Для изображений внутри блока эко
                 .imgs_eco {
                     @include _imgs(50%);
+                    @include _animation_transform_scale(0.3s, 105%);
                     border: none;
                     aspect-ratio: 1/1;
                     // третье фото
@@ -1128,6 +1466,11 @@ body {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
 
+    // отключить анимацию для карточек новостей
+    .news-card {
+        transform: none !important;  
+    }
+    
     // #region стили для карты-----------------------------------------------------------
         // Стили для popup на карте
         .leaflet-popup-content {
@@ -1214,6 +1557,11 @@ body {
             width: 60%;
             max-width: 500px;
             position: relative;
+
+            // контент модального окна для эко-организаций
+            &--eco {
+                margin: 1.75rem;
+            }
         }
 
         /* Кнопка закрытия */
@@ -1225,6 +1573,27 @@ body {
             font-weight: bold;
             &:hover {
                 color: #ccc;
+            }
+
+            // кнопка закрытия эко-организаций
+            &--eco {
+                background-color: var(--triangle-color);
+                right: 2px;
+                top: 5px;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%; /* Полностью круглый */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                line-height: 1;
+                
+                /* Центрируем крестик */
+                &::before {
+                  content: "×";
+                  display: block;
+                  margin-top: -3px; /* Точная подстройка положения крестика */
+                }
             }
         }
 
@@ -1262,6 +1631,13 @@ body {
             }
         // #endregion модальное окно источников-----------------------------------------------
     // #endregion модальное окна-----------------------------------------------
+
+    // #region заголовок с стрелками------------------------------------------------------
+        // див с фото
+        .div_arrow {
+            @include _imgs_no_border(8%)
+        }
+    // #endregion заголовок с стрелками------------------------------------------------------
 // #endregion Minor technical------------------------------------------------------------------
 /*---------------------------------Minor technical---------------------------------*/
 
@@ -1274,8 +1650,8 @@ body {
         width: 100%;
         background-color: var(--header-and-footer-color);
         padding: 10px;
-        margin-bottom: 20px;
         height: fit-content;
+
         // flex
         display: flex;
         flex-direction: row;
@@ -1339,6 +1715,8 @@ body {
             background-color: var(--button-color);
             padding: 10px;
             width: 100%;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12pt;
             // Анимация при нажатии
             &:active {
                 transform: scale(0.95);
@@ -1431,22 +1809,23 @@ main{
     // #endregion шапки блоков
 
     // #region шапка алерта (call to action)---------------------------------------------------------------
-            // шапка алерта (call to action)
-            .hat_alert_divs_of_main {
-                // стиль
-                padding: 1em;
-                background-color: var(--alert-div-color);
-                text-align: center;
-            }
-    
-            // Заголовок шапки алерта
-            .title_alert_divs_of_main {
-                display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
-                border: 1px solid black;
-                border-radius: 15px;
-                padding: 5px;
-                background-color: var(--alert-div-backtext-color);
-            }
+        // шапка алерта (call to action)
+        .hat_alert_divs_of_main {
+            // стиль
+            padding: 1em;
+            background-color: var(--alert-div-color);
+            text-align: center;
+        }
+
+        // Заголовок шапки алерта
+        .title_alert_divs_of_main {
+            font-size: clamp(1.5rem, 1.2rem + 1.5vw, 3rem);
+            display: inline-block; // чтобы не занимал всю ширину шапки, а только сколько сам текст
+            border: 1px solid black;
+            border-radius: 15px;
+            padding: 5px;
+            background-color: var(--alert-div-backtext-color);
+        }
     // #endregion шапка алерта (call to action)---------------------------------------------------------------
 
     // контент блоков
@@ -1514,7 +1893,7 @@ main{
 
     // Блоки с текстом
     .container_text {
-        padding: 1em;
+        padding: 10px;
         font-size: 1.2em;
         border-radius: 10px;
         background-color: var(--background-text-color);    

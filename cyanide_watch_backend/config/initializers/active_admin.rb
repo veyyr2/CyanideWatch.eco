@@ -1,3 +1,7 @@
+# config/initializers/active_admin.rb
+# для исправления бага с правами модератора
+require_relative '../../app/admin/authorization_adapter'
+
 ActiveAdmin.setup do |config|
   # == Site Title
   #
@@ -72,6 +76,9 @@ ActiveAdmin.setup do |config|
   # This setting changes the method which Active Admin calls
   # within the application controller.
   config.authentication_method = :authenticate_admin_user!
+
+  # Указываем Active Admin использовать наш пользовательский адаптер авторизации
+  config.authorization_adapter = CustomAuthorizationAdapter
 
   # == User Authorization
   #

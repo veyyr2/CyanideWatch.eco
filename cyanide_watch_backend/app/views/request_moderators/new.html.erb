@@ -1,0 +1,72 @@
+<%# app/views/request_moderators/new.html.erb %>
+<main>
+    <!-- контейнер для выравнивания -->
+    <div style="display: flex; justify-content: center;">
+        <!-- контейнер с формой -->
+        <div class="container-moderator-form">
+            <!-- Шапка блока -->
+            <div class="hat_divs">
+                <!-- Заголовок -->
+                <h1 class="title_alert_divs_of_main">Хотите стать модератором и помочь проекту?</h1>
+            </div>
+            <!-- КОНЕЦ Шапка блока -->
+
+            <%= form_with(model: @request_moderator, url: request_moderators_path, local: true) do |f| %>
+            <!-- содержание формы -->
+            <div class='second_divs_content_of_main'>
+                <% if @request_moderator.errors.any? %>
+                    <div id="error_explanation">
+                    <h2><%= "#{@request_moderator.errors.count} ошибок" %> помешали сохранить заявку:</h2>
+                        <ul>
+                            <%# Вывод всех ошибок %>
+                            <% @request_moderator.errors.messages.values.flatten.each do |message| %>
+                                <li><%= message %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                <% end %>
+
+                <div class="form-field">
+                    <%= f.label :first_name, "Имя" %>
+                    <%= f.text_field :first_name %>
+                </div>
+
+                <div class="form-field">
+                    <%= f.label :last_name, "Фамилия" %>
+                    <%= f.text_field :last_name %>
+                </div>
+
+                <div class="form-field">
+                    <%= f.label :email, "Электронная почта" %>
+                    <%= f.email_field :email %>
+                </div>
+
+                <div class="form-field">
+                    <%= f.label :phone_number, "Телефон (не обязательно)" %>
+                    <%= f.text_field :phone_number %>
+                </div>
+
+                <div class="form-field">
+                    <%= f.label :description, " Почему вы хотите стать модератором:" %>
+                    <%= f.text_area :description, rows: 10, placeholder: "Расскажите про вашу мотивацию. Также можете указать дополнительную информацию: сколько вам лет, какие языки знаете, ваш часовой пояс, опыт в модерации и т.д." %>
+                </div>
+
+                <!-- Подсказка -->
+                <div class="form-hint">
+                    <p>Став модератором, вы сможете добавлять актуальные новости про цианид.</p>
+                </div>
+
+                <!-- разделительная линия -->
+                <hr class="form-hr">
+                
+                <div class="form-action">
+                    <%= f.submit "Отправить заявку", class: 'nav_button nav_button--but-2', style: 'font-size: 16pt' %>
+                </div>
+            </div>
+            <!-- КОНЕЦ содержание формы -->
+            <% end %>
+        </div>
+        <!-- КОНЕЦ контейнер с формой -->
+    </div>
+    <!-- КОНЕЦ контейнер для выравнивания -->
+</main>
